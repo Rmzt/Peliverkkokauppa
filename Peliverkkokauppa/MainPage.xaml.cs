@@ -25,6 +25,8 @@ namespace Peliverkkokauppa
         public MainPage()
         {
             this.InitializeComponent();
+
+            //asdsadsa
         }
     }
 }
