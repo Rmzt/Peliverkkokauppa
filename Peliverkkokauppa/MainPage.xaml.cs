@@ -27,6 +27,7 @@ namespace Peliverkkokauppa
             this.InitializeComponent();
 
             //asdsadsa
+            //as
         }
     }
 }
