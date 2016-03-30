@@ -8,6 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid  HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="1280" Background="#FF434B70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="453*"/>
+                <ColumnDefinition Width="187*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="30,19,154,0" TextWrapping="Wrap" Text="Hieno Nimi" VerticalAlignment="Top" FontSize="64" TextAlignment="Center" Padding="0,0,0,20"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="58" Margin="0,142,-6,0" VerticalAlignment="Top" Width="1286"/>
+
+        <ListView x:Name="NewGamesList" Width="1280" Margin="0,528,0,0"/>
+
+
 
     </Grid>
 </Page>
