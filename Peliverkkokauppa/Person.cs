@@ -15,24 +15,27 @@ namespace Peliverkkokauppa
         public string Email { get; set; }
         public int Phonenumber { get; set; }
         public string Address { get; set; }
+        public DateTime AccountCreated { get; set; }
 
-
-        public Person()
-        {
-        }
-
+       
         
-        public Person(string firstName, string lastName, string username, string password, string email, int phonenumber, string address)
+        public Person(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
         {
-            Firstname = firstName;
-            Lastname = lastName;
+            Firstname = firstname;
+            Lastname = lastname;
             Username = username;
             Password = password;
             Email = email;
             Phonenumber = phonenumber;
             Address = address;
+            AccountCreated = accountCreated;
         }
-        
+
+        public Person()
+        {
+
+        }
+
         public void ChangeInformation()
         {
 
@@ -46,7 +49,7 @@ namespace Peliverkkokauppa
         /*
         public override string ToString()
         {
-            return FirstName + " " + LastName + " " + Address + " " + Age + " " + PhoneNumber;
+            return Firstname + " " + Lastname + " " + Address + " " + Phonenumber;
         }
         */
     }
