@@ -8,12 +8,23 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="165" Width="1280">
+        <Grid  HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="1280" Background="#FF434B70">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="453*"/>
+                <ColumnDefinition Width="187*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="Otsikko" HorizontalAlignment="Right" Margin="0,0,150,0" TextWrapping="Wrap" Text="Hieno nimi" VerticalAlignment="Center" Grid.Column="0" FontSize="64"/>
-            </Grid>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="30,19,154,0" TextWrapping="Wrap" Text="Hieno Nimi" VerticalAlignment="Top" FontSize="64" TextAlignment="Center" Padding="0,0,0,20"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Height="114" Margin="0" VerticalAlignment="Center" Width="314">
+                <TextBlock Text="Username" Width="314" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24"/>
+                <Button x:Name="Profile" Content="Profile"  Width="314" Height="35"/>
+                <Button x:Name="Logout" Content="Logout" Width="314" Height="35" Margin="0,9,0,0"/>
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Left" Height="58" Margin="0,142,0,0" VerticalAlignment="Top" Width="1280"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="174" Margin="0,546,-6,0" VerticalAlignment="Top" Width="1286"/>
+
     </Grid>
 </Page>

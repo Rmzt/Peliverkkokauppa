@@ -26,5 +26,20 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
         }
+
+        private void Close_click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
+
+        private void Return_click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
+
+        private void Restore_click(object sender, RoutedEventArgs e)
+        {
+           //Create restore instance
+        }
     }
 }

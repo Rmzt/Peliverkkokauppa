@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="Peliverkkokauppa.Frontpage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Peliverkkokauppa"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid  HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="1280" Background="#FF434B70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="453*"/>
+                <ColumnDefinition Width="187*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:ConnectionId='1' x:Name="textBlock" HorizontalAlignment="Right" Margin="30,19,154,0" TextWrapping="Wrap" Text="Hieno Nimi" VerticalAlignment="Top" FontSize="64" TextAlignment="Center" Padding="0,0,0,20"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Height="114" Margin="0" VerticalAlignment="Center" Width="314">
+                <TextBlock Text="Username" Width="314" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24"/>
+                <Button x:ConnectionId='2' x:Name="Profile" Content="Profile"  Width="314" Height="35"/>
+                <Button x:ConnectionId='3' x:Name="Logout" Content="Logout" Width="314" Height="35" Margin="0,9,0,0"/>
+
+            </StackPanel>
+        </Grid>
+
+
+        <Grid BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Left" Height="58" Margin="0,142,0,0" VerticalAlignment="Top" Width="1280"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="174" Margin="0,546,-6,0" VerticalAlignment="Top" Width="1286"/>
+
+    </Grid>
+</Page>
+

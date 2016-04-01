@@ -26,5 +26,29 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
         }
+
+        private void NeAcc_Click(object sender, RoutedEventArgs e)
+        {
+            //Siirrytään käyttäjätunnuksen luomiseen
+            this.Frame.Navigate(typeof(CreateAccount1));
+
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
+
+            bool IsValidAccount = false;
+
+            if (IsValidAccount)
+            {
+                this.Frame.Navigate(typeof(Frontpage));
+            }
+        }
+
+        private void Exit_click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
     }
 }

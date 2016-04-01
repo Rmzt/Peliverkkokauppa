@@ -9,7 +9,7 @@
 
     <Grid Background="#FFBFB6C9">
         <Rectangle Fill="#FF434B70" HorizontalAlignment="Left" Height="111" Stroke="Black" VerticalAlignment="Top" Width="1280"/>
-        <Button x:Name="Sulje" Content="X" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1178,10,28,0" Height="80" Width="74" Click="button_Click" FontSize="46.667" Foreground="#FFFDFDFD"/>
+        <Button x:Name="Sulje" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,28,0" Height="80" Width="74" FontSize="46.667" Foreground="#FFFDFDFD"/>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
         <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         <ScrollViewer Margin="35,172,767,-532">
@@ -32,6 +32,6 @@
                 <Button x:Name="Luo" Content="Create Account" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,1080,0,-72" Height="72" Width="265" FontSize="33.333"/>
             </Grid>
         </ScrollViewer>
-        <Button x:Name="Palaa" Content="&lt; Return" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="853,10,167,0" Height="80" Width="260" Click="button_Click" FontSize="46.667" Foreground="#FFFDFDFD"/>
+        <Button x:Name="Palaa" Content="&lt; Return" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,167,0" Height="80" Width="260" FontSize="46.667" Foreground="#FFFDFDFD" Click="Palaa_Click"/>
     </Grid>
 </Page>

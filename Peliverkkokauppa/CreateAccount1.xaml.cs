@@ -26,5 +26,10 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
         }
+
+        private void Palaa_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
     }
 }
