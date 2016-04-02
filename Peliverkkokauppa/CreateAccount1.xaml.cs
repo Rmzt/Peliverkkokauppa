@@ -17,9 +17,15 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Peliverkkokauppa
 {
+
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Sivuston virheilmoitukset voisivat olla tarkempia.
+    /// esim. Jos etunimi <= 0 niin ilmoitetaan "Etunimi ei saa olla tyhja tai pienempi kuin nolla"
+    /// Kayta errortekstilaatikkon Onchange toimintoa.
     /// </summary>
+
+
+
     public sealed partial class CreateAccount1 : Page
     {
         public CreateAccount1()

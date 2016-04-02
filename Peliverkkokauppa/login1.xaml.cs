@@ -38,7 +38,7 @@ namespace Peliverkkokauppa
         {
             //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
 
-            bool IsValidAccount = false;
+            bool IsValidAccount = true;
 
             if (IsValidAccount)
             {
@@ -50,5 +50,11 @@ namespace Peliverkkokauppa
         {
             App.Current.Exit();
         }
+
+        private void Debugger_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Debugger));
+        }
+
     }
 }

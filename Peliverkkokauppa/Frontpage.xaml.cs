@@ -12,6 +12,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
+using System.Collections;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Data.Json;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,11 +27,15 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class Frontpage : Page
     {
+
         public Frontpage()
         {
             this.InitializeComponent();
+        }
 
+     
 
         }
+
     }
-}
+
