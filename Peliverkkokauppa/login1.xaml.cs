@@ -56,5 +56,9 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(Debugger));
         }
 
+        private void Fpass_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RestorePass1));
+        }
     }
 }

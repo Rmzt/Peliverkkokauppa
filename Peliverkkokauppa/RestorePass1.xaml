@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="#FFBFB6C9">
-        <Rectangle Fill="#FF434B70" HorizontalAlignment="Left" Height="111" Stroke="Black" VerticalAlignment="Top" Width="1280"/>
+        <Rectangle Fill="#FF434B70" HorizontalAlignment="Stretch" Height="111" Stroke="Black" VerticalAlignment="Top"/>
         <Button x:Name="Close" Content="X" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="1178,10,28,0" Height="80" Width="74" Click="Close_click" FontSize="46.667" Foreground="#FFFDFDFD"/>
         <Button x:Name="Restore" Content="Restore Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,395,0,0" Height="72" Width="286" FontSize="33.333" Click="Restore_click"/>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
