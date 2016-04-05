@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="Peliverkkokauppa.GamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Peliverkkokauppa"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFBFB6C9">
+        <Grid  HorizontalAlignment="Stretch" Height="111" VerticalAlignment="Top" Background="#FF434B70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="453*"/>
+                <ColumnDefinition Width="187*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
+            <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
+            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="808,0,60,0" Grid.ColumnSpan="2"/>
+            <Button x:Name="Profile" Content="Profile"  Width="194" Height="61" Foreground="White" Margin="808,30,0,20" Grid.ColumnSpan="2"/>
+            <Button x:Name="Logout" Content="Logout" Width="194" Height="61" Foreground="White" Margin="120,30,0,20" Click="Logout_Click" Grid.Column="1"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="509" Margin="32,139,0,-333"/>
+            <Canvas HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="509" Margin="32,472,0,-577" Background="#7A3F5E83"/>
+            <Canvas HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="649" Margin="571,472,0,-577" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,472,0,-577" Height="216" Width="324" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="32,472,0,-429" Height="68" Width="509" FontSize="33.333"/>
+            <Canvas HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="412" Margin="808,363,0,-333" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <Canvas HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="412" Margin="808,139,0,-230" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,292,0,-224" Width="135" Height="42"/>
+            <Button x:Name="button_Copy" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,402,0,-333" Width="135" Height="42"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="895,472,0,-577" Height="216" Width="324" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="808,147,0,-223" Height="187" Width="411" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
+            <Canvas HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="135" Margin="571,339,0,-271" Background="#7A3F5E83"/>
+            <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,341,0,-270" Height="40" Width="135" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
+            <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rate This Game" VerticalAlignment="Top" Margin="42,363,0,-292" Height="40" Width="255" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.Column="1"/>
+            <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="808,365,0,-294" Height="40" Width="135" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
+
+
+        </Grid>
+
+    </Grid>
+</Page>
