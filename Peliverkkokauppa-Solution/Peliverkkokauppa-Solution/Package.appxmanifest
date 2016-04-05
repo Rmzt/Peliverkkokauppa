@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="6050137b-955e-4521-8cf9-da90026228f8"
-    Publisher="CN=K2131"
+    Name="4fff3488-69f1-4203-8c02-793f2d2cbc14"
+    Publisher="CN=K1967"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="6050137b-955e-4521-8cf9-da90026228f8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="4fff3488-69f1-4203-8c02-793f2d2cbc14" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Peliverkkokauppa</DisplayName>
-    <PublisherDisplayName>K2131</PublisherDisplayName>
+    <DisplayName>Peliverkkokauppa-Solution</DisplayName>
+    <PublisherDisplayName>K1967</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Peliverkkokauppa.App">
+      EntryPoint="Peliverkkokauppa_Solution.App">
       <uap:VisualElements
-        DisplayName="Peliverkkokauppa"
+        DisplayName="Peliverkkokauppa-Solution"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Peliverkkokauppa"
+        Description="Peliverkkokauppa-Solution"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
