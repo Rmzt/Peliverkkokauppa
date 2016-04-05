@@ -27,6 +27,9 @@
 
         <Grid BorderThickness="3" BorderBrush="Black" Margin="0,111,302,0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="174" Margin="0,546,-6,0" VerticalAlignment="Top" Width="1286"/>
+        <Button x:Name="Peli1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,255,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
+            <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
+        </Button>
 
     </Grid>
 </Page>

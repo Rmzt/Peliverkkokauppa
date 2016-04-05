@@ -37,6 +37,11 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(login1));
         }
+
+        private void Peli1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GamePage));
+        }
     }
 
     }
