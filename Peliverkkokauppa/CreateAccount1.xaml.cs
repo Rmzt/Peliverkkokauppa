@@ -37,5 +37,10 @@ namespace Peliverkkokauppa
         {
             this.Frame.GoBack();
         }
+
+        private void Sulje_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
     }
 }

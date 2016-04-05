@@ -6,25 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid  HorizontalAlignment="Left" Height="142" VerticalAlignment="Top" Width="1280" Background="#FF434B70">
+
+    <Grid Background="#FFBFB6C9">
+        <Grid  HorizontalAlignment="Stretch" Height="111" VerticalAlignment="Top" Background="#FF434B70">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="453*"/>
                 <ColumnDefinition Width="187*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="30,19,154,0" TextWrapping="Wrap" Text="Hieno Nimi" VerticalAlignment="Top" FontSize="64" TextAlignment="Center" Padding="0,0,0,20"/>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Height="114" Margin="0" VerticalAlignment="Center" Width="314">
+
+            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
+            <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
+            <StackPanel HorizontalAlignment="Center" Height="114" Margin="773,-1,30,-2" VerticalAlignment="Center" Width="477" Grid.ColumnSpan="2">
                 <TextBlock Text="Username" Width="314" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24"/>
-                <Button x:Name="Profile" Content="Profile"  Width="314" Height="35"/>
-                <Button x:Name="Logout" Content="Logout" Width="314" Height="35" Margin="0,9,0,0"/>
+                <Button x:Name="Profile" Content="Profile"  Width="467" Height="35" Foreground="White"/>
+                <Button x:Name="Logout" Content="Logout" Width="467" Height="35" Foreground="White" Margin="0,9,0,0" Click="Logout_Click"/>
 
             </StackPanel>
         </Grid>
 
 
-        <Grid BorderThickness="3" BorderBrush="Black" HorizontalAlignment="Left" Height="58" Margin="0,142,0,0" VerticalAlignment="Top" Width="1280"/>
+        <Grid BorderThickness="3" BorderBrush="Black" Margin="0,111,302,0"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="174" Margin="0,546,-6,0" VerticalAlignment="Top" Width="1286"/>
 
     </Grid>

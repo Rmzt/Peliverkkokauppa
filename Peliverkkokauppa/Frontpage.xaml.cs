@@ -33,9 +33,11 @@ namespace Peliverkkokauppa
             this.InitializeComponent();
         }
 
-     
-
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(login1));
         }
+    }
 
     }
 

@@ -9,7 +9,7 @@
 
     <Grid Background="#FFBFB6C9">
         <Rectangle Fill="#FF434B70" Height="111" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
-        <Button x:Name="Sulje" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="1178,10,28,0" Height="80" Width="74" FontSize="46.667" Foreground="#FFFDFDFD" MinWidth="74" MinHeight="80"/>
+        <Button x:Name="Sulje" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="1178,10,28,0" Height="80" Width="74" FontSize="46.667" Foreground="#FFFDFDFD" MinWidth="74" MinHeight="80" Click="Sulje_Click"/>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
         <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         <ScrollViewer Margin="36,116,-36,-466" HorizontalAlignment="Left" Width="1280" Height="1070" VerticalAlignment="Top" >
