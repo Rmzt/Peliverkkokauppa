@@ -20,7 +20,7 @@
             <TextBlock x:Name="textBlock7" Margin="595,0,109,10" TextWrapping="Wrap" Text="Pelin lisääminen" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
         </Grid>
 
-        <Grid x:Name="ContentGrid" Grid.Row="1" Margin="10,10,-10,-10">
+        <Grid x:Name="ContentGrid" Grid.Row="1">
             <StackPanel x:Name="NameStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,82,0,0">
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Width="130" Text="Name"/>
 
@@ -73,6 +73,8 @@
                 <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Width="130" Text="ReleaseDate"/>
                 <CalendarDatePicker x:Name="ReleaseDate_input" Margin="0,0,0,-2" VerticalAlignment="Stretch" Width="247" HorizontalAlignment="Stretch"/>
             </StackPanel>
+            <TextBlock x:Name="Error" HorizontalAlignment="Left" Height="49" Margin="100,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFEC0D0D"/>
+            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="42" Margin="230,287,0,0" VerticalAlignment="Top" Width="244" BorderBrush="{Binding BorderBrush, ElementName=GenreStack}"/>
 
         </Grid>
 

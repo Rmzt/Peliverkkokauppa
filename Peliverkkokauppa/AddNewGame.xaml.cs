@@ -29,6 +29,7 @@ namespace Peliverkkokauppa
 
 
         //GameID automaattisesti luotu?
+        //Pelien määrän mukaan?
 
         public string GameName { get; set; }
         public string Description { get; set; }
@@ -40,11 +41,26 @@ namespace Peliverkkokauppa
         public string Genre { get; set; }
         public string Developer { get; set; }
         public DateTime ReleaseDate { get; set; }
+        private Statistics Stat { get; set; }
+
+
+
 
         public AddNewGame()
         {
             this.InitializeComponent();
-            
+            //Luodaan testikehittäjiä
+            Developer dev1 = new Developer("Dev1", "Ad1", "description", "Email@email.com");
+            Developer dev2 = new Developer("Dev2", "Ad2", "description", "Email@email.com");
+            Developer dev3 = new Developer("Dev3", "Ad3", "description", "Email@email.com");
+            Developer dev4 = new Developer("Dev4", "Ad4", "description", "Email@email.com");
+
+            List<Developer> developers = new List<Peliverkkokauppa.Developer>();
+            developers.Add(dev1);
+            developers.Add(dev2);
+            developers.Add(dev3);
+            developers.Add(dev4);
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -52,33 +68,67 @@ namespace Peliverkkokauppa
             this.Frame.GoBack();
         }
 
+
+
+
+
+
+
+
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-
-            //keskeneräinen
-
-            GameName = Name_input.Text;
-            Description = Description_input.Text;
-            Price = Convert.ToInt64(Price_input.Text);
-            Genre = Genre_input.Text;
-            //Developer = Developer_input.Text;
-
-            ReleaseDate = Convert.ToDateTime(ReleaseDate_input.Date.Value);
-
             Random rand = new Random();
+            //keskeneräinen
+            try
+            {
+                GameName = Name_input.Text;
+                Description = Description_input.Text;
+                Price = Convert.ToInt32(Price_input.Text);
+                Genre = Genre_input.Text;
+                //Developer = Developer_input.Text;
 
-            Game NewGame = new Game(rand.Next(1,999), GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-            
-            //Luodaan kirjoittaja
-            System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Game));
+                ReleaseDate = Convert.ToDateTime(ReleaseDate_input.Date.Value);
+            }
+            catch (Exception ex)
+            {
+                Error.Text = ex.Message;
+            }
 
-            //polku
-            string path = Convert.ToString(Directory.GetCurrentDirectory()) +  "/testi.xml";
-            System.IO.FileStream file = System.IO.File.Create(path);
 
-            writer.Serialize(file, NewGame);
-            
 
+            Statistics Stat = new Statistics();
+            int GameID = Stat.ListOfGames.Count();
+
+            Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
+
+
+
+
+            //--------------------------------
+
+
+
+            if (Error.Text == "")
+            {
+                //Jos käyttäjä ei ole tehnyt virheitä
+                try
+                {
+                    //Luodaan kirjoittaja
+
+                    System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Game));
+
+                    //polku
+                    string path = Convert.ToString(Directory.GetCurrentDirectory()) + "/testi.xml";
+                    System.IO.FileStream file = System.IO.File.Create(path);
+
+                    writer.Serialize(file, NewGame);
+                }
+                catch (Exception ax)
+                {
+                    Description_input.Text = ax.Message;
+                }
+            }
         }
     }
 }
