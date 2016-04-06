@@ -14,7 +14,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Xml;
+using System.Xml.Serialization;
 using System.Data;
+using System.Text;
+
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -69,13 +72,6 @@ namespace Peliverkkokauppa
         }
 
 
-
-
-
-
-
-
-
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Random rand = new Random();
@@ -86,9 +82,7 @@ namespace Peliverkkokauppa
                 Description = Description_input.Text;
                 Price = Convert.ToInt32(Price_input.Text);
                 Genre = Genre_input.Text;
-                //Developer = Developer_input.Text;
-
-                ReleaseDate = Convert.ToDateTime(ReleaseDate_input.Date.Value);
+                //ReleaseDate = Convert.ToDateTime(ReleaseDate_input.Date.Value);
             }
             catch (Exception ex)
             {
@@ -98,19 +92,59 @@ namespace Peliverkkokauppa
 
 
             Statistics Stat = new Statistics();
-            int GameID = Stat.ListOfGames.Count();
-
+            //int GameID = Stat.ListOfGames.Count();
+            int GameID = 1;
             Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
 
+                /* 
+                 XmlDocument GamesDoc = new XmlDocument();
+                 XmlNode rootNode = GamesDoc.CreateElement("Games");
+                 GamesDoc.AppendChild(rootNode);
+
+                 //luodaan xml-peliolio
+                 XmlNode gameNode = GamesDoc.CreateElement("Game");
+
+                 //Määritetään uudelle pelioliolle ominaisuuksia
+                 XmlAttribute NameAttribute = GamesDoc.CreateAttribute("Name");
+                 XmlAttribute PriceAttribute = GamesDoc.CreateAttribute("Price");
+                 XmlAttribute GenreAttribute = GamesDoc.CreateAttribute("Genre");
+                 XmlAttribute ReleaseDateAttribute = GamesDoc.CreateAttribute("ReleaseDate");
+                 XmlAttribute DescriptionAttribute = GamesDoc.CreateAttribute("Descripton");
+
+                 XmlAttribute DeveloperAttribute = GamesDoc.CreateAttribute("Developer");
+                 XmlAttribute GameIDAttribute = GamesDoc.CreateAttribute("GameID");
+
+                 //Lisätään ominaisuuksiin niiden arvot
+
+                 NameAttribute.Value = GameName;
+                 PriceAttribute.Value = Convert.ToString(Price);
+                 GenreAttribute.Value = Genre;
+                 ReleaseDateAttribute.Value = Convert.ToString(ReleaseDate);
+                 DescriptionAttribute.Value = Description;
+                 GameIDAttribute.Value = Convert.ToString(GameID);
+                 DeveloperAttribute.Value = "testi";
 
 
+                 gameNode.Attributes.Append(NameAttribute);
+                 gameNode.Attributes.Append(PriceAttribute);
+                 gameNode.Attributes.Append(GenreAttribute);
+                 gameNode.Attributes.Append(ReleaseDateAttribute);
+                 gameNode.Attributes.Append(DescriptionAttribute);
+                 gameNode.Attributes.Append(GameIDAttribute);
+                 gameNode.Attributes.Append(DeveloperAttribute);
 
-            //--------------------------------
+                 rootNode.AppendChild(gameNode);
 
+                 byte[] data = Encoding.ASCII.GetBytes("test.xml");
+                 GamesDoc.Save(dat);
+                 */
+                var serializer = new XmlSerializer(typeof(Game));
+                var path = "D:'\'K1967'\'sfm.xml";
 
-
-            if (Error.Text == "")
-            {
+                System.IO.FileStream file = System.IO.File.Create(path);
+                serializer.Serialize(file, NewGame);
+                
+                /*
                 //Jos käyttäjä ei ole tehnyt virheitä
                 try
                 {
@@ -128,7 +162,7 @@ namespace Peliverkkokauppa
                 {
                     Description_input.Text = ax.Message;
                 }
-            }
+            */
         }
     }
 }
