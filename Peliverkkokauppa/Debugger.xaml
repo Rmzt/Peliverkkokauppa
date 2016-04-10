@@ -11,7 +11,7 @@
         <StackPanel Margin="20,20,20,0" VerticalAlignment="Top" HorizontalAlignment="Center">
             <Button x:Name="CreateGame" Content="CreateGame" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="CreateGame_Click"/>
             <Button x:Name="CreateDeveloper" Content="CreateDeveloper" Height="70" Width="330" Click="CreateDeveloper_Click" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32"/>
-            <Button x:Name="CreateReview" Content="CreateReview" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32"/>
+            <Button x:Name="CreateReview" Content="CreateReview" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32" Click="CreateReview_Click_1"/>
             <Button x:Name="CreateEmployee" Content="CreateEmployee" Width="330" Height="70" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32"/>
 
         </StackPanel>

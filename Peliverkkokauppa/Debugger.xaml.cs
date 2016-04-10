@@ -51,5 +51,26 @@ namespace Peliverkkokauppa
         {
             this.Frame.GoBack();
         }
+
+        private void CreateReview_Click_1(object sender, RoutedEventArgs e)
+        {
+            //testataan sql
+
+            SQL_queryies query = new SQL_queryies();
+
+            /*
+            Developer new2 = new Developer("Joku3", "", "", "");
+            Developer new3 = new Developer("Joku2", "", "", "");
+            Statistics stat = new Statistics();
+
+            stat.ListOfDevelopers.Add(new2.Name, new2);
+            stat.ListOfDevelopers.Add(new3.Name, new3);
+            */
+
+            query.SQL_Query_GetGames();
+
+
+
+        }
     }
 }

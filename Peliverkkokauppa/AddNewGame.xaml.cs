@@ -96,73 +96,14 @@ namespace Peliverkkokauppa
             int GameID = 1;
             Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
 
-                /* 
-                 XmlDocument GamesDoc = new XmlDocument();
-                 XmlNode rootNode = GamesDoc.CreateElement("Games");
-                 GamesDoc.AppendChild(rootNode);
-
-                 //luodaan xml-peliolio
-                 XmlNode gameNode = GamesDoc.CreateElement("Game");
-
-                 //Määritetään uudelle pelioliolle ominaisuuksia
-                 XmlAttribute NameAttribute = GamesDoc.CreateAttribute("Name");
-                 XmlAttribute PriceAttribute = GamesDoc.CreateAttribute("Price");
-                 XmlAttribute GenreAttribute = GamesDoc.CreateAttribute("Genre");
-                 XmlAttribute ReleaseDateAttribute = GamesDoc.CreateAttribute("ReleaseDate");
-                 XmlAttribute DescriptionAttribute = GamesDoc.CreateAttribute("Descripton");
-
-                 XmlAttribute DeveloperAttribute = GamesDoc.CreateAttribute("Developer");
-                 XmlAttribute GameIDAttribute = GamesDoc.CreateAttribute("GameID");
-
-                 //Lisätään ominaisuuksiin niiden arvot
-
-                 NameAttribute.Value = GameName;
-                 PriceAttribute.Value = Convert.ToString(Price);
-                 GenreAttribute.Value = Genre;
-                 ReleaseDateAttribute.Value = Convert.ToString(ReleaseDate);
-                 DescriptionAttribute.Value = Description;
-                 GameIDAttribute.Value = Convert.ToString(GameID);
-                 DeveloperAttribute.Value = "testi";
+            /*
+            Olen onnistunut siirtämään tietoa UWP-sovelluksen, php-scriptin ja mysql tietokannan välillä.
+            Enää on varmistettava php-scriptin käyttäminen koulunpalvelimella.
 
 
-                 gameNode.Attributes.Append(NameAttribute);
-                 gameNode.Attributes.Append(PriceAttribute);
-                 gameNode.Attributes.Append(GenreAttribute);
-                 gameNode.Attributes.Append(ReleaseDateAttribute);
-                 gameNode.Attributes.Append(DescriptionAttribute);
-                 gameNode.Attributes.Append(GameIDAttribute);
-                 gameNode.Attributes.Append(DeveloperAttribute);
 
-                 rootNode.AppendChild(gameNode);
-
-                 byte[] data = Encoding.ASCII.GetBytes("test.xml");
-                 GamesDoc.Save(dat);
-                 */
-                var serializer = new XmlSerializer(typeof(Game));
-                var path = "D:'\'K1967'\'sfm.xml";
-
-                System.IO.FileStream file = System.IO.File.Create(path);
-                serializer.Serialize(file, NewGame);
-                
-                /*
-                //Jos käyttäjä ei ole tehnyt virheitä
-                try
-                {
-                    //Luodaan kirjoittaja
-
-                    System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Game));
-
-                    //polku
-                    string path = Convert.ToString(Directory.GetCurrentDirectory()) + "/testi.xml";
-                    System.IO.FileStream file = System.IO.File.Create(path);
-
-                    writer.Serialize(file, NewGame);
-                }
-                catch (Exception ax)
-                {
-                    Description_input.Text = ax.Message;
-                }
             */
+
         }
     }
 }

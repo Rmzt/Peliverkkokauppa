@@ -92,6 +92,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Notepad.txt" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +102,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\SQL_queryies.cs" />
     <Compile Include="Classes\Statistics.cs" />
     <Compile Include="Debugger.xaml.cs">
       <DependentUpon>Debugger.xaml</DependentUpon>
