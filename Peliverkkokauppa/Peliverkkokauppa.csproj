@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Classes\SQL_queryies.cs" />
     <Compile Include="Classes\Statistics.cs" />
+    <Compile Include="Classes\XML.cs" />
     <Compile Include="Debugger.xaml.cs">
       <DependentUpon>Debugger.xaml</DependentUpon>
     </Compile>

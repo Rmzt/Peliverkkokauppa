@@ -72,5 +72,11 @@ namespace Peliverkkokauppa
 
 
         }
+
+        private void Debug_xml(object sender, RoutedEventArgs e)
+        {
+            XML news = new XML();
+           
+        }
     }
 }
