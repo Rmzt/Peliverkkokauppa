@@ -12,7 +12,12 @@ namespace Peliverkkokauppa
         public Dictionary<int,Game> ListOfGames { get; set; }
         public Dictionary<string, Developer> ListOfDevelopers { get; set; }
         internal Dictionary<int, Customer> ListOfCustomers { get; set; }
+        
+        public Statistics()
+        {
 
+        }
+              
         public bool Authentication(string Username, string Password)
         {
 
@@ -26,6 +31,15 @@ namespace Peliverkkokauppa
                 
             return true;
         }
+
+        public void AddtoList(string List, Developer X)
+        {
+
+            Developer InsertDev = new Developer(X.Name,X.Address,X.Description,X.Email);
+            ListOfDevelopers.Add(X.Name, InsertDev);
+                  
+        }
+
 
     }
 }

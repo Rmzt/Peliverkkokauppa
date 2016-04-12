@@ -56,10 +56,15 @@ namespace Peliverkkokauppa
             //------Make listbox select default as developer---------------- 
             this.InitializeComponent();
 
-            int count = Stat.ListOfDevelopers.Count;
+            try {
+                int count = Stat.ListOfDevelopers.Count;
 
-            listBox.ItemsSource = Stat.ListOfDevelopers.Keys;
-
+                listBox.ItemsSource = Stat.ListOfDevelopers.Keys;
+            }
+            catch(NullReferenceException Error)
+            {
+                Errorbox.Text = "Nullreference: " + Error.Message;
+            }
 
         }
 
@@ -83,7 +88,7 @@ namespace Peliverkkokauppa
             }
             catch (Exception ex)
             {
-                Error.Text = ex.Message;
+                Errorbox.Text = ex.Message;
             }
 
 
