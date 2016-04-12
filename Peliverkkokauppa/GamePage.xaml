@@ -17,19 +17,19 @@
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
             <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="808,0,60,0" Grid.ColumnSpan="2"/>
-            <Button x:Name="Profile" Content="Profile"  Width="194" Height="61" Foreground="White" Margin="808,30,0,20" Grid.ColumnSpan="2"/>
+            <Button x:Name="Profile" Content="Profile"  Width="194" Height="61" Foreground="White" Margin="808,30,0,20" Grid.ColumnSpan="2" Click="Profile_Click"/>
             <Button x:Name="Logout" Content="Logout" Width="194" Height="61" Foreground="White" Margin="120,30,0,20" Click="Logout_Click" Grid.Column="1"/>
             <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="509" Margin="32,139,0,-333"/>
-            <Canvas HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="509" Margin="32,472,0,-577" Background="#7A3F5E83"/>
-            <Canvas HorizontalAlignment="Left" Height="216" VerticalAlignment="Top" Width="649" Margin="571,472,0,-577" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="Reqirements" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,472,0,-577" Height="216" Width="324" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
+            <Canvas Height="216" VerticalAlignment="Top" Margin="32,472,0,-577" Background="#7A3F5E83" HorizontalAlignment="Left" Width="509"/>
+            <Canvas Height="216" VerticalAlignment="Top" Margin="571,472,60,-577" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="Reqirements" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,472,11,-577" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
             <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="32,472,0,-429" Height="68" Width="509" FontSize="33.333"/>
-            <Canvas HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="412" Margin="808,363,0,-333" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
-            <Canvas HorizontalAlignment="Left" Height="202" VerticalAlignment="Top" Width="412" Margin="808,139,0,-230" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <Canvas Height="81" VerticalAlignment="Top" Margin="808,363,60,-333" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
+            <Canvas  Height="202" VerticalAlignment="Top" Margin="808,139,60,-230" Background="#7A3F5E83" Grid.ColumnSpan="2"/>
             <Button x:Name="Buy" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,292,0,-224" Width="135" Height="42"/>
             <Button x:Name="Gallery" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,402,0,-333" Width="135" Height="42"/>
-            <TextBlock x:Name="Recomended" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="895,472,0,-577" Height="216" Width="324" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="Info" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="808,147,0,-223" Height="187" Width="411" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="Recomended" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="895,472,61,-577" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="Info" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="809,147,60,-223" Height="187" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.ColumnSpan="2"/>
             <Canvas HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="135" Margin="571,339,0,-271" Background="#7A3F5E83"/>
             <TextBlock x:Name="Price" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,341,0,-270" Height="40" Width="135" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
             <TextBlock x:Name="Rate" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rate This Game" VerticalAlignment="Top" Margin="42,363,0,-292" Height="40" Width="255" FontSize="14.667" SelectionHighlightColor="{x:Null}" Grid.Column="1"/>
