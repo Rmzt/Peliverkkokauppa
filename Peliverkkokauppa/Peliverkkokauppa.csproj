@@ -132,6 +132,9 @@
     </Compile>
     <Compile Include="Classes\MediaFile.cs" />
     <Compile Include="Classes\Person.cs" />
+    <Compile Include="Profiili.xaml.cs">
+      <DependentUpon>Profiili.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestorePass1.xaml.cs">
       <DependentUpon>RestorePass1.xaml</DependentUpon>
@@ -190,6 +193,10 @@
     <Page Include="Frontpage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Profiili.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RestorePass1.xaml">
       <SubType>Designer</SubType>
