@@ -17,19 +17,20 @@
 
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="808,0,60,0" Grid.ColumnSpan="2"/>
-            <Button x:Name="Profile" Content="Profile"  Width="194" Height="61" Foreground="White" Margin="808,30,0,20" Grid.ColumnSpan="2" Click="Profile_Click"/>
-            <Button x:Name="Logout" Content="Logout" Width="194" Height="61" Foreground="White" Margin="120,30,0,20" Click="Logout_Click" Grid.Column="1"/>
+            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
+            <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
+            <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
 
 
         </Grid>
 
 
-        <Grid BorderThickness="3" BorderBrush="Black" Margin="0,111,302,0"/>
+        <Grid BorderThickness="3" BorderBrush="Black" Margin="0,111,302,0">
+            <Button x:Name="Peli1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,144,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
+                <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
+            </Button>
+        </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="174" Margin="0,546,-6,0" VerticalAlignment="Top" Width="1286"/>
-        <Button x:Name="Peli1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,255,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
-            <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
-        </Button>
 
     </Grid>
 </Page>
