@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Peliverkkokauppa
 {
-    class Statistics
+    public class Statistics
     {
         public Dictionary<int,Game> ListOfGames { get; set; }
         public Dictionary<string, Developer> ListOfDevelopers { get; set; }

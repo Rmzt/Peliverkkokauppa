@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Peliverkkokauppa
 {
-    class MediaFile
+    public class MediaFile
     {
         public int MediaID { get; set; }
         public string Path { get; set; }

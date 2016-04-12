@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Peliverkkokauppa
@@ -29,7 +30,7 @@ namespace Peliverkkokauppa
 
         private void CreateDeveloper_Click(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof());
+           this.Frame.Navigate(typeof(CreateDeveloper));
         }
 
         private void CreateGame_Click(object sender, RoutedEventArgs e)
@@ -75,8 +76,11 @@ namespace Peliverkkokauppa
 
         private void Debug_xml(object sender, RoutedEventArgs e)
         {
-            XML news = new XML();
+            //XML news = new XML();
            
+
+
+
         }
     }
 }

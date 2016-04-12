@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Peliverkkokauppa
 {
-    class Developer
+    public class Developer
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -43,7 +43,7 @@ namespace Peliverkkokauppa
             PublishedGames.Add(i, t);
         }
 
-       
+      
 
     }
 }

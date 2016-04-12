@@ -17,7 +17,7 @@
             <Rectangle Fill="#FF434B70" HorizontalAlignment="Left" Stroke="Black" Width="1280" d:LayoutOverrides="TopPosition, BottomPosition"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Width="111" d:LayoutOverrides="TopPosition, BottomPosition"/>
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" Margin="116,0,0,0" Width="474" FontSize="73.333" d:LayoutOverrides="HorizontalAlignment, TopPosition, BottomPosition"/>
-            <TextBlock x:Name="textBlock7" Margin="595,0,109,10" TextWrapping="Wrap" Text="Pelin lisääminen" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
+            <TextBlock x:Name="textBlock7" Margin="595,0,109,10" TextWrapping="Wrap" Text="Create Game" d:LayoutOverrides="LeftPosition, RightPosition" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
         </Grid>
 
         <Grid x:Name="ContentGrid" Grid.Row="1">
