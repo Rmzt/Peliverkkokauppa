@@ -40,6 +40,15 @@ namespace Peliverkkokauppa
 
             bool IsValidAccount = true;
 
+            Statistics statistics = new Statistics();
+            
+            if(statistics.Authentication(UsernameBox.Text,PasswordBox.Password) == true)
+            {
+                IsValidAccount = true;
+            }
+
+
+
             if (IsValidAccount)
             {
                 this.Frame.Navigate(typeof(Frontpage));

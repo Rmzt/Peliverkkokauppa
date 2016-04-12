@@ -105,6 +105,12 @@
     <Compile Include="Classes\SQL_queryies.cs" />
     <Compile Include="Classes\Statistics.cs" />
     <Compile Include="Classes\XML.cs" />
+    <Compile Include="DeveloperCreation\CreateDeveloper.xaml.cs">
+      <DependentUpon>CreateDeveloper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeveloperCreation\CreateDeveloper_P2.xaml.cs">
+      <DependentUpon>CreateDeveloper_P2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Debugger.xaml.cs">
       <DependentUpon>Debugger.xaml</DependentUpon>
     </Compile>
@@ -115,6 +121,7 @@
     <Compile Include="Classes\Developer.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Game.cs" />
+    <Compile Include="Directory.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -160,6 +167,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DeveloperCreation\CreateDeveloper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeveloperCreation\CreateDeveloper_P2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Debugger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,8 +203,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

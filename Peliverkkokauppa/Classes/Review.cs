@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Peliverkkokauppa
 {
-    class Review
+   public class Review
     {
         public int ReviewID { get; set; }
         public string Username { get; set; }
