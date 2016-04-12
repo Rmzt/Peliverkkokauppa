@@ -45,24 +45,21 @@ namespace Peliverkkokauppa
         public string Developer { get; set; }
         public DateTime ReleaseDate { get; set; }
         private Statistics Stat { get; set; }
-
+        public string Default { get; set; }
 
 
 
         public AddNewGame()
         {
-            this.InitializeComponent();
-            //Luodaan testikehittäjiä
-            Developer dev1 = new Developer("Dev1", "Ad1", "description", "Email@email.com");
-            Developer dev2 = new Developer("Dev2", "Ad2", "description", "Email@email.com");
-            Developer dev3 = new Developer("Dev3", "Ad3", "description", "Email@email.com");
-            Developer dev4 = new Developer("Dev4", "Ad4", "description", "Email@email.com");
 
-            List<Developer> developers = new List<Peliverkkokauppa.Developer>();
-            developers.Add(dev1);
-            developers.Add(dev2);
-            developers.Add(dev3);
-            developers.Add(dev4);
+            
+            //------Make listbox select default as developer---------------- 
+            this.InitializeComponent();
+
+            int count = Stat.ListOfDevelopers.Count;
+
+            listBox.ItemsSource = Stat.ListOfDevelopers.Keys;
+
 
         }
 
@@ -95,15 +92,23 @@ namespace Peliverkkokauppa
             //int GameID = Stat.ListOfGames.Count();
             int GameID = 1;
             Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-
-            /*
-            Olen onnistunut siirtämään tietoa UWP-sovelluksen, php-scriptin ja mysql tietokannan välillä.
-            Enää on varmistettava php-scriptin käyttäminen koulunpalvelimella.
-
-
-
-            */
+            Stat.ListOfGames.Add(GameID, NewGame);
 
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is Developer)
+            {
+                Developer dev = (Developer)e.Parameter;
+                Default = dev.Name;
+
+            }
+
+
+            base.OnNavigatedTo(e);
+        }
+
     }
+
 }
