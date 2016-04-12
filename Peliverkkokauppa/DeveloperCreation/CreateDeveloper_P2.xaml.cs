@@ -22,6 +22,9 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class CreateDeveloper_P2 : Page
     {
+
+        public Developer dev { get; set; }
+
         public CreateDeveloper_P2()
         {
             this.InitializeComponent();
@@ -32,7 +35,7 @@ namespace Peliverkkokauppa
         {
             if (e.Parameter is Developer)
             {
-                Developer dev = (Developer)e.Parameter;
+                dev = (Developer)e.Parameter;
 
                 Output.Text = "You have successfully created a new Developer" + Environment.NewLine;
                 Output.Text += "Developer name: " + dev.Name + Environment.NewLine;
@@ -50,22 +53,22 @@ namespace Peliverkkokauppa
 
         private void AddNGames_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(AddNewGame), dev);
         }
 
         private void Frontpage_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(Frontpage));
         }
 
         private void Profile_Page_Click(object sender, RoutedEventArgs e)
         {
-
+            Profile_Page.Content = "Out of Order";
         }
 
         private void Developer_Page_Click(object sender, RoutedEventArgs e)
         {
-
+            Developer_Page.Content = "Out of Order";
         }
 
     

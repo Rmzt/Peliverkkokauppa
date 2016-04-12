@@ -121,6 +121,7 @@
     <Compile Include="Classes\Developer.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Game.cs" />
+    <Compile Include="Directory.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -201,6 +202,10 @@
     <Page Include="RestorePass1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
