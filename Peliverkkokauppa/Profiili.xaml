@@ -16,9 +16,9 @@
 
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="808,0,60,0" Grid.ColumnSpan="2"/>
-            <Button x:Name="Profile" Content="Front Page"  Width="194" Height="61" Foreground="White" Margin="808,30,0,20" Grid.ColumnSpan="2" Click="Profile_Click"/>
-            <Button x:Name="Logout" Content="Logout" Width="194" Height="61" Foreground="White" Margin="120,30,0,20" Click="Logout_Click" Grid.Column="1"/>
+            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
+            <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
+            <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
 
 
         </Grid>
