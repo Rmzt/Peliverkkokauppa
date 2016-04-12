@@ -20,9 +20,16 @@ namespace Peliverkkokauppa
 
     /// <summary>
     /// Sivuston virheilmoitukset voisivat olla tarkempia.
-    /// esim. Jos etunimi <= 0 niin ilmoitetaan "Etunimi ei saa olla tyhja tai pienempi kuin nolla"
+    /// esim. Jos etunimi lyhyempi kuin 0 niin ilmoitetaan "Etunimi ei saa olla tyhja tai pienempi kuin nolla"
     /// Kayta errortekstilaatikkon Onchange toimintoa.
+    /// 
+    /// Tyhjensin error teksti laatikot nyt. Voidaan sitten mitä tahansa tekstiä laittaa niihin errorista riippuen.
+    /// Jokaisen tekstikentän alla on textblock erroria varten
+    /// 
     /// </summary>
+
+
+        
 
 
 
