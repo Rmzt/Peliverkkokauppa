@@ -10,7 +10,7 @@ namespace Peliverkkokauppa
     public class Statistics
     {
         public Dictionary<int,Game> ListOfGames { get; set; }
-        public Dictionary<string, Developer> ListOfDevelopers { get; set; }
+        public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
         internal Dictionary<int, Customer> ListOfCustomers { get; set; }
         
         public Statistics()

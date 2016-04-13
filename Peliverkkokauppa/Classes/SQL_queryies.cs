@@ -38,7 +38,7 @@ namespace Peliverkkokauppa
                 string Genre;
                 Developer Developer;
                 DateTime ReleaseDate;
-                Statistics stat = new Statistics();
+                Statistics Statistics = new Statistics();
 
 
                 string Query = "Select * from Game";
@@ -76,7 +76,7 @@ namespace Peliverkkokauppa
                        
 
 
-                        Developer = stat.ListOfDevelopers[Convert.ToString(Input[5])];
+                        Developer = Statistics.ListOfDevelopers[Convert.ToString(Input[5])];
                         ReleaseDate = Convert.ToDateTime(Input[6]);
 
                         //[9]is the final that contains data ("DateOfCreation");

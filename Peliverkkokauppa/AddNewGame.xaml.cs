@@ -44,7 +44,7 @@ namespace Peliverkkokauppa
         public string Genre { get; set; }
         public string Developer { get; set; }
         public DateTime ReleaseDate { get; set; }
-        private Statistics Stat { get; set; }
+        private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
 
@@ -57,9 +57,9 @@ namespace Peliverkkokauppa
             this.InitializeComponent();
 
             try {
-                int count = Stat.ListOfDevelopers.Count;
+                int count = Statistics.ListOfDevelopers.Count;
 
-                listBox.ItemsSource = Stat.ListOfDevelopers.Keys;
+                listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
             }
             catch(NullReferenceException Error)
             {
@@ -93,11 +93,11 @@ namespace Peliverkkokauppa
 
 
 
-            Statistics Stat = new Statistics();
-            //int GameID = Stat.ListOfGames.Count();
+            Statistics Statistics = new Statistics();
+            //int GameID = Statistics.ListOfGames.Count();
             int GameID = 1;
             Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-            Stat.ListOfGames.Add(GameID, NewGame);
+            Statistics.ListOfGames.Add(GameID, NewGame);
 
         }
 

@@ -22,7 +22,7 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class CreateDeveloper : Page
     {
-        public Statistics stat { get; set; }
+        public Statistics Statistics = new Statistics();
         public Developer NDew { get; set; }
 
         public CreateDeveloper()
@@ -46,7 +46,8 @@ namespace Peliverkkokauppa
             
             Developer newPublisher = new Developer(Name,Address,Description,Email);
 
-            stat.ListOfDevelopers.Add("Name", NDew);
+            Statistics.ListOfDevelopers = new Dictionary<string, Developer>();
+            Statistics.ListOfDevelopers.Add("Name", NDew);
             this.Frame.Navigate(typeof(CreateDeveloper_P2),newPublisher);
 
         }

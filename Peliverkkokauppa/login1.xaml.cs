@@ -22,6 +22,8 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class login1 : Page
     {
+        public Statistics statistics = new Statistics();
+
         public login1()
         {
             this.InitializeComponent();
@@ -40,7 +42,7 @@ namespace Peliverkkokauppa
 
             bool IsValidAccount = true;
 
-            Statistics statistics = new Statistics();
+            
             
             if(statistics.Authentication(UsernameBox.Text,PasswordBox.Password) == true)
             {
