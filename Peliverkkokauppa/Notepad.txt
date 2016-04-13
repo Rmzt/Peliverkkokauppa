@@ -1,4 +1,6 @@
 ﻿
+			//google driven osoite
+			//https://drive.google.com/folderview?id=0B86olrFOVI5maThRRWtyWTFCRDg&usp=sharing_eid&ts=56e1b054
 
             /* 
              XmlDocument GamesDoc = new XmlDocument();
