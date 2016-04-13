@@ -45,10 +45,15 @@ namespace Peliverkkokauppa
 
             
             Developer newPublisher = new Developer(Name,Address,Description,Email);
+            if(Statistics.AddtoDev(newPublisher) == true)
+            {
+                this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
+            }
+            else
+            {
+                System_error.Text = "Creating new Developer has failed";
+            }
 
-            Statistics.ListOfDevelopers = new Dictionary<string, Developer>();
-            Statistics.ListOfDevelopers.Add("Name", NDew);
-            this.Frame.Navigate(typeof(CreateDeveloper_P2),newPublisher);
 
         }
 

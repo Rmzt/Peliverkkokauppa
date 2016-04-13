@@ -32,8 +32,13 @@ namespace Peliverkkokauppa
             
             
             int dev = Statistics.ListOfDevelopers.Count;
-            Stat_Screen.Text += "Developers Count: " + dev + Environment.NewLine;
+            int Games = Statistics.ListOfGames.Count;
+            
 
+
+            Stat_Screen.Text += "Developers Count: " + dev + Environment.NewLine;
+            Stat_Screen.Text += "Game Count: " + Games + Environment.NewLine;
+            
 
         }
 

@@ -21,7 +21,7 @@
             <TextBlock x:Name="textBlock7" Margin="564,-13,93,-4" TextWrapping="Wrap" Text="Developer profile creation" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
         </Grid>
 
-        <Grid x:Name="ContentGrid" Grid.Row="1">
+        <Grid x:Name="ContentGrid" Grid.Row="1" Margin="10,10,-10,-10">
             <StackPanel x:Name="NameStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,82,0,0">
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Width="130" Text="Developer name:" Margin="0,0,40,0"/>
                 <TextBox x:Name="Name_input" TextWrapping="Wrap" Text="" Width="315" InputScope="NameOrPhoneNumber"/>
@@ -45,6 +45,7 @@
                 <TextBox x:Name="Email_input" TextWrapping="Wrap" Text="" Width="315" InputScope="EmailNameOrAddress"/>
                 <TextBlock x:Name="Email_Error" TextWrapping="Wrap" Width="130" Text="" Margin="40,0"/>
             </StackPanel>
+            <TextBlock x:Name="System_error" HorizontalAlignment="Right" Height="109" Margin="0,80,55,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="430"/>
 
         </Grid>
 

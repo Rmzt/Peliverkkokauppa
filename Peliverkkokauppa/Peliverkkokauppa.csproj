@@ -96,7 +96,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNewGame.xaml.cs">
+    <Compile Include="GameCreation\AddNewGame.xaml.cs">
       <DependentUpon>AddNewGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -163,7 +163,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AddNewGame.xaml">
+    <Page Include="GameCreation\AddNewGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

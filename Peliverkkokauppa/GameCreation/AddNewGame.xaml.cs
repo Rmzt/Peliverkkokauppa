@@ -58,8 +58,14 @@ namespace Peliverkkokauppa
 
             try {
                 int count = Statistics.ListOfDevelopers.Count;
+                
+                foreach(String name in Statistics.ListOfDevelopers.Keys)
+                {
+                    Developer_Combo.Items.Add(name);
+                }
 
-                listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
+
+                //listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
             }
             catch(NullReferenceException Error)
             {
@@ -106,7 +112,7 @@ namespace Peliverkkokauppa
             if (e.Parameter is Developer)
             {
                 Developer dev = (Developer)e.Parameter;
-                Default = dev.Name;
+                Developer_Combo.SelectedValue = dev.Name;
 
             }
 
