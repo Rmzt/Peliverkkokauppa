@@ -22,10 +22,12 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class CreateDeveloper : Page
     {
-        public Statistics stat { get; set; }
+        public Statistics Statistics = new Statistics();
+        public Developer NDew { get; set; }
 
         public CreateDeveloper()
         {
+            
             this.InitializeComponent();
         }
 
@@ -43,9 +45,31 @@ namespace Peliverkkokauppa
 
             
             Developer newPublisher = new Developer(Name,Address,Description,Email);
-            stat.ListOfDevelopers.Add(newPublisher.Name,newPublisher);
-            this.Frame.Navigate(typeof(CreateDeveloper_P2),newPublisher);
+            if(Statistics.AddtoDev(newPublisher) == true)
+            {
+                this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
+            }
+            else
+            {
+                System_error.Text = "Creating new Developer has failed";
+            }
+
 
         }
+
+        public bool IsValidShort(String Target)
+        {
+            int lenght = Target.Length;
+            int i;
+
+            if(int.TryParse(Target, out i))
+            {
+                Name_error.Text = "Name cannot contain numbers";
+                return false;
+            }            
+
+            return false;
+        }
+
     }
 }

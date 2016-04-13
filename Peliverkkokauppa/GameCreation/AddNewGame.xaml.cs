@@ -44,7 +44,7 @@ namespace Peliverkkokauppa
         public string Genre { get; set; }
         public string Developer { get; set; }
         public DateTime ReleaseDate { get; set; }
-        private Statistics Stat { get; set; }
+        private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
 
@@ -56,10 +56,21 @@ namespace Peliverkkokauppa
             //------Make listbox select default as developer---------------- 
             this.InitializeComponent();
 
-            int count = Stat.ListOfDevelopers.Count;
+            try {
+                int count = Statistics.ListOfDevelopers.Count;
+                
+                foreach(String name in Statistics.ListOfDevelopers.Keys)
+                {
+                    Developer_Combo.Items.Add(name);
+                }
 
-            listBox.ItemsSource = Stat.ListOfDevelopers.Keys;
 
+                //listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
+            }
+            catch(NullReferenceException Error)
+            {
+                Errorbox.Text = "Nullreference: " + Error.Message;
+            }
 
         }
 
@@ -83,16 +94,16 @@ namespace Peliverkkokauppa
             }
             catch (Exception ex)
             {
-                Error.Text = ex.Message;
+                Errorbox.Text = ex.Message;
             }
 
 
 
-            Statistics Stat = new Statistics();
-            //int GameID = Stat.ListOfGames.Count();
+            Statistics Statistics = new Statistics();
+            //int GameID = Statistics.ListOfGames.Count();
             int GameID = 1;
             Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-            Stat.ListOfGames.Add(GameID, NewGame);
+            Statistics.ListOfGames.Add(GameID, NewGame);
 
         }
 
@@ -101,7 +112,7 @@ namespace Peliverkkokauppa
             if (e.Parameter is Developer)
             {
                 Developer dev = (Developer)e.Parameter;
-                Default = dev.Name;
+                Developer_Combo.SelectedValue = dev.Name;
 
             }
 

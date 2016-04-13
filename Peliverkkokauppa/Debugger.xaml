@@ -20,6 +20,7 @@
             <Button x:Name="XML" Content="Xml-test'" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="Debug_xml"/>
 
         </StackPanel>
+        <TextBox x:Name="Stat_Screen" HorizontalAlignment="Right" Height="266" Margin="0,194,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" IsReadOnly="True"/>
 
     </Grid>
 </Page>

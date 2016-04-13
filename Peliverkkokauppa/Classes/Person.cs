@@ -17,8 +17,7 @@ namespace Peliverkkokauppa
         public string Address { get; set; }
         public DateTime AccountCreated { get; set; }
 
-       
-        
+
         public Person(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
         {
             Firstname = firstname;

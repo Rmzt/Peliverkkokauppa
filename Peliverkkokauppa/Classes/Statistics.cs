@@ -9,10 +9,24 @@ namespace Peliverkkokauppa
 {
     public class Statistics
     {
-        public Dictionary<int,Game> ListOfGames { get; set; }
-        public Dictionary<string, Developer> ListOfDevelopers { get; set; }
-        internal Dictionary<int, Customer> ListOfCustomers { get; set; }
+        //work in progress
+        public static Dictionary<int, Game> ListOfGames = new Dictionary<int, Game>();
+        public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
+        internal Dictionary<int, Customer> ListOfCustomers = new Dictionary<int, Customer>();
+          
 
+
+        public Statistics()
+        {
+
+        }
+        
+        public int CountCustomer()
+        {
+            int i = ListOfCustomers.Count;
+            return i;
+        }
+              
         public bool Authentication(string Username, string Password)
         {
 
@@ -26,6 +40,19 @@ namespace Peliverkkokauppa
                 
             return true;
         }
+
+        public bool AddtoDev(Developer X)
+        {
+            try {
+                Developer InsertDev = new Developer(X.Name, X.Address, X.Description, X.Email);
+                ListOfDevelopers.Add(X.Name, InsertDev);
+                return true;
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
 
     }
 }

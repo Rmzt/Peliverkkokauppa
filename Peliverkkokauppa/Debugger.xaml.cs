@@ -26,6 +26,20 @@ namespace Peliverkkokauppa
         public Debugger()
         {
             this.InitializeComponent();
+            Stat_Screen.Text += "App Current Statistics:" + Environment.NewLine;
+            Stat_Screen.Text += "------------------------" + Environment.NewLine;
+
+            
+            
+            int dev = Statistics.ListOfDevelopers.Count;
+            int Games = Statistics.ListOfGames.Count;
+            
+
+
+            Stat_Screen.Text += "Developers Count: " + dev + Environment.NewLine;
+            Stat_Screen.Text += "Game Count: " + Games + Environment.NewLine;
+            
+
         }
 
         private void CreateDeveloper_Click(object sender, RoutedEventArgs e)
@@ -62,10 +76,10 @@ namespace Peliverkkokauppa
             /*
             Developer new2 = new Developer("Joku3", "", "", "");
             Developer new3 = new Developer("Joku2", "", "", "");
-            Statistics stat = new Statistics();
+            Statistics Statistics = new Statistics();
 
-            stat.ListOfDevelopers.Add(new2.Name, new2);
-            stat.ListOfDevelopers.Add(new3.Name, new3);
+            Statistics.ListOfDevelopers.Add(new2.Name, new2);
+            Statistics.ListOfDevelopers.Add(new3.Name, new3);
             */
 
             query.SQL_Query_GetGames();
