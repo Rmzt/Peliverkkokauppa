@@ -22,6 +22,9 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class AddNewGamePage2 : Page
     {
+
+        public Game New_Game { get; set; }
+
         public AddNewGamePage2()
         {
             this.InitializeComponent();
@@ -32,15 +35,16 @@ namespace Peliverkkokauppa
         {
             if (e.Parameter is Game)
             {
-                Game game = (Game)e.Parameter;
-                Description_input.Text = game.Description;
+                New_Game = (Game)e.Parameter;
+               
+                Description_input.Text = New_Game.Description;
 
-                Game_info.Text += "GameID: " + game.GameID + Environment.NewLine;
-                Game_info.Text += "Name: " + game.Name + Environment.NewLine;
-                Game_info.Text += "Genre: " + game.Genre + Environment.NewLine;
-                Game_info.Text += "Developer: " + game.Developer + Environment.NewLine;
-                Game_info.Text += "Price: " + game.Price + Environment.NewLine;
-                Game_info.Text += "ReleaseDate: " + game.ReleaseDate + Environment.NewLine;
+                Game_info.Text += "GameID: " + New_Game.GameID + Environment.NewLine;
+                Game_info.Text += "Name: " + New_Game.Name + Environment.NewLine;
+                Game_info.Text += "Genre: " + New_Game.Genre + Environment.NewLine;
+                Game_info.Text += "Developer: " + New_Game.Developer + Environment.NewLine;
+                Game_info.Text += "Price: " + New_Game.Price + Environment.NewLine;
+                Game_info.Text += "ReleaseDate: " + New_Game.ReleaseDate + Environment.NewLine;
                 
 
             }
@@ -51,6 +55,12 @@ namespace Peliverkkokauppa
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Debugger));
+
+            SQL_queryies SQL = new SQL_queryies();
+            SQL.SQL_INSERT_GAME(New_Game);
+
+
+
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

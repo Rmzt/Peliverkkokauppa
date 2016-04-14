@@ -98,7 +98,7 @@ namespace Peliverkkokauppa
                 }
                 else
                 {
-                    GameID = ID;
+                    GameID = ID + 1;
                 }
 
                 GameName = Name_input.Text;

@@ -95,6 +95,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Authenticate.cs" />
     <Compile Include="GameCreation\AddNewGamePage2.xaml.cs">
       <DependentUpon>AddNewGamePage2.xaml</DependentUpon>
     </Compile>

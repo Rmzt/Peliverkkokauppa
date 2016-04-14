@@ -35,17 +35,25 @@ namespace Peliverkkokauppa
             string mySQLConn = "Server=" + path + ";Database=" + database + ";Uid=" + user + ";Pwd=" + password +";SslMode=None;";
             MySqlConnection db = new MySqlConnection(mySQLConn);
 
-            db.Open();
             return db;
+        }
+
+        public void NoReturnQuery(string query)
+        {
+            //Suorita SQL-komento;
+            MySqlConnection Conn = ConnectToSQL();
+            MySqlCommand command = new MySqlCommand(query, Conn);
         }
 
         public MySqlDataReader Query(string query)
         {
+        
             //Suorita SQL-komento ja hae kyselyn tulokset;
             MySqlConnection Conn = ConnectToSQL();
+            Conn.Open();
             MySqlCommand command = new MySqlCommand(query, Conn);
             MySqlDataReader reader = command.ExecuteReader();
-
+            Conn.Close();
             return reader;
         }
 
@@ -72,20 +80,24 @@ namespace Peliverkkokauppa
 
 
                     Game new_game = new Game(gameID, name,description,price,genre,"",developer,releaseDate);
-                    //Haetaan mediatiedostot tietokannasta ja liitetään peliin
-                    new_game.MediaFiles = GetMediafiles(gameID);
+
+                    //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
+                    bool existsInApp = Statistics.ListOfGames.ContainsKey(new_game.GameID);
+
+                    if (existsInApp != true)
+                    {
+
+                        //Haetaan mediatiedostot tietokannasta ja liitetään peliin
+                        new_game.MediaFiles = GetMediafiles(gameID);
 
 
-                    //Haetaan arvostelut tietokannasta ja liitetään peliin      
-                    new_game.Reviews = GetReview(gameID);
+                        //Haetaan arvostelut tietokannasta ja liitetään peliin      
+                        new_game.Reviews = GetReview(gameID);
 
-                    Statistics.ListOfGames.Add(gameID, new_game);
-
+                        Statistics.ListOfGames.Add(gameID, new_game);
+                    }
 
                 }
-
-
-
 
             }
             catch(Exception ex)
@@ -93,11 +105,6 @@ namespace Peliverkkokauppa
 
             }
         }
-
-
-
-
-
 
         public Dictionary<int,MediaFile> GetMediafiles(int id)
         {
@@ -108,7 +115,6 @@ namespace Peliverkkokauppa
             {
                 MySqlDataReader reader = Query("Select * from mediafile where GameID = " +id + ";");
               
-
                 //Lukee kaikki tiedot, laittaa listan ja linkittää ne dictionary rakenteeseen, avaimena gameid
                 while (reader.Read())
                 {
@@ -121,17 +127,11 @@ namespace Peliverkkokauppa
                     string Path = Convert.ToString(obj[2]);
 
                     Medialist.Add(MediaID,new MediaFile(MediaID, Path));
-                    
-                    
                 }
 
                 
             }
-            catch (Exception ex)
-            {
-
-            }
-
+            catch (Exception ex)  { }
             return Medialist;
         }
 
@@ -159,19 +159,85 @@ namespace Peliverkkokauppa
 
 
                     Reviews.Add(Reviewid, new Review(Reviewid,Username,Stars));
-
-
                 }
-
-
             }
             catch (Exception ex)
             {
-
             }
 
             return Reviews;
         }
+
+        public void GetDevelopers()
+        {
+            MySqlDataReader reader = Query("Select * from developer");
+            
+            while (reader.Read())
+            {
+                //tulokset laitetaan array objectiin
+                object[] obj = new object[4];
+                reader.GetValues(obj);
+
+                string name = Convert.ToString(obj[0]);
+                string address = Convert.ToString(obj[1]);
+                string description = Convert.ToString(obj[2]);
+                string email = Convert.ToString(obj[3]);
+
+                Developer newDeveloper = new Developer(name, address, description, email);
+                
+                //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
+                bool existsInApp = Statistics.ListOfDevelopers.ContainsKey(name);
+
+                if (existsInApp != true)
+                {
+                    Statistics.ListOfDevelopers.Add(name,newDeveloper);
+                }
+            }
+            
+        }
+
+        public void LoadOnStart()
+        {
+            GetDevelopers();
+            ReadGamesFromDatabase();
+
+        }
+
+        public void SQL_INSERT_GAME(Game game)
+        {
+            NoReturnQuery("INSERT INTO game(GameID,Name,Description,Price,Genre,Developer,ReleaseDate)" + 
+                "VALUES(" + 
+                 game.GameID + "," +
+                 game.Name + "," +
+                 game.Description + "," +
+                 game.Price + "," +
+                 game.Genre + "," +
+                 game.Developer + "," +
+                 game.ReleaseDate + 
+                ");"
+                );
+            
+            foreach(MediaFile file in game.MediaFiles.Values)
+            {
+                NoReturnQuery("INSERT INTO mediafile(MediaID,GameID,Path)"+
+                    " VALUES(" + file.MediaID + "," + game.GameID + "," + file.Path +
+                    ");");
+            }
+
+            foreach (Review review in game.Reviews.Values)
+            {
+                NoReturnQuery("INSERT INTO review(ReviewID,Username,Stars,GameID)" +
+                    " VALUES(" + review.ReviewID + "," + review.Username + "," + review.Stars + "," + game.GameID +
+                    ");");
+            }
+
+
+
+
+
+        }
+
+
 
     }
 }

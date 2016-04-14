@@ -23,7 +23,7 @@ namespace Peliverkkokauppa
     public sealed partial class login1 : Page
     {
         public Statistics statistics = new Statistics();
-
+      
         public login1()
         {
             this.InitializeComponent();
@@ -40,21 +40,34 @@ namespace Peliverkkokauppa
         {
             //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
 
-            bool IsValidAccount = true;
+            SQL_queryies sql = new SQL_queryies();
 
-            
-            
-            if(statistics.Authentication(UsernameBox.Text,PasswordBox.Password) == true)
+            try { 
+            sql.ConnectToSQL().Open();
+            } catch(Exception error_e)
             {
-                IsValidAccount = true;
+                ErrorBlock.Text = "No connection to server. Try again later";
             }
 
 
+            string Username = UsernameBox.Text;
+            string Password = PasswordBox.Password;
 
-            if (IsValidAccount)
+            Authenticate Auth = new Authenticate();
+            bool IsValidAccount = Auth.AuthenticateUser(Username, Password);
+            
+            
+            if(IsValidAccount == true)
             {
                 this.Frame.Navigate(typeof(Frontpage));
             }
+            else
+            {
+                ErrorBlock.Text = "Login failed. Try again";
+            }
+
+
+            
         }
 
         private void Exit_click(object sender, RoutedEventArgs e)
@@ -70,6 +83,11 @@ namespace Peliverkkokauppa
         private void Fpass_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RestorePass1));
+        }
+
+        private void Skip_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Frontpage));
         }
     }
 }

@@ -40,6 +40,8 @@ namespace Peliverkkokauppa
 
             MediaFiles = new Dictionary<int, MediaFile>();
             Reviews = new Dictionary<int, Review>();
+
+            
         }
 
         public Game()
@@ -72,6 +74,7 @@ namespace Peliverkkokauppa
         public void AddReview(int i, Review t)
         {
             Reviews.Add(i, t);
+
         }
 
         
