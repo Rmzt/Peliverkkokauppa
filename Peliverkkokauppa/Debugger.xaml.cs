@@ -37,9 +37,35 @@ namespace Peliverkkokauppa
 
 
             Stat_Screen.Text += "Developers Count: " + dev + Environment.NewLine;
-            Stat_Screen.Text += "Game Count: " + Games + Environment.NewLine;
-            
 
+            if (dev != 0)
+            {
+                Stat_Screen.Text += "------------------------" + Environment.NewLine;
+
+                foreach (String name in Statistics.ListOfDevelopers.Keys)
+                {
+                    Stat_Screen.Text += name + Environment.NewLine;
+                }
+
+                Stat_Screen.Text += "------------------------" + Environment.NewLine;
+
+            }
+
+
+            Stat_Screen.Text += "Game Count: " + Games + Environment.NewLine;
+
+            if (Games != 0)
+            {
+                Stat_Screen.Text += "------------------------" + Environment.NewLine;
+
+                foreach (Game name in Statistics.ListOfGames.Values)
+                {
+                    Stat_Screen.Text += name.Name + Environment.NewLine;
+                }
+
+                Stat_Screen.Text += "------------------------" + Environment.NewLine;
+
+            }
         }
 
         private void CreateDeveloper_Click(object sender, RoutedEventArgs e)

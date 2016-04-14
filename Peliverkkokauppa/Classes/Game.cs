@@ -19,13 +19,13 @@ namespace Peliverkkokauppa
         public string Genre { get; set; }
         public string Coverimg { get; set; }
         public string Developer { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public DateTimeOffset ReleaseDate { get; set; }
         public Dictionary<int, MediaFile> MediaFiles { get; set; }
         public Dictionary<int, Review> Reviews { get; set; }
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
 
-        public Game(int gameID, string name, string description, float price, string genre, string coverimg, string developer, DateTime releaseDate)
+        public Game(int gameID, string name, string description, float price, string genre, string coverimg, string developer, DateTimeOffset releaseDate)
         {
             GameID = gameID;
             Name = name;

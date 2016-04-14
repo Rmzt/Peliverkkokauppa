@@ -14,11 +14,10 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Height="111" VerticalAlignment="Top" Grid.Row="0">
-            <Rectangle Fill="#FF434B70" HorizontalAlignment="Left" Stroke="Black" Width="1280" d:LayoutOverrides="TopPosition, BottomPosition"/>
+        <Grid x:Name="TopBar" Height="111" VerticalAlignment="Top" Grid.Row="0" Background="#FF434B70">
             <Image x:Name="Logo" HorizontalAlignment="Left" Width="111" d:LayoutOverrides="TopPosition, BottomPosition"/>
-            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" Margin="116,0,0,0" Width="474" FontSize="73.333" d:LayoutOverrides="HorizontalAlignment, TopPosition, BottomPosition"/>
-            <TextBlock x:Name="textBlock7" Margin="564,-13,93,-4" TextWrapping="Wrap" Text="Developer profile creation" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
+            <TextBlock x:Name="Company" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" Margin="116,0,0,0" Width="474" FontSize="73.333" d:LayoutOverrides="HorizontalAlignment, TopPosition, BottomPosition"/>
+            <TextBlock x:Name="Page_header" Margin="564,-13,93,-4" TextWrapping="Wrap" Text="Developer profile creation" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" FontStyle="Italic"/>
         </Grid>
 
         <Grid x:Name="ContentGrid" Grid.Row="1" Margin="10,10,-10,-10">

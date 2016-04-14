@@ -29,7 +29,7 @@
             <StackPanel x:Name="DescriptionStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" Margin="538,82,0,0" HorizontalAlignment="Left" Width="659">
                 <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Width="130" Text="Description" Height="42" VerticalAlignment="Bottom"/>
 
-                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="12132123123" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="12132123123" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
             </StackPanel>
             <StackPanel x:Name="PriceStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" Margin="100,147,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Width="130">
@@ -50,22 +50,25 @@
 
                 <TextBox x:Name="Genre_input" TextWrapping="Wrap" Text="Genre" Width="244" InputScope="Text"/>
             </StackPanel>
-            <StackPanel x:Name="CoverimageStack" Height="42" Margin="0,0,471,141" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Width="130">
-        			<Run Text="Cover image"/>
-        			<LineBreak/>
-        			<Run/>
+            <StackPanel x:Name="CoverimageStack" Margin="0,0,487,64" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+
+                <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Width="130" HorizontalAlignment="Left">
+                	<Run Text="Cover image"/>
+                	<LineBreak/>
+                	<Run/>
                 </TextBlock>
+                <Button x:Name="CoverImg" Content="Add Cover" HorizontalAlignment="Stretch" Margin="0,0,0,6" VerticalAlignment="Stretch" Width="255" Click="CoverImg_Click"/>
             </StackPanel>
             <StackPanel x:Name="DeveloperStack" Margin="100,287,0,280" Orientation="Horizontal" HorizontalAlignment="Left" d:LayoutOverrides="TopPosition, BottomPosition">
                 <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Width="130" Text="Developer"/>
             </StackPanel>
-            <StackPanel x:Name="MediaStack" Height="42" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="100,0,0,125">
-                <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Width="130">
-        			<Run Text="MediaFiles"/>
-        			<LineBreak/>
-        			<Run/>
+            <StackPanel x:Name="MediaStack" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="100,0,0,64">
+                <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Width="258" HorizontalAlignment="Left">
+            		<Run Text="MediaFiles"/>
+            		<LineBreak/>
+            		<Run/>
                 </TextBlock>
+                <Button x:Name="AddMediafiles" Content="Add Mediafiles" Margin="0,0,0,6" VerticalAlignment="Top" Width="255" HorizontalAlignment="Left" Click="AddMediafiles_Click"/>
             </StackPanel>
             <Button x:Name="Cancel" Content="Cancel" Height="44" Margin="0,0,50,162" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Cancel_Click"/>
             <Button x:Name="Save" Content="Save" Height="44" Margin="0,0,50,82" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Save_Click"/>

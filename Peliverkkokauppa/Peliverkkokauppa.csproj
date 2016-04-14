@@ -92,10 +92,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Notepad.txt" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameCreation\AddNewGamePage2.xaml.cs">
+      <DependentUpon>AddNewGamePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameCreation\GameCreationPictures.xaml.cs">
+      <DependentUpon>GameCreationPictures.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameCreation\AddNewGame.xaml.cs">
       <DependentUpon>AddNewGame.xaml</DependentUpon>
     </Compile>
@@ -163,6 +168,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameCreation\AddNewGamePage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameCreation\GameCreationPictures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameCreation\AddNewGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,10 +215,6 @@
     <Page Include="RestorePass1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

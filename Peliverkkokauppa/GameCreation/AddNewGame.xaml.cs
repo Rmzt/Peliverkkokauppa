@@ -33,7 +33,7 @@ namespace Peliverkkokauppa
 
         //GameID automaattisesti luotu?
         //Pelien määrän mukaan?
-
+        public List<string> info = new List<string>();
         public string GameName { get; set; }
         public string Description { get; set; }
         public float Price
@@ -43,7 +43,9 @@ namespace Peliverkkokauppa
 
         public string Genre { get; set; }
         public string Developer { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public DateTimeOffset ReleaseDate { get; set; }
+
+
         private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
@@ -82,28 +84,45 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Random rand = new Random();
-            //keskeneräinen
+            Developer = Developer_Combo.Name;
+            
             try
             {
+                int ID = Statistics.ListOfGames.Count;
+                int GameID;
+
+
+                if (ID == 0)
+                {
+                    GameID = 1;
+                }
+                else
+                {
+                    GameID = ID;
+                }
+
                 GameName = Name_input.Text;
                 Description = Description_input.Text;
                 Price = Convert.ToInt32(Price_input.Text);
                 Genre = Genre_input.Text;
-                //ReleaseDate = Convert.ToDateTime(ReleaseDate_input.Date.Value);
+
+
+                ReleaseDate = ReleaseDate_input.Date.Value;
+                Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
+                Statistics.ListOfGames.Add(GameID, NewGame);
+
+
+                this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
+
+
+
+
             }
             catch (Exception ex)
             {
                 Errorbox.Text = ex.Message;
             }
 
-
-
-            Statistics Statistics = new Statistics();
-            //int GameID = Statistics.ListOfGames.Count();
-            int GameID = 1;
-            Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-            Statistics.ListOfGames.Add(GameID, NewGame);
 
         }
 
@@ -112,14 +131,24 @@ namespace Peliverkkokauppa
             if (e.Parameter is Developer)
             {
                 Developer dev = (Developer)e.Parameter;
-                Developer_Combo.SelectedValue = dev.Name;
-
+                Developer = dev.Name;
+                Developer_Combo.SelectedValue = Developer;
+                
             }
 
 
             base.OnNavigatedTo(e);
         }
 
+        private void AddMediafiles_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof());
+        }
+
+        private void CoverImg_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof());
+        }
     }
 
 }
