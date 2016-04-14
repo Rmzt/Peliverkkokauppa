@@ -108,16 +108,21 @@ namespace Peliverkkokauppa
             Statistics.ListOfDevelopers.Add(new3.Name, new3);
             */
 
-            query.SQL_Query_GetGames();
-
-
-
         }
 
-        private void Debug_xml(object sender, RoutedEventArgs e)
+        private void DummyGames_Click(object sender, RoutedEventArgs e)
         {
-            //XML news = new XML();
-           
+            Game game = new Game();
+            game.CreateDummyGames(10);
+        }
+
+        private void Sql_query_Click(object sender, RoutedEventArgs e)
+        {
+            SQL_queryies Sql = new SQL_queryies();
+
+            
+            Sql.ReadGamesFromDatabase();
+
 
 
 

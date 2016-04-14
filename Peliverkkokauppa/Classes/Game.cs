@@ -22,6 +22,8 @@ namespace Peliverkkokauppa
         public DateTimeOffset ReleaseDate { get; set; }
         public Dictionary<int, MediaFile> MediaFiles { get; set; }
         public Dictionary<int, Review> Reviews { get; set; }
+
+        private float price { get; set; }
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
 
@@ -72,18 +74,24 @@ namespace Peliverkkokauppa
             Reviews.Add(i, t);
         }
 
-        private float price;
-
-        public List<Game> Gamelist { get; set; }
+        
 
         public void CreateDummyGames(int times)
         {
             //Luodaan testidataa
 
-            for (int i = 0; i < times; i++)
 
+
+            int GameID = Statistics.ListOfGames.Count + 1;
+
+
+            for (int i = 0; i < times; i++)
             {
-                Gamelist.Add(new Game(i, "Peli" + i, "Pelin heino kuvaus", 55 + i, "Kauhu", "PathX", "Kehittaja" + i, DateTime.Now));
+
+                Game new_game = new Game(GameID, Convert.ToString("Peli " + GameID), "Pelin heino kuvaus", 55 + GameID, "Kauhu", "PathX", "Kehittaja" + GameID, DateTimeOffset.Now);
+                GameID = GameID + i;
+                Statistics.ListOfGames.Add(GameID,new_game);
+                
             }
         }
 

@@ -11,15 +11,13 @@ namespace Peliverkkokauppa
         public int ReviewID { get; set; }
         public string Username { get; set; }
         public float Stars { get; set; }
-        public string ReviewGame { get; set; } //en ole varma miten tätä luokkaa käytetään tietokannassa (suhteet peliin yms), voi joutua muuttamaan erilaiseks myöhemmin tätä
-        
+    
 
-        public Review(int reviewID, string username, float stars, string reviewGame)
+        public Review(int reviewID, string username, float stars)
         {
             ReviewID = reviewID;
             Username = username;
             Stars = stars;
-            ReviewGame = reviewGame;
         }
 
         public Review()

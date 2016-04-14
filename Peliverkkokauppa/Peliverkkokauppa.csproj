@@ -92,10 +92,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Notepad.txt" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameCreation\AddNewGamePage2.xaml.cs">
+      <DependentUpon>AddNewGamePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameCreation\GameCreationPictures.xaml.cs">
+      <DependentUpon>GameCreationPictures.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameCreation\AddNewGame.xaml.cs">
       <DependentUpon>AddNewGame.xaml</DependentUpon>
     </Compile>
@@ -104,7 +109,6 @@
     </Compile>
     <Compile Include="Classes\SQL_queryies.cs" />
     <Compile Include="Classes\Statistics.cs" />
-    <Compile Include="Classes\XML.cs" />
     <Compile Include="DeveloperCreation\CreateDeveloper.xaml.cs">
       <DependentUpon>CreateDeveloper.xaml</DependentUpon>
     </Compile>
@@ -163,6 +167,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameCreation\AddNewGamePage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameCreation\GameCreationPictures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameCreation\AddNewGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,7 +217,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Themes\" />
+    <Reference Include="MySql.Data.RT">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\RT\MySql.Data.RT.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
