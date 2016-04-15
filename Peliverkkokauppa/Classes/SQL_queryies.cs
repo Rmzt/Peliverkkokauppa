@@ -45,7 +45,10 @@ namespace Peliverkkokauppa
                 MySqlConnection Conn = ConnectToSQL();
                 Conn.Open();
                 MySqlCommand command = new MySqlCommand(query, Conn);
-              
+
+                MySqlDataReader response = command.ExecuteReader();
+                response.Read();
+
                 return true;
 
             }catch(MySqlException sql_error)
@@ -99,9 +102,9 @@ namespace Peliverkkokauppa
                     string name = Convert.ToString(obj[1]);
                     string description = Convert.ToString(obj[2]);
                     float price = Convert.ToInt32(obj[3]);
-                    string genre = Convert.ToString(obj[4]);
-                    string developer = Convert.ToString(obj[5]);
-                    DateTimeOffset releaseDate = Convert.ToDateTime(obj[6]);
+                    string developer = Convert.ToString(obj[4]);
+                    DateTimeOffset releaseDate = Convert.ToDateTime(obj[5]);
+                    string genre = Convert.ToString(obj[6]);
 
 
                     Game new_game = new Game(gameID, name,description,price,genre,"",developer,releaseDate);
@@ -231,7 +234,7 @@ namespace Peliverkkokauppa
 
         public void GetGenre()
         {
-            MySqlDataReader reader = Query("Select Distinct(genre) from game");
+            MySqlDataReader reader = Query("Select * from genre");
 
             while (reader.Read())
             {
@@ -251,23 +254,17 @@ namespace Peliverkkokauppa
 
         public void SQL_INSERT_GAME(Game game)
         {
-            NoReturnQuery("INSERT INTO game(GameID,Name,Description,Price,Genre,Developer,ReleaseDate)" + 
-                "VALUES(" + 
-                 game.GameID + "," +
-                 game.Name + "," +
-                 game.Description + "," +
-                 game.Price + "," +
-                 game.Genre + "," +
-                 game.Developer + "," +
-                 game.ReleaseDate + 
-                ");"
-                );
-            
-            foreach(MediaFile file in game.MediaFiles.Values)
+            DateTime date = game.ReleaseDate.Date;
+            string[] dateformated = date.GetDateTimeFormats(Convert.ToChar("u"));
+
+            string Insert_part = String.Format("INSERT INTO game(GameID,Name,Description,Price,Developer,ReleaseDate,Genre) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", game.GameID, game.Name, game.Description, game.Price, game.Developer, dateformated[0], game.Genre);
+            NoReturnQuery(Insert_part);
+
+            foreach (MediaFile file in game.MediaFiles.Values)
             {
-                NoReturnQuery("INSERT INTO mediafile(MediaID,GameID,Path)"+
-                    " VALUES(" + file.MediaID + "," + game.GameID + "," + file.Path +
-                    ");");
+
+                Insert_part = String.Format("INSERT INTO mediafile(GameID, Path) VALUES('{0}','{1}')",game.GameID,file.Path);
+                NoReturnQuery(Insert_part);
             }
 
             foreach (Review review in game.Reviews.Values)
@@ -275,6 +272,9 @@ namespace Peliverkkokauppa
                 NoReturnQuery("INSERT INTO review(ReviewID,Username,Stars,GameID)" +
                     " VALUES(" + review.ReviewID + "," + review.Username + "," + review.Stars + "," + game.GameID +
                     ");");
+                Insert_part = String.Format("INSERT INTO mediafile(Username,Stars,GameID) VALUES('{0}','{1}','{2}')", review.Username,review.Stars,game.GameID);
+                NoReturnQuery(Insert_part);
+
             }
 
             Statistics.ListOfGames.Add(game.GameID,game);

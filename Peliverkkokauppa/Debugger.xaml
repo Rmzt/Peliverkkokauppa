@@ -7,21 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" Height="716" Width="Auto">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="4,0,0,59" Width="831" HorizontalAlignment="Left">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="4,0,0,10" Width="1266" HorizontalAlignment="Left">
         <StackPanel Margin="50,20,20,0" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Button x:Name="CreateGame" Content="CreateGame" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="CreateGame_Click"/>
             <Button x:Name="CreateDeveloper" Content="CreateDeveloper" Height="70" Width="330" Click="CreateDeveloper_Click" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32"/>
-            <Button x:Name="CreateReview" Content="HTTPrequest" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32" Click="CreateReview_Click_1"/>
             <Button x:Name="CreateEmployee" Content="CreateEmployee" Width="330" Height="70" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,40,0,0" FontSize="32"/>
 
         </StackPanel>
         <Button x:Name="Return" Content="Return" HorizontalAlignment="Right" Height="{Binding ActualHeight, ElementName=CreateGame}" Margin="0,0,50,50" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=CreateGame}" FontSize="26.667" Click="Return_Click" RenderTransformOrigin="1.128,0.589"/>
         <StackPanel Margin="0,20,50,0" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button x:Name="DummyGames" Content="GameData" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="DummyGames_Click"/>
+            <Button x:Name="DummyGames" Content="DummyGames" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="DummyGames_Click"/>
 
         </StackPanel>
         <TextBox x:Name="Stat_Screen" HorizontalAlignment="Right" Height="266" Margin="0,194,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-        <Button x:Name="Sql_query" Content="Test Sql" HorizontalAlignment="Left" Height="70" Margin="50,537,0,0" VerticalAlignment="Top" Width="330" FontSize="24" Click="Sql_query_Click"/>
 
     </Grid>
 </Page>

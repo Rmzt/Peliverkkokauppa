@@ -15,7 +15,7 @@
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         </Grid>
         <Button x:Name="Debugger" Content="Debugger" Height="68" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150" Click="Debugger_Click"/>
-        <Grid x:Name="InnerBox" Margin="179,162,320,136" Height="422">
+        <Grid x:Name="InnerBox" Margin="234,162,320,136" Height="422">
             <Grid.RowDefinitions>
                 <RowDefinition Height="73*"/>
                 <RowDefinition Height="138*"/>

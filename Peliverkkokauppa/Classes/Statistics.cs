@@ -14,7 +14,6 @@ namespace Peliverkkokauppa
         public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
         internal Dictionary<int, Customer> ListOfCustomers = new Dictionary<int, Customer>();
         public static List<string> ListOfGenres = new List<string>();
-
         public Statistics()
         {
 
@@ -25,6 +24,8 @@ namespace Peliverkkokauppa
             int i = ListOfCustomers.Count;
             return i;
         }
+        
+        
               
         public bool Authentication(string Username, string Password)
         {

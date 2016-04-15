@@ -89,13 +89,12 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Developer = Developer_Combo.Name;
+            Developer = Convert.ToString(Developer_Combo.SelectedValue);
             
             try
             {
                 int ID = Statistics.ListOfGames.Count;
                 int GameID;
-
 
                 if (ID == 0)
                 {
@@ -109,7 +108,7 @@ namespace Peliverkkokauppa
                 GameName = Name_input.Text;
                 Description = Description_input.Text;
                 Price = Convert.ToInt32(Price_input.Text);
-                Genre = Genre_input.Name;
+                Genre = Convert.ToString(Genre_input.SelectedValue);
 
 
                 ReleaseDate = ReleaseDate_input.Date.Value;
@@ -144,7 +143,7 @@ namespace Peliverkkokauppa
                 Game Game_Create = (Game)e.Parameter;
                 Name_input.Text = Game_Create.Name;
                 Price_input.Text = Convert.ToString(Game_Create.Price);
-                Genre_input.SelectedItem = Game_Create.Genre;
+                Genre_input.SelectedValue = Game_Create.Genre;
                 //Jatka
                 //Myös. Genre valikko, Insert koodit, yleinen tietojen lataus koodi, palvelin valikko?, errorloki
             }
