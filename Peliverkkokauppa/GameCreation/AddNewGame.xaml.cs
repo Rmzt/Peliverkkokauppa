@@ -136,6 +136,16 @@ namespace Peliverkkokauppa
                 
             }
 
+            if (e.Parameter is Game)
+            {
+                Game Game_Create = (Game)e.Parameter;
+                Name_input.Text = Game_Create.Name;
+                Price_input.Text = Convert.ToString(Game_Create.Price);
+                Genre_input.Text = Game_Create.Genre;
+                //Jatka
+                //Myös. Genre valikko, Insert koodit, yleinen tietojen lataus koodi, palvelin valikko?, errorloki
+            }
+
 
             base.OnNavigatedTo(e);
         }

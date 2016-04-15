@@ -65,7 +65,7 @@ namespace Peliverkkokauppa
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.GoBack();
+            this.Frame.Navigate(typeof(AddNewGame),New_Game);
         }
     }
 }

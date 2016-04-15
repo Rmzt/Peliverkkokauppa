@@ -22,17 +22,17 @@
 
         <Grid x:Name="ContentGrid" Grid.Row="1">
             <StackPanel x:Name="DescriptionStack" VerticalAlignment="Bottom" Margin="30,0,0,200" HorizontalAlignment="Left">
-                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Width="130" Text="Description" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Game's Description" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="26.667"/>
 
-                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="" Width="529" Height="200" Margin="0,0,0,-158" FontSize="24" ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
             </StackPanel>
             <StackPanel x:Name="Buttons" Margin="984,403,50,82" Orientation="Vertical" HorizontalAlignment="Right">
                 <Button x:Name="Confirm" Content="Confirm" Height="44" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Confirm_Click"/>
                 <Button x:Name="GoBack" Content="Return" Height="44" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Margin="0,36,0,0" Click="GoBack_Click"/>
             </StackPanel>
             <TextBlock x:Name="Errorbox" HorizontalAlignment="Left" Height="49" Margin="100,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFEC0D0D"/>
-            <TextBlock x:Name="Game_info" HorizontalAlignment="Left" Height="214" Margin="30,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="524"/>
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="39" Margin="30,33,0,0" TextWrapping="Wrap" Text="Confirm your input" VerticalAlignment="Top" Width="273"/>
+            <TextBlock x:Name="Game_info" HorizontalAlignment="Left" Height="214" Margin="30,89,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="524" FontSize="24"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="39" Margin="30,33,0,0" TextWrapping="Wrap" Text="Confirm your input" VerticalAlignment="Top" Width="273" FontSize="26.667"/>
 
         </Grid>
 

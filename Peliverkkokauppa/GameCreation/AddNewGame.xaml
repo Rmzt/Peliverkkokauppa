@@ -24,12 +24,12 @@
             <StackPanel x:Name="NameStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,82,0,0">
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Width="130" Text="Name"/>
 
-                <TextBox x:Name="Name_input" TextWrapping="Wrap" Text="123456&#xD;&#xA;" Width="244"/>
+                <TextBox x:Name="Name_input" TextWrapping="Wrap" Text="" Width="244"/>
             </StackPanel>
             <StackPanel x:Name="DescriptionStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" Margin="538,82,0,0" HorizontalAlignment="Left" Width="659">
                 <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Width="130" Text="Description" Height="42" VerticalAlignment="Bottom"/>
 
-                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="12132123123" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" PlaceholderText=""/>
             </StackPanel>
             <StackPanel x:Name="PriceStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" Margin="100,147,0,0" HorizontalAlignment="Left">
                 <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Width="130">
@@ -38,7 +38,7 @@
         			<Run/>
                 </TextBlock>
 
-                <TextBox x:Name="Price_input" TextWrapping="Wrap" Text="40" Width="244" InputScope="Number"/>
+                <TextBox x:Name="Price_input" TextWrapping="Wrap" Text="" Width="244" InputScope="CurrencyAmount"/>
             </StackPanel>
             <StackPanel x:Name="GenreStack" Margin="100,213,0,0" Orientation="Horizontal" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top">
 
@@ -48,7 +48,7 @@
         			<Run/>
                 </TextBlock>
 
-                <TextBox x:Name="Genre_input" TextWrapping="Wrap" Text="Genre" Width="244" InputScope="Text"/>
+                <TextBox x:Name="Genre_input" TextWrapping="Wrap" Text="" Width="244" InputScope="Text"/>
             </StackPanel>
             <StackPanel x:Name="CoverimageStack" Margin="0,0,487,64" VerticalAlignment="Bottom" HorizontalAlignment="Right">
 
@@ -71,7 +71,7 @@
                 <Button x:Name="AddMediafiles" Content="Add Mediafiles" Margin="0,0,0,6" VerticalAlignment="Top" Width="255" HorizontalAlignment="Left" Click="AddMediafiles_Click"/>
             </StackPanel>
             <Button x:Name="Cancel" Content="Cancel" Height="44" Margin="0,0,50,162" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Cancel_Click"/>
-            <Button x:Name="Save" Content="Save" Height="44" Margin="0,0,50,82" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Save_Click"/>
+            <Button x:Name="Save" Content="Next" Height="44" Margin="0,0,50,82" VerticalAlignment="Bottom" Width="246" HorizontalAlignment="Right" Click="Save_Click"/>
             <StackPanel x:Name="DeveloperStack_Copy" Margin="100,0,0,210" Orientation="Horizontal" HorizontalAlignment="Left" Height="42" VerticalAlignment="Bottom">
                 <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Width="130" Text="ReleaseDate"/>
                 <CalendarDatePicker x:Name="ReleaseDate_input" Margin="0,0,0,-2" VerticalAlignment="Stretch" Width="247" HorizontalAlignment="Stretch"/>
