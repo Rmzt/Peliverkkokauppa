@@ -23,10 +23,15 @@ namespace Peliverkkokauppa
     public sealed partial class login1 : Page
     {
         public Statistics statistics = new Statistics();
-      
+        public SQL_queryies sql = new SQL_queryies();
+        public bool isConnected { get; set; }
+        
+
+
         public login1()
         {
             this.InitializeComponent();
+            TestSQLCon();
         }
 
         private void NeAcc_Click(object sender, RoutedEventArgs e)
@@ -40,15 +45,8 @@ namespace Peliverkkokauppa
         {
             //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
 
-            SQL_queryies sql = new SQL_queryies();
 
-            try { 
-            sql.ConnectToSQL().Open();
-            } catch(Exception error_e)
-            {
-                ErrorBlock.Text = "No connection to server. Try again later";
-            }
-
+            TestSQLCon();
 
             string Username = UsernameBox.Text;
             string Password = PasswordBox.Password;
@@ -71,12 +69,34 @@ namespace Peliverkkokauppa
             }
             else
             {
-                ErrorBlock.Text = "Login failed. Try again";
+                if(isConnected == false)
+                {
+                    ErrorBlock.Text = "Login failed. Cannot connect to server";
+                } else
+                {
+                    ErrorBlock.Text = "Login failed. Try again";
+                }
                 PasswordBox.Password = "";
             }
 
 
             
+        }
+
+        public void TestSQLCon()
+        {
+            //Testataan voidaanko luoda yhteys palvelimelle
+            if (sql.TestConnection() != false)
+            {
+                isConnected = true;
+                sql.LoadOnStart();
+
+            }
+            else
+            {
+                isConnected = false;
+                ErrorBlock.Text = "No connection to server";
+            }
         }
 
         private void Exit_click(object sender, RoutedEventArgs e)

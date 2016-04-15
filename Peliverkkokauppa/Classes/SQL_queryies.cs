@@ -16,7 +16,7 @@ using MySql.Data.MySqlClient;
 
 namespace Peliverkkokauppa
 {
-    class SQL_queryies
+    public class SQL_queryies
     {
 
         public string database = "gamestore";
@@ -65,6 +65,19 @@ namespace Peliverkkokauppa
             MySqlDataReader reader = command.ExecuteReader();
             
             return reader;
+        }
+
+        public bool TestConnection()
+        {
+            MySqlConnection Conn = ConnectToSQL();
+            try {
+                Conn.Open();
+                return true;
+            }
+            catch(MySqlException error)
+            {
+                return false;
+            }
         }
 
 
@@ -210,9 +223,30 @@ namespace Peliverkkokauppa
 
         public void LoadOnStart()
         {
+            GetGenre();
             GetDevelopers();
             ReadGamesFromDatabase();
 
+        }
+
+        public void GetGenre()
+        {
+            MySqlDataReader reader = Query("Select Distinct(genre) from game");
+
+            while (reader.Read())
+            {
+                //tulokset laitetaan array objectiin
+                string genre = reader.GetString(0);
+
+
+
+                //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
+                bool existsInApp = Statistics.ListOfGenres.Contains(genre);
+                if (existsInApp != true)
+                {
+                    Statistics.ListOfGenres.Add(genre);
+                }
+            }
         }
 
         public void SQL_INSERT_GAME(Game game)
@@ -243,6 +277,7 @@ namespace Peliverkkokauppa
                     ");");
             }
 
+            Statistics.ListOfGames.Add(game.GameID,game);
 
 
 

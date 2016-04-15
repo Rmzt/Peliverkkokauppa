@@ -13,8 +13,7 @@ namespace Peliverkkokauppa
         public static Dictionary<int, Game> ListOfGames = new Dictionary<int, Game>();
         public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
         internal Dictionary<int, Customer> ListOfCustomers = new Dictionary<int, Customer>();
-          
-
+        public static List<string> ListOfGenres = new List<string>();
 
         public Statistics()
         {

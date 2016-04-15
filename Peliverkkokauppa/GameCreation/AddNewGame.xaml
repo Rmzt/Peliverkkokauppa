@@ -47,8 +47,7 @@
         			<LineBreak/>
         			<Run/>
                 </TextBlock>
-
-                <TextBox x:Name="Genre_input" TextWrapping="Wrap" Text="" Width="244" InputScope="Text"/>
+                <ComboBox x:Name="Genre_input" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="244"/>
             </StackPanel>
             <StackPanel x:Name="CoverimageStack" Margin="0,0,487,64" VerticalAlignment="Bottom" HorizontalAlignment="Right">
 

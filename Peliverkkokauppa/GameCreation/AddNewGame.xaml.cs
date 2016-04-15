@@ -66,10 +66,15 @@ namespace Peliverkkokauppa
                     Developer_Combo.Items.Add(name);
                 }
 
+                foreach (String Genre in Statistics.ListOfGenres)
+                {
+                    Genre_input.Items.Add(Genre);
+                }
+
 
                 //listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
             }
-            catch(NullReferenceException Error)
+            catch (NullReferenceException Error)
             {
                 Errorbox.Text = "Nullreference: " + Error.Message;
             }
@@ -104,14 +109,12 @@ namespace Peliverkkokauppa
                 GameName = Name_input.Text;
                 Description = Description_input.Text;
                 Price = Convert.ToInt32(Price_input.Text);
-                Genre = Genre_input.Text;
+                Genre = Genre_input.Name;
 
 
                 ReleaseDate = ReleaseDate_input.Date.Value;
                 Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-                Statistics.ListOfGames.Add(GameID, NewGame);
-
-
+                
                 this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
 
 
@@ -141,7 +144,7 @@ namespace Peliverkkokauppa
                 Game Game_Create = (Game)e.Parameter;
                 Name_input.Text = Game_Create.Name;
                 Price_input.Text = Convert.ToString(Game_Create.Price);
-                Genre_input.Text = Game_Create.Genre;
+                Genre_input.SelectedItem = Game_Create.Genre;
                 //Jatka
                 //Myös. Genre valikko, Insert koodit, yleinen tietojen lataus koodi, palvelin valikko?, errorloki
             }
