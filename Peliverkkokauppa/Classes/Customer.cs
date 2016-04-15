@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Peliverkkokauppa
 {
@@ -41,6 +42,35 @@ namespace Peliverkkokauppa
         public void AddOwnedGame(int i, Game t)
         {
             OwnedGame.Add(i, t);
+        }
+
+        public void InsertCustomer(Customer cust)
+        {
+            SQL_queryies sql = new SQL_queryies();
+
+            DateTime date = DateTime.Now;
+
+            try {
+                string[] dateformated = date.GetDateTimeFormats(Convert.ToChar("u"));
+
+                string inquery = string.Format("Select UserName, Password From customer where UserName={0} and Password={1}", cust.Username, cust.Password);
+            string insert = string.Format("INSERT INTO customer(UserName,Firstname,Lastname,Password,Email,Phonenumber,Address,AccountCreated) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",cust.Username,cust.Firstname,cust.Lastname,cust.Password,cust.Email,cust.Phonenumber,
+                cust.Address,dateformated[0]);
+
+            MySqlDataReader reader = sql.Query(inquery);
+                reader.Read();
+
+            sql.Query(insert);
+
+            }
+            catch (MySqlException)
+            {
+
+            }
+            
+
+
+
         }
 
         public void CreateDummyCustomer(int times)

@@ -98,5 +98,9 @@ namespace Peliverkkokauppa
             game.CreateDummyGames(10);
         }
 
+        private void Gotopage(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ServerSettings));
+        }
     }
 }

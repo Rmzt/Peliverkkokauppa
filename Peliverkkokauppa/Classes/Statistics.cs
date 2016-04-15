@@ -48,7 +48,7 @@ namespace Peliverkkokauppa
                 ListOfDevelopers.Add(X.Name, InsertDev);
                 return true;
             }
-            catch (Exception e) {
+            catch (Exception) {
                 return false;
             }
         }

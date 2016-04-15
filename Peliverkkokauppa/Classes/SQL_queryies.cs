@@ -51,7 +51,7 @@ namespace Peliverkkokauppa
 
                 return true;
 
-            }catch(MySqlException sql_error)
+            }catch(MySqlException)
             {
                 return false;
             }
@@ -77,7 +77,7 @@ namespace Peliverkkokauppa
                 Conn.Open();
                 return true;
             }
-            catch(MySqlException error)
+            catch(MySqlException)
             {
                 return false;
             }
@@ -128,7 +128,7 @@ namespace Peliverkkokauppa
                 }
 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
 
             }
@@ -159,7 +159,7 @@ namespace Peliverkkokauppa
 
                 
             }
-            catch (Exception ex)  { }
+            catch (Exception)  { }
             return Medialist;
         }
 
@@ -189,7 +189,7 @@ namespace Peliverkkokauppa
                     Reviews.Add(Reviewid, new Review(Reviewid,Username,Stars));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 

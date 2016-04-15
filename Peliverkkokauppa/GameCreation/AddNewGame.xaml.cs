@@ -49,8 +49,10 @@ namespace Peliverkkokauppa
         private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
-        public bool Error = false;
-
+        //Error laskee kuinka monta erroria on olemassa. Kun erroreita on 0 niin voidaan siirtyä eteenpäin.
+        
+        public Dictionary<string, string> ErrorDictionary = new Dictionary<string, string>();
+        public int Error = 0;
         public AddNewGame()
         {
 
@@ -89,7 +91,7 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Error == false)
+            if (Error == 0)
             {
 
                 Developer = Convert.ToString(Developer_Combo.SelectedValue);
@@ -168,46 +170,62 @@ namespace Peliverkkokauppa
             //this.Frame.Navigate(typeof());
         }
 
-        private void Name_input_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
-        {
-            string Output_name = Name_input.Text;
-
-            if(Output_name.Length <= 3)
-            {
-                Error = true;
-                Errorbox.Text = "Name is too small";
-            }
-            else
-            {
-                Errorbox.Text = "";
-            }
-        }
-
+        /*
         private void Price_input_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
             try { 
-            if(Convert.ToDouble(Price_input.Text) < 0)
-            {
-                Errorbox.Text = "Price is lower than 0";
-                Error = true;
+                if(Convert.ToDouble(Price_input.Text) < 0)
+                {
+                    //Errorbox.Text = "Price is lower than 0";
+                    if (!ErrorDictionary.ContainsKey("Price"))
+                    {
+                        ErrorDictionary.Add("Price", "Price is lower than 0");
+                    }
+                }
             }
-            else
-            {
-                Errorbox.Text = "";
-            }
-            }
-            catch (FormatException)
-            {
-
-            }
+            catch (FormatException) { }
         }
 
         private void Genre_input_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(Genre_input.SelectedValue.ToString() == "")
             {
-                Error = true;
-                Errorbox.Text = "Select genre";
+                if (!ErrorDictionary.ContainsKey("Genre"))
+                {
+                    ErrorDictionary.Add("Genre", "Select genre");
+                }
+                
+            }
+        }
+
+
+
+        private void Developer_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Developer_Combo.SelectedValue.ToString() == "")
+            {
+                if (!ErrorDictionary.ContainsKey("Developer"))
+                {
+                    ErrorDictionary.Add("Developer", "Select developer");
+                }
+             
+            }
+            
+        }
+
+
+
+
+        private void Name_input_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string Output_name = Name_input.Text;
+
+            if (Output_name.Length <= 3)
+            {
+                if (!ErrorDictionary.ContainsKey("Name"))
+                {
+                    ErrorDictionary.Add("Name", "Name has to be longer than 3 letters");
+                }
             }
             else
             {
@@ -215,18 +233,12 @@ namespace Peliverkkokauppa
             }
         }
 
-        private void Developer_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        public void InsertIfContained
         {
-            if (Developer_Combo.SelectedValue.ToString() == "")
-            {
-                Error = true;
-                Errorbox.Text = "Select developer";
-            }
-            else
-            {
-                Errorbox.Text = "";
-            }
+            //Lisää ErrorDictionaryyn, jos sitä ei vielä ole lisätty.
         }
+        */
     }
 
 }

@@ -34,10 +34,33 @@ namespace Peliverkkokauppa
     {
         //int fname, lname, uname, pw1, pw2, email, phone, address;
 
+        public SQL_queryies Sql = new SQL_queryies();
+
         public CreateAccount1()
         {
             this.InitializeComponent();
         }
+
+        //Linkki SQL INSERT-Komentoon
+        /*
+        1. Tarkista onko käyttäjätunnus olemassa
+        2. Lisää tiedot SQL
+        
+            Käytä customer Insert komentoa
+
+        */
+
+        //Customer metodi InsertCustomer() --> vie tietokantaan
+
+        /*
+        Sql.TestConnection()
+        customer.InsertCustomer(Customer cust)
+        */
+
+
+
+
+
 
         private void Palaa_Click(object sender, RoutedEventArgs e)
         {
