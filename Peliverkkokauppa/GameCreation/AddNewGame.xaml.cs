@@ -49,7 +49,7 @@ namespace Peliverkkokauppa
         private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
-
+        public bool Error = false;
 
         public AddNewGame()
         {
@@ -89,43 +89,46 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Developer = Convert.ToString(Developer_Combo.SelectedValue);
-            
-            try
+            if (Error == false)
             {
-                int ID = Statistics.ListOfGames.Count;
-                int GameID;
 
-                if (ID == 0)
+                Developer = Convert.ToString(Developer_Combo.SelectedValue);
+
+                try
                 {
-                    GameID = 1;
+                    int ID = Statistics.ListOfGames.Count;
+                    int GameID;
+
+                    if (ID == 0)
+                    {
+                        GameID = 1;
+                    }
+                    else
+                    {
+                        GameID = ID + 1;
+                    }
+
+                    GameName = Name_input.Text;
+                    Description = Description_input.Text;
+                    Price = Convert.ToInt32(Price_input.Text);
+                    Genre = Convert.ToString(Genre_input.SelectedValue);
+
+
+                    ReleaseDate = ReleaseDate_input.Date.Value;
+                    Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
+
+                    this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
+
+
+
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    GameID = ID + 1;
+                    Errorbox.Text = ex.Message;
                 }
-
-                GameName = Name_input.Text;
-                Description = Description_input.Text;
-                Price = Convert.ToInt32(Price_input.Text);
-                Genre = Convert.ToString(Genre_input.SelectedValue);
-
-
-                ReleaseDate = ReleaseDate_input.Date.Value;
-                Game NewGame = new Game(GameID, GameName, Description, Price, Genre, "", Developer, ReleaseDate);
-                
-                this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
-
-
-
 
             }
-            catch (Exception ex)
-            {
-                Errorbox.Text = ex.Message;
-            }
-
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -144,8 +147,11 @@ namespace Peliverkkokauppa
                 Name_input.Text = Game_Create.Name;
                 Price_input.Text = Convert.ToString(Game_Create.Price);
                 Genre_input.SelectedValue = Game_Create.Genre;
-                //Jatka
-                //Myös. Genre valikko, Insert koodit, yleinen tietojen lataus koodi, palvelin valikko?, errorloki
+                Developer_Combo.SelectedValue = Game_Create.Developer;
+                ReleaseDate_input.Date = Game_Create.ReleaseDate.Date;
+                Description_input.Text = Game_Create.Description;
+               
+                //Myös. palvelin valikko?, errorloki
             }
 
 
@@ -160,6 +166,66 @@ namespace Peliverkkokauppa
         private void CoverImg_Click(object sender, RoutedEventArgs e)
         {
             //this.Frame.Navigate(typeof());
+        }
+
+        private void Name_input_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            string Output_name = Name_input.Text;
+
+            if(Output_name.Length <= 3)
+            {
+                Error = true;
+                Errorbox.Text = "Name is too small";
+            }
+            else
+            {
+                Errorbox.Text = "";
+            }
+        }
+
+        private void Price_input_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            try { 
+            if(Convert.ToDouble(Price_input.Text) < 0)
+            {
+                Errorbox.Text = "Price is lower than 0";
+                Error = true;
+            }
+            else
+            {
+                Errorbox.Text = "";
+            }
+            }
+            catch (FormatException)
+            {
+
+            }
+        }
+
+        private void Genre_input_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(Genre_input.SelectedValue.ToString() == "")
+            {
+                Error = true;
+                Errorbox.Text = "Select genre";
+            }
+            else
+            {
+                Errorbox.Text = "";
+            }
+        }
+
+        private void Developer_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Developer_Combo.SelectedValue.ToString() == "")
+            {
+                Error = true;
+                Errorbox.Text = "Select developer";
+            }
+            else
+            {
+                Errorbox.Text = "";
+            }
         }
     }
 

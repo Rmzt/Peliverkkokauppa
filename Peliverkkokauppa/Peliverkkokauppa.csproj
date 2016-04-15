@@ -126,7 +126,6 @@
     <Compile Include="Classes\Developer.cs" />
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Classes\Game.cs" />
-    <Compile Include="Directory.cs" />
     <Compile Include="GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
