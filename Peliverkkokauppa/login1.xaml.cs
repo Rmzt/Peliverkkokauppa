@@ -54,6 +54,14 @@ namespace Peliverkkokauppa
             string Password = PasswordBox.Password;
 
             Authenticate Auth = new Authenticate();
+
+            /*
+
+            HUOM! ... MySQL ei tällä hetkellä tue SSL-salausta, joten salasanat ja käyttäjätunnukset kannattaa encryptata, jotenkin ennen
+            tiedon lähettämistä palvelimelle.
+
+            */
+
             bool IsValidAccount = Auth.AuthenticateUser(Username, Password);
             
             
@@ -64,6 +72,7 @@ namespace Peliverkkokauppa
             else
             {
                 ErrorBlock.Text = "Login failed. Try again";
+                PasswordBox.Password = "";
             }
 
 

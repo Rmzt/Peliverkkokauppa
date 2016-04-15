@@ -38,11 +38,21 @@ namespace Peliverkkokauppa
             return db;
         }
 
-        public void NoReturnQuery(string query)
+        public bool NoReturnQuery(string query)
         {
-            //Suorita SQL-komento;
-            MySqlConnection Conn = ConnectToSQL();
-            MySqlCommand command = new MySqlCommand(query, Conn);
+            //Suorita sql-komento. Vastaa kyllä, jos onnistui
+            try {
+                MySqlConnection Conn = ConnectToSQL();
+                Conn.Open();
+                MySqlCommand command = new MySqlCommand(query, Conn);
+              
+                return true;
+
+            }catch(MySqlException sql_error)
+            {
+                return false;
+            }
+
         }
 
         public MySqlDataReader Query(string query)
@@ -53,9 +63,11 @@ namespace Peliverkkokauppa
             Conn.Open();
             MySqlCommand command = new MySqlCommand(query, Conn);
             MySqlDataReader reader = command.ExecuteReader();
-            Conn.Close();
+            
             return reader;
         }
+
+
 
         public void ReadGamesFromDatabase()
         {

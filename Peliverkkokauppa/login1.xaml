@@ -15,12 +15,16 @@
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         </Grid>
         <Button x:Name="Debugger" Content="Debugger" Height="68" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150" Click="Debugger_Click"/>
-        <StackPanel x:Name="InnerBox" Margin="235,162,320,177" Orientation="Vertical" Height="422" Width="725">
+        <Grid x:Name="InnerBox" Margin="179,162,320,136" Height="422">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="138*"/>
+            </Grid.RowDefinitions>
             <TextBlock x:Name="ErrorBlock" HorizontalAlignment="Left" Height="58" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="725" FontSize="33.333" Foreground="#FFF30808" FontStyle="Italic"/>
-            <StackPanel x:Name="Inputs" Orientation="Horizontal" Margin="0,50,0,0">
+            <StackPanel x:Name="Inputs" Orientation="Horizontal" Margin="0,108,0,3" Grid.RowSpan="2">
                 <StackPanel x:Name="Input_Fields" Orientation="Vertical" Padding="0,0,0,14" VerticalAlignment="Top" Width="342" Height="311">
-                    <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="342" Height="72" FontSize="33.333"/>
-                    <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="342" Height="70" FontSize="33.333" PlaceholderText="Password" Margin="0,30,0,0" Padding="10,3,6,25"/>
+                    <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" Height="72" FontSize="33.333" PlaceholderText="Username" Margin="-100,0,0,0"/>
+                    <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="442" Height="70" FontSize="33.333" PlaceholderText="Password" Margin="-100,30,0,0" Padding="10,3,6,25"/>
                     <StackPanel x:Name="Login_Panel" Margin="0,40,0,0" Orientation="Horizontal" Padding="0" Height="61">
                         <Button x:Name="Login" Content="Log in" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="120" FontSize="33.333" Click="Login_Click" Margin="0"/>
                         <Button x:Name="Skip" Content="Skip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="143" FontSize="33.333" Click="Skip_Click" Margin="56,0,0,0"/>
@@ -31,6 +35,6 @@
                     <Button x:Name="Fpass" Content="Forgot Password" HorizontalAlignment="Left" VerticalAlignment="Top" Height="72" Width="270" FontSize="33.333" Click="Fpass_Click" Margin="0,30,0,0"/>
                 </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Page>

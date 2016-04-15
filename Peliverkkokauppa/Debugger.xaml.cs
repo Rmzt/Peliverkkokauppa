@@ -90,7 +90,7 @@ namespace Peliverkkokauppa
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.GoBack();
+            this.Frame.Navigate(typeof(login1));
         }
 
         private void CreateReview_Click_1(object sender, RoutedEventArgs e)

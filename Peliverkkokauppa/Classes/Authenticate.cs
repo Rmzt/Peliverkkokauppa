@@ -10,7 +10,7 @@ namespace Peliverkkokauppa
 
    class Authenticate
     {
-        public SQL_queryies Sql { get; set; }
+        public SQL_queryies Sql = new SQL_queryies();
 
         public Authenticate()
         {
@@ -23,17 +23,18 @@ namespace Peliverkkokauppa
             //Kun on aikaa, kokeile encryptaus ja decryptaus menetelmiä
             try {
                
-                MySqlDataReader reader = Sql.Query("Select UserName, Password From customer Where UserName=\"" + Username + "\" and Password=\"" + Password + "\";");
-
+                string query = String.Format("Select * From customer Where UserName = {0} and Password = {1};", Username, Password);
+                MySqlDataReader lukija = Sql.Query(query);
                 return true;
 
 
-            } catch(NullReferenceException)
+            } catch(MySqlException error)
             {
+                string x = error.Message;
                 return false;
                 
             }
-
+            
             
         }
     }
