@@ -22,6 +22,9 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class GamePage : Page
     {
+
+        public Game Selection { get; set; }
+
         public GamePage()
         {
             this.InitializeComponent();
@@ -35,6 +38,18 @@ namespace Peliverkkokauppa
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Profiili));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if(e.Parameter is Game)
+            {
+                Selection = (Game)e.Parameter;
+
+            }
+
+
+            base.OnNavigatedTo(e);
         }
     }
 }

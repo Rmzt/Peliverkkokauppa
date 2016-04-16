@@ -32,17 +32,26 @@ namespace Peliverkkokauppa
     public sealed partial class Frontpage : Page
     {
         public static Dictionary<int,Game> Lista = Statistics.ListOfGames;
-        public List<Game> Listat = new List<Game>();
+        public List<Game> Listat { get; set; }
 
         public Frontpage()
         {
+            Listat = new List<Game>();
+
             foreach (Game game in Lista.Values)
             {
                 Listat.Add(game);
             }
 
-            this.InitializeComponent();
-            
+
+
+            try {
+                this.InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                string x = ex.Message;
+            }
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -58,6 +67,22 @@ namespace Peliverkkokauppa
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Profiili));
+        }
+
+        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+            Image image = e.OriginalSource as Image;
+            if (image != null)
+            {
+                
+            }
+        }
+
+        private void New_Games_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //siirtää asiakkaan pelisivulle
+            Game peli = (Game)e.ClickedItem;
+            this.Frame.Navigate(typeof(GamePage), peli);
         }
     }
 

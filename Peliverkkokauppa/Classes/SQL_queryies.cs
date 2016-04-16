@@ -83,8 +83,6 @@ namespace Peliverkkokauppa
             }
         }
 
-
-
         public void ReadGamesFromDatabase()
         {
             //Haetaan pelit tietokannasta
@@ -107,7 +105,7 @@ namespace Peliverkkokauppa
                     string genre = Convert.ToString(obj[6]);
 
 
-                    Game new_game = new Game(gameID, name,description,price,genre,"",developer,releaseDate);
+                    Game new_game = new Game(gameID, name,description,price,genre,developer,releaseDate);
 
                     //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
                     bool existsInApp = Statistics.ListOfGames.ContainsKey(new_game.GameID);
@@ -128,9 +126,9 @@ namespace Peliverkkokauppa
                 }
 
             }
-            catch(Exception)
+            catch(Exception e)
             {
-
+                string x = e.Message;
             }
         }
 
@@ -284,7 +282,16 @@ namespace Peliverkkokauppa
 
         }
 
-
+        public string CoverImg(int GameID)
+        {
+            MySqlDataReader Reader = Query(String.Format("Select Path From mediafile where GameID = {0};", GameID));
+            while (Reader.Read())
+            {
+                string[] result = new string[1];
+                return result[0];
+            }
+            return "null";
+        }
 
     }
 }
