@@ -293,5 +293,19 @@ namespace Peliverkkokauppa
             return "null";
         }
 
+        public void SQL_Insert_Developer(Developer dev)
+        {
+            try { 
+            string query = string.Format("INSERT INTO developer(Name, Address, Description, Email) VALUES('{0}','{1}','{2}','{3}')", dev.Name, dev.Address, dev.Description, dev.Email);
+            Query(query);
+            }
+            catch (MySqlException)
+            {
+
+            }
+
+
+        }
+
     }
 }

@@ -43,6 +43,7 @@ namespace Peliverkkokauppa
             MediaFiles = new Dictionary<int, MediaFile>();
             Reviews = new Dictionary<int, Review>();
 
+            GetCover(GameID);
         }
 
         public Game()

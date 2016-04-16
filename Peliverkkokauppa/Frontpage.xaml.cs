@@ -43,8 +43,6 @@ namespace Peliverkkokauppa
                 Listat.Add(game);
             }
 
-
-
             try {
                 this.InitializeComponent();
             }
@@ -52,6 +50,18 @@ namespace Peliverkkokauppa
             {
                 string x = ex.Message;
             }
+
+            foreach (string genre in Statistics.ListOfGenres)
+            {
+                Game_By_Genre.Items.Add(genre);
+            }
+
+
+
+
+
+
+
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -83,6 +93,11 @@ namespace Peliverkkokauppa
             //siirtää asiakkaan pelisivulle
             Game peli = (Game)e.ClickedItem;
             this.Frame.Navigate(typeof(GamePage), peli);
+        }
+
+        private void Game_By_Genre_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+           // this.Frame.Navigate(typeof(SearchPage));
         }
     }
 

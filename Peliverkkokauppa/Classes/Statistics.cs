@@ -9,23 +9,22 @@ namespace Peliverkkokauppa
 {
     public class Statistics
     {
+        
         //work in progress
         public static Dictionary<int, Game> ListOfGames = new Dictionary<int, Game>();
         public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
-        internal Dictionary<int, Customer> ListOfCustomers = new Dictionary<int, Customer>();
         public static List<string> ListOfGenres = new List<string>();
+        public string LoggedInUser { get; set; }
+
+
+
+
+
         public Statistics()
         {
 
         }
-        
-        public int CountCustomer()
-        {
-            int i = ListOfCustomers.Count;
-            return i;
-        }
-        
-        
+     
               
         public bool Authentication(string Username, string Password)
         {
@@ -43,9 +42,13 @@ namespace Peliverkkokauppa
 
         public bool AddtoDev(Developer X)
         {
+            SQL_queryies sql = new SQL_queryies();
+
+
             try {
                 Developer InsertDev = new Developer(X.Name, X.Address, X.Description, X.Email);
-                ListOfDevelopers.Add(X.Name, InsertDev);
+                sql.SQL_Insert_Developer(InsertDev);
+                ListOfDevelopers.Add(X.Name, InsertDev);           
                 return true;
             }
             catch (Exception) {

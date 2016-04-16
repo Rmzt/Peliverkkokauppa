@@ -44,31 +44,52 @@ namespace Peliverkkokauppa
             String Email = Email_input.Text;
 
             
-            Developer newPublisher = new Developer(Name,Address,Description,Email);
-            if(Statistics.AddtoDev(newPublisher) == true)
+            if(ValidName(Name) == true && ValidAddress(Address) == true)
             {
-                this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
-            }
-            else
-            {
-                System_error.Text = "Creating new Developer has failed";
-            }
+                Developer newPublisher = new Developer(Name, Address, Description, Email);
 
+                SQL_queryies sql = new SQL_queryies();
+
+
+                try { 
+                    sql.TestConnection();
+                    if (Statistics.AddtoDev(newPublisher) == true)
+                    {
+                        this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
+                    }
+                    else
+                    {
+                        System_error.Text = "Creating new Developer has failed";
+                    }
+                }
+
+                catch (Exception)
+                {
+
+                }
+              }
 
         }
 
-        public bool IsValidShort(String Target)
+        public bool ValidName(string name)
         {
-            int lenght = Target.Length;
-            int i;
-
-            if(int.TryParse(Target, out i))
+            if (name.Length <= 4)
             {
-                Name_error.Text = "Name cannot contain numbers";
+                Name_error.Text = "Name has to be larger or same as 4";
                 return false;
-            }            
+            }
+            return true;
 
-            return false;
+        }
+
+        public bool ValidAddress(string address)
+        {
+            if (address.Length < 6)
+            {
+                Address_error.Text = "Address has to be larger or same as 6";
+                return false;
+            }
+            return true;
         }
 
     }

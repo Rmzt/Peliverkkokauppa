@@ -39,10 +39,17 @@
         </Grid>
         <Grid x:Name="MainPanel" BorderThickness="3" BorderBrush="Black" Margin="0,111,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="Peli1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,144,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
+
+            <StackPanel Grid.Row="0" Background="#FF434B70">
+                <ComboBox x:Name="Game_By_Genre" HorizontalAlignment="Left" Height="45" Margin="52,2,0,0" VerticalAlignment="Center" Width="286" IsDropDownOpen="True" PlaceholderText="Search game by genre" SelectedIndex="-1" Tapped="Game_By_Genre_Tapped"/>
+            </StackPanel>
+            
+            
+            
+            <Button x:Name="Peli1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="72,50,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
                 <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
             </Button>
 

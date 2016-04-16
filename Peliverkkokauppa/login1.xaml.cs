@@ -12,7 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using System.IO.Compression;
+using Windows.Data.Text;
+using System.Text;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace Peliverkkokauppa
@@ -58,7 +60,11 @@ namespace Peliverkkokauppa
             HUOM! ... MySQL ei tällä hetkellä tue SSL-salausta, joten salasanat ja käyttäjätunnukset kannattaa encryptata, jotenkin ennen
             tiedon lähettämistä palvelimelle.
 
+            Sama virhe vaikuttaa myös palvelimeen yhdistämisen kanssa
+
             */
+
+
 
             bool IsValidAccount = Auth.AuthenticateUser(Username, Password);
             
