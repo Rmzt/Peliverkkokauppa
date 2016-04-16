@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Windows.Media;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,16 @@ namespace Peliverkkokauppa
         public Dictionary<int, MediaFile> MediaFiles { get; set; }
         public Dictionary<int, Review> Reviews { get; set; }
 
+        public string ImageLocation {
+            get
+            {
+                return ImageLocation;
+            }
+            set
+            {
+            }
+        }
+
         private float price { get; set; }
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
@@ -41,6 +53,7 @@ namespace Peliverkkokauppa
             MediaFiles = new Dictionary<int, MediaFile>();
             Reviews = new Dictionary<int, Review>();
 
+            ImageLocation = new Uri(coverimg).AbsolutePath;
             
         }
 

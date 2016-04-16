@@ -25,12 +25,24 @@ namespace Peliverkkokauppa
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+
+       
+
     public sealed partial class Frontpage : Page
     {
+        public static Dictionary<int,Game> Lista = Statistics.ListOfGames;
+        public List<Game> Listat = new List<Game>();
 
         public Frontpage()
         {
+            foreach (Game game in Lista.Values)
+            {
+                Listat.Add(game);
+            }
+
             this.InitializeComponent();
+            
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
