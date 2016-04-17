@@ -12,6 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Resources;
+using Windows.Data.Text;
+using Windows.Storage.FileProperties;
+
+using Windows.Storage.Streams;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,6 +40,25 @@ namespace Peliverkkokauppa
             UBox.Text = SQL.user;
             Pbox.Password = SQL.password;
             Dbox.Text = SQL.database;
+
+            string x = "";
+
+
+            try { 
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/ConnectionSettings.txt");
+
+                foreach (string line in mydocument)
+                {
+                    x += line; 
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+
         }
 
 
@@ -52,6 +77,13 @@ namespace Peliverkkokauppa
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            /*
+            System.IO.TextWriter mydocument2 = System.IO.File.CreateText(@"Assets/ConnectionSettings.txt");
+            mydocument2.WriteLine("Server:" + Server_box.Text);
+            mydocument2.WriteLine("Server:" + UBox.Text);
+            mydocument2.WriteLine("Server:" + Pbox.Password);
+            mydocument2.WriteLine("Server:" + Dbox.Text);
+            */
             ChangeInfo(Server_box.Text, UBox.Text, Pbox.Password, Dbox.Text);
         }
 

@@ -95,6 +95,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StatisticDataPage\AllData.xaml.cs">
+      <DependentUpon>AllData.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Authenticate.cs" />
     <Compile Include="GameCreation\AddNewGamePage2.xaml.cs">
       <DependentUpon>AddNewGamePage2.xaml</DependentUpon>
@@ -145,7 +148,7 @@
       <DependentUpon>RestorePass1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Review.cs" />
-    <Compile Include="ServerSettings.xaml.cs">
+    <Compile Include="StatisticDataPage\ServerSettings.xaml.cs">
       <DependentUpon>ServerSettings.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -156,6 +159,9 @@
     <None Include="Peliverkkokauppa_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ConnectionSettings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -170,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="StatisticDataPage\AllData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameCreation\AddNewGamePage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,7 +228,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ServerSettings.xaml">
+    <Page Include="StatisticDataPage\ServerSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

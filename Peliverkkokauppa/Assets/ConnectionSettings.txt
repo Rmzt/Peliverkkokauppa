@@ -1,0 +1,4 @@
+﻿Server:"localhost"
+Username:"root"
+Password:""
+Database:"gamestore"
