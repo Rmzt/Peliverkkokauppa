@@ -18,11 +18,18 @@ namespace Peliverkkokauppa
 {
     public class SQL_queryies
     {
-
+        /*
         public string database = "gamestore";
         public string user = "root";
         public string password = "";
         public string path = "Localhost";
+
+        */
+
+        public string database = "gamestore";
+        public string user = "s2434usder";
+        public string password = "a69f9j2568jd79w";
+        public string path = "db4free.net";
 
         public MySqlConnection ConnectToSQL()
         {
@@ -31,8 +38,10 @@ namespace Peliverkkokauppa
             ppp = System.Text.CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(ppp);
 
+            
+            string mySQLConn = string.Format("Server={0};Port=3306;Database={1};Uid={2};Pwd={3};SslMode=None;", path,database,user,password);
 
-            string mySQLConn = "Server=" + path + ";Database=" + database + ";Uid=" + user + ";Pwd=" + password +";SslMode=None;";
+            
             MySqlConnection db = new MySqlConnection(mySQLConn);
 
             return db;
@@ -83,8 +92,9 @@ namespace Peliverkkokauppa
                 Conn.Open();
                 return true;
             }
-            catch(MySqlException)
+            catch(MySqlException xa)
             {
+                string x = xa.Message;
                 return false;
             }
         }

@@ -43,7 +43,7 @@ namespace Peliverkkokauppa
 
             string x = "";
 
-
+            /*
             try { 
             string[] mydocument = System.IO.File.ReadAllLines(@"Assets/ConnectionSettings.txt");
 
@@ -58,6 +58,7 @@ namespace Peliverkkokauppa
 
             }
 
+            */
 
         }
 
@@ -77,14 +78,10 @@ namespace Peliverkkokauppa
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            System.IO.TextWriter mydocument2 = System.IO.File.CreateText(@"Assets/ConnectionSettings.txt");
-            mydocument2.WriteLine("Server:" + Server_box.Text);
-            mydocument2.WriteLine("Server:" + UBox.Text);
-            mydocument2.WriteLine("Server:" + Pbox.Password);
-            mydocument2.WriteLine("Server:" + Dbox.Text);
-            */
+
             ChangeInfo(Server_box.Text, UBox.Text, Pbox.Password, Dbox.Text);
+
+
         }
 
         private void ServerTest_Click(object sender, RoutedEventArgs e)

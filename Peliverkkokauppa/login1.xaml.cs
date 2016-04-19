@@ -36,16 +36,6 @@ namespace Peliverkkokauppa
         public login1()
         {
             this.InitializeComponent();
-
-            if(Firsttry == false)
-            {
-                TestSQLCon();
-                Firsttry = true;
-            }
-
-
-
-
         }
 
         private void NeAcc_Click(object sender, RoutedEventArgs e)
@@ -135,7 +125,14 @@ namespace Peliverkkokauppa
 
         private void Exit_click(object sender, RoutedEventArgs e)
         {
-            App.Current.Exit();
+            if (Firsttry == false)
+            {
+                TestSQLCon();
+                Firsttry = true;
+            }
+
+
+//            App.Current.Exit();
         }
 
         private void Debugger_Click(object sender, RoutedEventArgs e)
@@ -151,6 +148,41 @@ namespace Peliverkkokauppa
         private void Skip_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Frontpage));
+        }
+
+        public void readData()
+        {
+            
+            try { 
+                string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Genres.txt");
+
+                foreach (string line in mydocument)
+                {
+                    Statistics.ListOfGenres.Add(line); 
+                }
+
+                /*
+                mydocument = System.IO.File.ReadAllLines(@"Assets/Developers.txt");
+
+
+
+                foreach (string line in mydocument)
+                {
+                    string[] arrays = line.Split(Convert.ToChar(";"));
+
+                    Statistics.ListOfDevelopers.Add(line);
+                }
+
+                */
+
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+            
         }
     }
 }

@@ -95,6 +95,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Profilepage\EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Profilepage\CustomerProfilepage.xaml.cs">
       <DependentUpon>CustomerProfilepage.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,7 @@
     <Content Include="Assets\ConnectionSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Genres.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -179,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Profilepage\EmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Profilepage\CustomerProfilepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
