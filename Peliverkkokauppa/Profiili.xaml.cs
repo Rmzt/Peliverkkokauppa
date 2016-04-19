@@ -36,5 +36,7 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(login1));
         }
+
+       
     }
 }

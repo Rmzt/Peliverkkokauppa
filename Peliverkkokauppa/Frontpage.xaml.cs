@@ -105,6 +105,8 @@ namespace Peliverkkokauppa
         {
            // this.Frame.Navigate(typeof(SearchPage));
         }
+
+        
     }
 
     }

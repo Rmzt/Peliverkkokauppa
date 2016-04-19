@@ -44,7 +44,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Background="#FF434B70">
-                <ComboBox x:Name="Game_By_Genre" HorizontalAlignment="Left" Height="45" Margin="52,2,0,0" VerticalAlignment="Center" Width="286" IsDropDownOpen="True" PlaceholderText="Search game by genre" SelectedIndex="-1" Tapped="Game_By_Genre_Tapped"/>
+                <ComboBox x:Name="Game_By_Genre" HorizontalAlignment="Left" Height="45" Margin="52,2,0,0" VerticalAlignment="Center" Width="286" IsDropDownOpen="True" PlaceholderText="Search game by genre" />
             </StackPanel>
             
             
