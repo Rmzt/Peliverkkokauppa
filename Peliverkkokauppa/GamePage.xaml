@@ -29,7 +29,7 @@
             <Canvas  Height="202" Width="412" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="808,139,60,-230" Background="#7A3F5E83" Grid.ColumnSpan="2">
                 <TextBlock x:Name="Info" TextWrapping="Wrap" Text="Info" VerticalAlignment="Top" Height="187" FontSize="14.667" SelectionHighlightColor="{x:Null}" Width="411"/>
             </Canvas>
-            <Grid Height="216" VerticalAlignment="Top" Margin="11,472,20,-577" Grid.ColumnSpan="2"/>
+            <Grid Margin="11,472,20,-577" Grid.ColumnSpan="2" Height="216" VerticalAlignment="Top"/>
             <Canvas Height="216" VerticalAlignment="Top" Margin="0,472,60,-577" Background="#7A3F5E83" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="639">
 
                 <TextBlock x:Name="Recomended" TextWrapping="Wrap" Text="Recomended" VerticalAlignment="Top" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Left" Width="324" Canvas.Left="315"/>
