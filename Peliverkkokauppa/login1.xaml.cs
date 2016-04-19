@@ -30,16 +30,21 @@ namespace Peliverkkokauppa
         public Statistics statistics = new Statistics();
         public SQL_queryies sql = new SQL_queryies();
         public bool isConnected { get; set; }
-                
+        public bool Firsttry = false;    
 
 
         public login1()
         {
             this.InitializeComponent();
-            TestSQLCon();
-            
 
-           
+            if(Firsttry == false)
+            {
+                TestSQLCon();
+                Firsttry = true;
+            }
+
+
+
 
         }
 
