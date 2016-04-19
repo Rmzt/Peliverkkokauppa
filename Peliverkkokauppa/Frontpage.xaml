@@ -55,7 +55,7 @@
 
             <ListView x:Name="New_Games" Grid.Row="1" FlowDirection="LeftToRight" HorizontalAlignment="Left"  ItemsSource="{x:Bind Listat}"
               IsItemClickEnabled="True"
-              ItemTemplate="{StaticResource GameDataList}" Margin="83,182,0,35" Width="1108" TabNavigation="Once" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" Header="New_games" BorderThickness="1" ItemClick="New_Games_ItemClick">
+              ItemTemplate="{StaticResource GameDataList}" Margin="86,361,0,32" Width="1108" TabNavigation="Once" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" Header="New_games" BorderThickness="1" ItemClick="New_Games_ItemClick">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Horizontal"/>

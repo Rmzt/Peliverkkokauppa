@@ -99,5 +99,10 @@ namespace Peliverkkokauppa
 
             }
         }
+
+        private void Return_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
     }
 }

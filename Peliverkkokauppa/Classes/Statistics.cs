@@ -18,9 +18,6 @@ namespace Peliverkkokauppa
 
         public static string LoggedInUser { get; set; }
         //public static Customer LoggedInCustomer { get; set; }
-
-
-
         public static Dictionary<int, Game> OwnedGames = new Dictionary<int, Game>();
 
 

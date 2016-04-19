@@ -43,6 +43,8 @@ namespace Peliverkkokauppa
                 Listat.Add(game);
             }
 
+
+
             try {
                 this.InitializeComponent();
             }
@@ -50,6 +52,9 @@ namespace Peliverkkokauppa
             {
                 string x = ex.Message;
             }
+
+
+
 
             foreach (string genre in Statistics.ListOfGenres)
             {
@@ -66,6 +71,7 @@ namespace Peliverkkokauppa
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            Statistics.LoggedInUser = "";
             this.Frame.Navigate(typeof(login1));
         }
 
