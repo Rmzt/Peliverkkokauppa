@@ -59,8 +59,6 @@ namespace Peliverkkokauppa
             SQL_queryies SQL = new SQL_queryies();
             SQL.SQL_INSERT_GAME(New_Game);
 
-
-
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

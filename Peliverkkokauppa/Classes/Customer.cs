@@ -44,6 +44,7 @@ namespace Peliverkkokauppa
             OwnedGame.Add(i, t);
         }
 
+
         public void InsertCustomer(Customer cust)
         {
             SQL_queryies sql = new SQL_queryies();
@@ -53,9 +54,9 @@ namespace Peliverkkokauppa
             try {
                 string[] dateformated = date.GetDateTimeFormats(Convert.ToChar("u"));
 
-                string inquery = string.Format("Select UserName, Password From customer where UserName={0} and Password={1}", cust.Username, cust.Password);
-            string insert = string.Format("INSERT INTO customer(UserName,Firstname,Lastname,Password,Email,Phonenumber,Address,AccountCreated) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",cust.Username,cust.Firstname,cust.Lastname,cust.Password,cust.Email,cust.Phonenumber,
-                cust.Address,dateformated[0]);
+            string inquery = string.Format("Select Username, Password From customer where Username={0} and Password={1}", cust.Username, cust.Password);
+            string insert = string.Format("INSERT INTO customer(Username,Firstname,Lastname,Password,Email,Phonenumber,Address,AccountCreated) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",cust.Username,cust.Firstname,cust.Lastname,cust.Password,cust.Email,cust.Phonenumber,
+            cust.Address,dateformated[0]);
 
             MySqlDataReader reader = sql.Query(inquery);
                 reader.Read();
@@ -71,23 +72,6 @@ namespace Peliverkkokauppa
 
 
 
-        }
-
-        public void CreateDummyCustomer(int times)
-        {
-         //Luodaan testidataa
-               
-            for (int i = 0; i < times; i++)
-            {
-                Customers.Add(new Customer("Etunimi" + i, 
-                    "Sukunimi" + i, 
-                    Firstname + Lastname, 
-                    "Password" + i, 
-                    "Email" + i,
-                    1032154642 + i,
-                    "address" + i,
-                    DateTime.Now));
-            } 
         }
 
     }

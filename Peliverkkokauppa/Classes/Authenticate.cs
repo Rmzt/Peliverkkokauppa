@@ -23,7 +23,7 @@ namespace Peliverkkokauppa
             //Kun on aikaa, kokeile encryptaus ja decryptaus menetelmiä
             try {
                
-                string query = String.Format("Select * From customer Where UserName = {0} and Password = {1};", Username, Password);
+                string query = String.Format("Select * From Account Where Username = {0} and Password = {1};", Username, Password);
                 MySqlDataReader lukija = Sql.Query(query);
                 return true;
 

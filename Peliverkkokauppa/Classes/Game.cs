@@ -30,9 +30,9 @@ namespace Peliverkkokauppa
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
 
-        public Game(int gameID, string name, string description, float price, string genre, string developer, DateTimeOffset releaseDate)
+        public Game(string name, string description, float price, string genre, string developer, DateTimeOffset releaseDate)
         {
-            GameID = gameID;
+            
             Name = name;
             Description = description;
             Price = price;
@@ -84,25 +84,6 @@ namespace Peliverkkokauppa
             SQL_queryies sql = new SQL_queryies();
             string path = sql.CoverImg(GameID);
             Coverimg = path;
-        }
-
-        public void CreateDummyGames(int times)
-        {
-            //Luodaan testidataa
-
-
-
-            int GameID = Statistics.ListOfGames.Count + 1;
-
-
-            for (int i = 0; i < times; i++)
-            {
-
-                Game new_game = new Game(GameID, Convert.ToString("Peli " + GameID), "Pelin heino kuvaus", 55 + GameID, "Kauhu", "Kehittaja" + GameID, DateTimeOffset.Now);
-                GameID = GameID + i;
-                Statistics.ListOfGames.Add(GameID,new_game);
-                
-            }
         }
 
 

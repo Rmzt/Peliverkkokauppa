@@ -16,8 +16,7 @@
         </StackPanel>
         <Button x:Name="Return" Content="Return" HorizontalAlignment="Right" Height="{Binding ActualHeight, ElementName=CreateGame}" Margin="0,0,50,50" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=CreateGame}" FontSize="26.667" Click="Return_Click" RenderTransformOrigin="1.128,0.589"/>
         <StackPanel Margin="0,20,50,0" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button x:Name="DummyGames" Content="DummyGames" Height="70" Width="330" VerticalAlignment="Stretch" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" FontSize="32" Margin="0,40,0,0" Click="DummyGames_Click"/>
-
+          
         </StackPanel>
         <TextBox x:Name="Stat_Screen" HorizontalAlignment="Right" Height="266" Margin="0,194,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="330" IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Button x:Name="Server_info" Content="Server_Data" Width="330" VerticalAlignment="Stretch" FontSize="32" Margin="465,60,0,576" Click="Gotopage"/>

@@ -28,8 +28,7 @@ namespace Peliverkkokauppa
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class AddNewGame : Page
-    {
-
+    { 
 
         //GameID automaattisesti luotu?
         //Pelien määrän mukaan?
@@ -52,7 +51,6 @@ namespace Peliverkkokauppa
         //Error laskee kuinka monta erroria on olemassa. Kun erroreita on 0 niin voidaan siirtyä eteenpäin.
         
         public Dictionary<string, string> ErrorDictionary = new Dictionary<string, string>();
-        public int Error = 0;
         public AddNewGame()
         {
 
@@ -61,7 +59,6 @@ namespace Peliverkkokauppa
             this.InitializeComponent();
 
             try {
-                int count = Statistics.ListOfDevelopers.Count;
                 
                 foreach(String name in Statistics.ListOfDevelopers.Keys)
                 {
@@ -74,7 +71,17 @@ namespace Peliverkkokauppa
                 }
 
 
-                //listBox.ItemsSource = Statistics.ListOfDevelopers.Keys;
+                if(Developer_Combo.Items.Count == 0)
+                {
+                    Developer_Combo.Items.Add("No developers defined");
+                }
+
+                if (Genre_input.Items.Count == 0)
+                {
+                    Genre_input.Items.Add("No genres defined");
+                }
+
+
             }
             catch (NullReferenceException Error)
             {
@@ -91,50 +98,33 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (Error == 0)
-            {
-
-                Developer = Convert.ToString(Developer_Combo.SelectedValue);
-
+         
                 try
                 {
-                    int ID = Statistics.ListOfGames.Count;
-                    int GameID;
-
-                    if (ID == 0)
-                    {
-                        GameID = 1;
-                    }
-                    else
-                    {
-                        GameID = ID + 1;
-                    }
-
+                    
                     GameName = Name_input.Text;
                     Description = Description_input.Text;
                     Price = Convert.ToInt32(Price_input.Text);
                     Genre = Convert.ToString(Genre_input.SelectedValue);
-
-
+                    Developer = Convert.ToString(Developer_Combo.SelectedValue);
                     ReleaseDate = ReleaseDate_input.Date.Value;
-                    Game NewGame = new Game(GameID, GameName, Description, Price, Genre, Developer, ReleaseDate);
+
+
+                    Game NewGame = new Game(GameName, Description, Price, Genre, Developer, ReleaseDate);
 
                     this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
-
-
-
 
                 }
                 catch (Exception ex)
                 {
                     Errorbox.Text = ex.Message;
                 }
-
-            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //Jos sivulle siirrytään, joko kehittäjän sivulta tai pelinluomisen toiselta sivulta.
+
             if (e.Parameter is Developer)
             {
                 Developer dev = (Developer)e.Parameter;
@@ -153,7 +143,6 @@ namespace Peliverkkokauppa
                 ReleaseDate_input.Date = Game_Create.ReleaseDate.Date;
                 Description_input.Text = Game_Create.Description;
                
-                //Myös. palvelin valikko?, errorloki
             }
 
 
@@ -170,75 +159,38 @@ namespace Peliverkkokauppa
             //this.Frame.Navigate(typeof());
         }
 
-        /*
-        private void Price_input_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        public bool StringTest(string name)
         {
-            try { 
-                if(Convert.ToDouble(Price_input.Text) < 0)
-                {
-                    //Errorbox.Text = "Price is lower than 0";
-                    if (!ErrorDictionary.ContainsKey("Price"))
-                    {
-                        ErrorDictionary.Add("Price", "Price is lower than 0");
-                    }
-                }
-            }
-            catch (FormatException) { }
-        }
-
-        private void Genre_input_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(Genre_input.SelectedValue.ToString() == "")
+            int i = 0;
+            if(Name_input.Text.Length > 0 && int.TryParse(Name_input.Text, out i) != true)
             {
-                if (!ErrorDictionary.ContainsKey("Genre"))
-                {
-                    ErrorDictionary.Add("Genre", "Select genre");
-                }
-                
+                InfoBox.Text = "";
+                return true;
             }
+            InfoBox.Text = "Name has to be only letters and not null";
+            return false;
         }
 
-
-
-        private void Developer_Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public bool PriceTest(int Price)
         {
-            if (Developer_Combo.SelectedValue.ToString() == "")
+            if(Price < 0)
             {
-                if (!ErrorDictionary.ContainsKey("Developer"))
-                {
-                    ErrorDictionary.Add("Developer", "Select developer");
-                }
-             
+                InfoBox.Text = "Price has to be larger than 0";
+                return false;
             }
-            
+            return true;
         }
 
-
-
-
-        private void Name_input_TextChanged(object sender, TextChangedEventArgs e)
+        private void Name_input_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            string Output_name = Name_input.Text;
-
-            if (Output_name.Length <= 3)
-            {
-                if (!ErrorDictionary.ContainsKey("Name"))
-                {
-                    ErrorDictionary.Add("Name", "Name has to be longer than 3 letters");
-                }
-            }
-            else
-            {
-                Errorbox.Text = "";
-            }
+            StringTest(Name_input.Text);
         }
 
-
-        public void InsertIfContained
+        private void Name_input_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            //Lisää ErrorDictionaryyn, jos sitä ei vielä ole lisätty.
+            StringTest(Name_input.Text);
         }
-        */
+
     }
 
 }

@@ -91,13 +91,6 @@ namespace Peliverkkokauppa
         }
 
         
-
-        private void DummyGames_Click(object sender, RoutedEventArgs e)
-        {
-            Game game = new Game();
-            game.CreateDummyGames(10);
-        }
-
         private void Gotopage(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ServerSettings));

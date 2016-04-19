@@ -38,11 +38,19 @@ namespace Peliverkkokauppa
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            String Name = Name_input.Text;
-            String Address = Address_input.Text;
-            String Description = Description_input.Text;
-            String Email = Email_input.Text;
+            string Name = Name_input.Text;
+            string Address = Address_input.Text;
+            string Description = Description_input.Text;
+            string Email = Email_input.Text;
 
+            //tarkistetaan onko käyttäjä merkinnyt hyväskyttävät vaihtoehdot 
+            if(ValidName(Name) != true || ValidAddress(Address) != true || ValidEmail(Email) != false)
+            {
+                System_error.Text = "There were error on new information. Check them for error messages";
+            } else
+            {
+                
+            
             
             if(ValidName(Name) == true && ValidAddress(Address) == true)
             {
@@ -65,10 +73,10 @@ namespace Peliverkkokauppa
 
                 catch (Exception)
                 {
-
+                        System_error.Text = "There was an error on creating the developer. Try again later";
                 }
               }
-
+            }
         }
 
         public bool ValidName(string name)
@@ -78,6 +86,7 @@ namespace Peliverkkokauppa
                 Name_error.Text = "Name has to be larger or same as 4";
                 return false;
             }
+            Name_error.Text = "";
             return true;
 
         }
@@ -89,8 +98,21 @@ namespace Peliverkkokauppa
                 Address_error.Text = "Address has to be larger or same as 6";
                 return false;
             }
+            Address_error.Text = "";
             return true;
         }
+
+        public bool ValidEmail(string email)
+        {
+            if (email.Contains("@") && email.Length < 5)
+            {
+                Email_Error.Text = "";
+                return true;
+            }
+            Email_Error.Text = "Not acceptable email";
+            return false;
+        }
+
 
     }
 }

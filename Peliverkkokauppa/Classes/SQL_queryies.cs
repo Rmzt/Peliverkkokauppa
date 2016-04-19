@@ -55,12 +55,16 @@ namespace Peliverkkokauppa
             {
                 return false;
             }
+            catch (Exception)
+            {
+                return false;
+            }
 
         }
 
         public MySqlDataReader Query(string query)
         {
-        
+
             //Suorita SQL-komento ja hae kyselyn tulokset;
             MySqlConnection Conn = ConnectToSQL();
             Conn.Open();
@@ -68,6 +72,8 @@ namespace Peliverkkokauppa
             MySqlDataReader reader = command.ExecuteReader();
             
             return reader;
+            
+            
         }
 
         public bool TestConnection()
@@ -105,7 +111,7 @@ namespace Peliverkkokauppa
                     string genre = Convert.ToString(obj[6]);
 
 
-                    Game new_game = new Game(gameID, name,description,price,genre,developer,releaseDate);
+                    Game new_game = new Game(name,description,price,genre,developer,releaseDate);
 
                     //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
                     bool existsInApp = Statistics.ListOfGames.ContainsKey(new_game.GameID);
@@ -252,10 +258,11 @@ namespace Peliverkkokauppa
 
         public void SQL_INSERT_GAME(Game game)
         {
+            try { 
             DateTime date = game.ReleaseDate.Date;
             string[] dateformated = date.GetDateTimeFormats(Convert.ToChar("u"));
 
-            string Insert_part = String.Format("INSERT INTO game(GameID,Name,Description,Price,Developer,ReleaseDate,Genre) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", game.GameID, game.Name, game.Description, game.Price, game.Developer, dateformated[0], game.Genre);
+            string Insert_part = String.Format("INSERT INTO game(Name,Description,Price,Developer,ReleaseDate,Genre) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", game.Name, game.Description, game.Price, game.Developer, dateformated[0], game.Genre);
             NoReturnQuery(Insert_part);
 
             foreach (MediaFile file in game.MediaFiles.Values)
@@ -276,7 +283,11 @@ namespace Peliverkkokauppa
             }
 
             Statistics.ListOfGames.Add(game.GameID,game);
+            }
+            catch (Exception)
+            {
 
+            }
 
 
 

@@ -52,26 +52,29 @@ namespace Peliverkkokauppa
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            string Username = UsernameBox.Text;
+            string Password = PasswordBox.Password;
+            Authenticate Auth = new Authenticate();
+
+
             //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
-            /*
+ 
 
-            //https://msdn.microsoft.com/en-us/library/windows/apps/windows.security.cryptography.core.hashalgorithmnames.md5
-            var md5 = HashAlgorithmNames.Md5;
-            string Pass = PasswordBox.Password;
+            ////https://msdn.microsoft.com/en-us/library/windows/apps/windows.security.cryptography.core.hashalgorithmnames.md5
+            //var md5 = HashAlgorithmNames.Md5;
+            //string Pass = PasswordBox.Password;
 
-            var hasher = HashAlgorithmProvider.OpenAlgorithm(Pass);
+            //var hasher = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5);
             
-            var hashed = hasher.CreateHash();
-            UsernameBox.Text = hashed.ToString();
-*/
+            //var hashed = hasher.CreateHash();
             
+            //UsernameBox.Text = hashed.ToString();
+
+
 
             TestSQLCon();
 
-            string Username = UsernameBox.Text;
-            string Password = PasswordBox.Password;
-
-            Authenticate Auth = new Authenticate();
+            
             
 
             /*
@@ -86,26 +89,27 @@ namespace Peliverkkokauppa
 
 
             bool IsValidAccount = Auth.AuthenticateUser(Username, Password);
-            
-            
-            if(IsValidAccount == true)
+
+
+            if (IsValidAccount == true)
             {
                 this.Frame.Navigate(typeof(Frontpage));
             }
             else
             {
-                if(isConnected == false)
+                if (isConnected == false)
                 {
                     ErrorBlock.Text = "Login failed. Cannot connect to server";
-                } else
+                }
+                else
                 {
                     ErrorBlock.Text = "Login failed. Try again";
                 }
                 PasswordBox.Password = "";
             }
 
-            
-            
+
+
         }
 
         public void TestSQLCon()
