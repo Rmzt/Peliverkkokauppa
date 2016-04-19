@@ -21,7 +21,9 @@ namespace Peliverkkokauppa
 
     /// <summary>
     /// 
-    /// Jos aikaa niin lisätään paremmat error tarkistukset, esim että vain kirjaimia ja - merkkejä käytetty firstname ja lastname kohdissa
+    /// SQL tunnuksen luominen riville 208
+    /// 
+    /// Tarkistukset että onko tunnus käytössä riveille 115 ja 262
     /// 
     /// </summary>
 
@@ -32,7 +34,7 @@ namespace Peliverkkokauppa
 
     public sealed partial class CreateAccount1 : Page
     {
-        //int fname, lname, uname, pw1, pw2, email, phone, address;
+        
 
         public SQL_queryies Sql = new SQL_queryies();
 
@@ -74,20 +76,168 @@ namespace Peliverkkokauppa
 
         private void Luo_Click(object sender, RoutedEventArgs e)
         {
-            // Luo näppäin vie tällä hetkellä suoraan pääsivulle tekemättä mitään
-            this.Frame.Navigate(typeof(Frontpage));
+            int fname = 0, lname = 0, uname = 0, pw1 = 0, pw2 = 0, email = 0, phone = 0, address = 0;
+
+            if (Firstname.Text.Length < 2)
+                E_Firstname.Text = "Minimum length is 2 characters";
+            else if (Firstname.Text.Length > 20)
+                E_Firstname.Text = "Maximum length is 20 characters";
+            else
+            {
+                E_Firstname.Text = "";
+                fname = 1;
+            }
+
+
+
+            if (Lastname.Text.Length < 2)
+                E_Lastname.Text = "Minimum length is 2 characters";
+            else if (Lastname.Text.Length > 20)
+                E_Lastname.Text = "Maximum length is 20 characters";
+            else
+            {
+                E_Lastname.Text = "";
+                lname = 1;
+            }
+
+
+            if (Username.Text.Length < 5)
+                E_Username.Text = "Minimum length is 5 characters";
+            else if (Username.Text.Length > 20)
+                E_Username.Text = "Maximum length is 20 characters";
+            else
+            {
+                E_Username.Text = "";
+                uname = 1;
+            }
+
+
+            //TÄHÄN KOHTAAN TARKISTUS ONKO USERNAME JO KÄYTÖSSÄ (ja myös alemmas riville 260)
+            /*
+
+            if (Username.Text == käytössä)
+            {
+                uname = 0;
+                E_Username.Text = "Username is already in use!";
+            }
+
+            */
+
+            if (!Password.Password.Any(char.IsLower))
+                E_Password.Text = "Missing atleast 1 lower case character";
+            else if (!Password.Password.Any(char.IsUpper))
+                E_Password.Text = "Missing atleast 1 upper case character";
+            else if (!Password.Password.Any(char.IsDigit))
+                E_Password.Text = "Missing atleast 1 number";
+            else if (Password.Password.Length < 8)
+                E_Password.Text = "Minimum length is 8 characters";
+            else if (Password.Password.Length > 15)
+                E_Password.Text = "Maximum length is 15 characters";
+            else
+            {
+                E_Password.Text = "";
+                pw1 = 1;
+            }
+
+            if (Password.Password == Password_Repeat.Password)
+            {
+                E_Password_Repeat1.Text = "";
+                E_Password_Repeat2.Text = "Passwords match!";
+                pw2 = 1;
+            }
+            else
+            {
+                E_Password_Repeat2.Text = "";
+                E_Password_Repeat1.Text = "Passwords DON'T match!";
+                pw2 = 0;
+            }
+
+
+
+            if (!Email.Text.ToLower().Contains('@'))
+                E_Email.Text = "Missing @-character";
+            else if (Email.Text.Length < 6)
+                E_Email.Text = "Minimum length is 6 characters";
+            else if (Email.Text.Length > 45)
+                E_Email.Text = "Maximum length is 45 characters";
+            else
+            {
+                E_Email.Text = "";
+                email = 1;
+            }
+
+
+            bool test = true;
+
+            foreach (char c in Phonenumber.Text)
+            {
+                if (c < '0' || c > '9')
+                    test = false;
+            }
+
+            if (!test)
+                E_Phonenumber.Text = "Only numbers are allowed!";
+            else if (Phonenumber.Text.Length < 6)
+                E_Phonenumber.Text = "Minimum length is 6 characters";
+            else if (Phonenumber.Text.Length > 15)
+                E_Phonenumber.Text = "Maximum length is 15 characters";
+            else
+            {
+                E_Phonenumber.Text = "";
+                phone = 1;
+            }
+
+
+
+
+            if (Address.Text.Length < 2)
+                E_Address.Text = "Minimum length is 2 characters";
+            else if (Address.Text.Length > 30)
+                E_Address.Text = "Maximum length is 30 characters";
+            else
+            {
+                E_Address.Text = "";
+                address = 1;
+            }
+        
+
+            if (fname == 1 && lname == 1 && uname == 1 && pw1 == 1 && pw2 == 1 && email == 1 && phone == 1 && address == 1)
+            {
+
+                /*
+                TUNNUKSEN LISÄYS MYSQL KANTAAN TÄHÄN KOHTAAN
+
+                tiedot löytyvät näistä:
+
+                Firstname.Text
+                Lastname.Text
+                Username.Text
+                Password.Password
+                Email.Text
+                Phonenumber.Text
+                Address.text
+
+                */
+
+
+                //Mennään login ruutuun samalla, voisi ehkä vielä viedä viestin samalla että "Account creation succesful!" joka näytetään etusivulla
+                this.Frame.Navigate(typeof(login1)); 
+            }
+
         }
 
-        // Tästä alkaa error tarkistukset 
+        // Tästä alkaa LostFocus error tarkistukset 
 
         private void Firstname_LostFocus(object sender, RoutedEventArgs e)
         {
+            
             if (Firstname.Text.Length < 2)
                 E_Firstname.Text = "Minimum length is 2 characters";
             else if (Firstname.Text.Length > 20)
                 E_Firstname.Text = "Maximum length is 20 characters";
             else
                 E_Firstname.Text = "";
+                
         }
 
         private void Lastname_LostFocus(object sender, RoutedEventArgs e)
@@ -108,13 +258,20 @@ namespace Peliverkkokauppa
                 E_Username.Text = "Maximum length is 20 characters";
             else
                 E_Username.Text = "";
+
+            //TÄHÄN KOHTAAN TARKISTUS ONKO USERNAME JO KÄYTÖSSÄ (ja myös ylemmäs riville 113
+            /*
+
+            if (Username.Text == käytössä)
+            {
+                E_Username.Text = "Username is already in use!";
+            }
+
+            */
         }
 
         private void Password_LostFocus(object sender, RoutedEventArgs e)
         {
-            // if (System.Text.RegularExpressions.Regex.IsMatch(Password.Password.Trim(), "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^a-zA-Z0-9_@.-]).{8,}$"))
-            // tuo ylläoleva kait palauttaa true arvon jos löytyy 1 lowercase, 1 uppercase, 1 number ja + special character
-
             if (!Password.Password.Any(char.IsLower))
                 E_Password.Text = "Missing atleast 1 lower case character";
             else if (!Password.Password.Any(char.IsUpper))
@@ -200,6 +357,6 @@ namespace Peliverkkokauppa
                 E_Address.Text = "";
         }
 
-        // Tähän loppui error tarkistukset
+        // Tähän loppui LostFocus error tarkistukset
     }
 }

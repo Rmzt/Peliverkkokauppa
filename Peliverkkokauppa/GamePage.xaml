@@ -20,27 +20,36 @@
             <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
             <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="509" Margin="32,139,0,-333"/>
-            <Canvas Height="216" VerticalAlignment="Top" Margin="32,472,0,-577" Background="#7A3F5E83" HorizontalAlignment="Left" Width="509">
-                <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="68" Width="509" FontSize="33.333" Canvas.Left="10"/>
-            </Canvas>
-            <Canvas Height="216" VerticalAlignment="Top" Margin="571,472,60,-577" Background="#7A3F5E83" Grid.ColumnSpan="2">
-                <TextBlock x:Name="Recomended" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="324" Canvas.Left="315"/>
-                <TextBlock x:Name="Reqirements" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="324"/>
-            </Canvas>
-            <Canvas Height="81" VerticalAlignment="Top" Margin="808,363,60,-333" Background="#7A3F5E83" Grid.ColumnSpan="2">
+
+
+            <Canvas Height="81" VerticalAlignment="Top" Width="412" HorizontalAlignment="Right" Margin="808,363,60,-333" Background="#7A3F5E83" Grid.ColumnSpan="2">
+
+                <ComboBox x:Name="Rating" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="255" IsDropDownOpen="True"  Canvas.Left="157" Canvas.Top="26"/>
                 <TextBlock x:Name="Score" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="40" Width="135" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
                 <TextBlock x:Name="Rate" TextWrapping="Wrap" Text="Rate This Game" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="255" Height="40" Canvas.Left="157"/>
             </Canvas>
-            <Canvas  Height="202" VerticalAlignment="Top" Margin="808,139,60,-230" Background="#7A3F5E83" Grid.ColumnSpan="2">
-                <TextBlock x:Name="Info" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="187" FontSize="14.667" SelectionHighlightColor="{x:Null}" Canvas.Top="5" Width="411"/>
+            <Canvas  Height="202" Width="412" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="808,139,60,-230" Background="#7A3F5E83" Grid.ColumnSpan="2">
+                <TextBlock x:Name="Info" TextWrapping="Wrap" Text="Info" VerticalAlignment="Top" Height="187" FontSize="14.667" SelectionHighlightColor="{x:Null}" Width="411"/>
             </Canvas>
-            <Button x:Name="Buy" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,292,0,-223" Width="135" Height="42"/>
-            <Button x:Name="Gallery" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="571,402,0,-333" Width="135" Height="42"/>
-            <Canvas HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="135" Margin="571,339,0,-270" Background="#7A3F5E83"/>
-            <TextBlock x:Name="Price" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="571,341,0,-270" Height="40" Width="135" FontSize="14.667" SelectionHighlightColor="{x:Null}"/>
+            <Grid Margin="11,472,20,-577" Grid.ColumnSpan="2" Height="216" VerticalAlignment="Top"/>
+            <Canvas Height="216" VerticalAlignment="Top" Margin="0,472,60,-577" Background="#7A3F5E83" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="639">
 
+                <TextBlock x:Name="Recomended" TextWrapping="Wrap" Text="Recomended" VerticalAlignment="Top" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Left" Width="324" Canvas.Left="315"/>
+                <TextBlock x:Name="Reqirements" TextWrapping="Wrap" Text="Minimum Requirements" VerticalAlignment="Top" Height="216" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="305" Canvas.Left="10"/>
+            </Canvas>
+            <Canvas Height="216" VerticalAlignment="Top" Margin="32,472,365,-577" Background="#7A3F5E83">
+                <TextBlock x:Name="Title" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nimi" VerticalAlignment="Top" Height="68" Width="509" FontSize="33.333"/>
 
+            </Canvas>
         </Grid>
+        <Button x:Name="Buy" Content="Buy" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,243,569,0" Height="52" Width="135" FontSize="33.333"/>
+        <Canvas HorizontalAlignment="Right" Height="52
+                " VerticalAlignment="Top" Width="135" Margin="0,303,569,0" Background="#7A3F5E83">
+            <TextBlock x:Name="Price" TextWrapping="Wrap" Text="11,50€" Height="40" FontSize="33.333" SelectionHighlightColor="{x:Null}" Width="135" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Canvas>
+        <Button x:Name="Gallery" Content="Gallery" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,360,569,0" Height="52" Width="135" FontSize="33.333"/>
+
 
     </Grid>
+
 </Page>
