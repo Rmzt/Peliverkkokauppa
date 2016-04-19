@@ -17,7 +17,10 @@ namespace Peliverkkokauppa
 
 
         public static string LoggedInUser { get; set; }
+        public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
+
         //public static Customer LoggedInCustomer { get; set; }
+
         public static Dictionary<int, Game> OwnedGames = new Dictionary<int, Game>();
 
 
@@ -59,6 +62,11 @@ namespace Peliverkkokauppa
             }
         }
 
-
+        public void Logout()
+        {
+            LoggedInUser = "";
+            IsCustomer = true;
+            OwnedGames.Clear();
+        }
     }
 }
