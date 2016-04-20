@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.IO.Compression;
+using Windows.Data.Text;
+using System.Text;
+using Windows.Security.Cryptography.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -205,7 +209,7 @@ namespace Peliverkkokauppa
             {
 
                 /*
-                TUNNUKSEN LISÄYS MYSQL KANTAAN TÄHÄN KOHTAAN
+                TUNNUKSEN LISÄYS PAHASTI KESKEN
 
                 tiedot löytyvät näistä:
 
@@ -219,12 +223,22 @@ namespace Peliverkkokauppa
 
                 */
 
+                System.IO.MemoryStream mStream = new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(@"Assets/testcustomer.txt"));
 
-                //Mennään login ruutuun samalla, voisi ehkä vielä viedä viestin samalla että "Account creation succesful!" joka näytetään etusivulla
+                using (StreamWriter outputFile = new StreamWriter(mStream))
+                {
+                    outputFile.WriteLine("New Line");
+                }
+
+                //login1 sivulle onpagenavigated kohtaan tarkistus että onko palautettu numero 1
+                // jos on niin näytetään viesti "account creation succesful"
+                //int success = 1;
                 this.Frame.Navigate(typeof(login1)); 
             }
 
         }
+
+
 
         // Tästä alkaa LostFocus error tarkistukset 
 
