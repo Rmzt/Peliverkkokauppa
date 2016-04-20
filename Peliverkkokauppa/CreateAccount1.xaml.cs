@@ -26,7 +26,7 @@ namespace Peliverkkokauppa
     /// Tarkistukset että onko tunnus käytössä riveille 115 ja 262
     /// 
     /// </summary>
-
+        
         
         
 
