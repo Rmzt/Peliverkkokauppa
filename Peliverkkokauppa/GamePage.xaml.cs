@@ -76,9 +76,9 @@ namespace Peliverkkokauppa
 
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
                 Cover = Selection.Coverimg;
-                //Cover = "Assets/coverimg/default.png"; //testi kuva
 
-                /*
+
+                /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
                 Uri imageUri = new Uri(Cover, UriKind.Relative);
                 BitmapImage imageBitmap = new BitmapImage(imageUri);
                 Image myImage = new Image();
