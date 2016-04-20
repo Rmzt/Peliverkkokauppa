@@ -57,36 +57,15 @@ namespace Peliverkkokauppa
             string Password = PasswordBox.Password;
             Authenticate Auth = new Authenticate();
 
-
-            //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
-
-
-            ////https://msdn.microsoft.com/en-us/library/windows/apps/windows.security.cryptography.core.hashalgorithmnames.md5
-            //var md5 = HashAlgorithmNames.Md5;
-            //string Pass = PasswordBox.Password;
-
-            //var hasher = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5);
-
-            //var hashed = hasher.CreateHash();
-
-            //UsernameBox.Text = hashed.ToString();
-
-            /*
-
-            HUOM! ... MySQL ei tällä hetkellä tue SSL-salausta, joten salasanat ja käyttäjätunnukset kannattaa encryptata, jotenkin ennen
-            tiedon lähettämistä palvelimelle.
-
-            Sama virhe vaikuttaa myös palvelimeen yhdistämisen kanssa
-
-            */
-
-
-
             bool IsValidAccount = statistics.CustomerExists(Username, Password);
+
+            Statistics sk = new Statistics();
+            
 
 
             if (IsValidAccount == true)
             {
+
                 this.Frame.Navigate(typeof(Frontpage));
             }
             else

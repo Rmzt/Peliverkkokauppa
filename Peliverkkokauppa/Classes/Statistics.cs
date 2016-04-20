@@ -89,6 +89,10 @@ namespace Peliverkkokauppa
             {
                 if(user.Username == username && user.Password == password)
                 {
+                    Statistics.LoggedInUser = Customers.Find(Customer => Customer.Username.Contains(username) && Customer.Password.Contains(password));
+
+                    LoggedInUser.OwnedGame = GetOwnedGames(LoggedInUser);
+
                     return true;
                 }
             }
