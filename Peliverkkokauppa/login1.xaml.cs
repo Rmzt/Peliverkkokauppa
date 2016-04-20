@@ -164,7 +164,7 @@ namespace Peliverkkokauppa
                 foreach (string line in mydocument)
                 {
                     string[] arrays = line.Split(Convert.ToChar(";"));
-                    Game game = new Game(arrays[1], arrays[2], float.Parse(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]), arrays[7]);
+                    Game game = new Game(Convert.ToInt32(arrays[0]), arrays[1], arrays[2], float.Parse(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]), arrays[7]);
                     //Game game = new Game(arrays[1], arrays[2], Convert.ToUInt32(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]));
                     game.GameID = Convert.ToInt32(arrays[0]);
                     Statistics.ListOfGames.Add(game.GameID, game);

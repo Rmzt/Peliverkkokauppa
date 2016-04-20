@@ -30,8 +30,9 @@ namespace Peliverkkokauppa
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
 
-        public Game(string name, string description, float price, string genre, string developer, DateTimeOffset releaseDate, string coverimg)
+        public Game(int gameID, string name, string description, float price, string genre, string developer, DateTimeOffset releaseDate, string coverimg)
         {
+            GameID = gameID;
             Name = name;
             Description = description;
             Price = price;
