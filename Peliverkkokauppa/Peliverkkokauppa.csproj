@@ -261,7 +261,8 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data.RT">
-      <HintPath>\\storage\homes\K2131\Dox\Downloads\RT\MySql.Data.RT.dll</HintPath>
+      <HintPath>\\storage\homes\K1967\Dox\Downloads\mysql-connector-net-6.9.8-noinstall\RT\MySql.Data.RT.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup />

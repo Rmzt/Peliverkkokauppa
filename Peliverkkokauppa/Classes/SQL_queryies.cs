@@ -26,8 +26,8 @@ namespace Peliverkkokauppa
 
         */
 
-        public string database = "gamestore";
-        public string user = "s2434usder";
+        public string database = "K1967";
+        public string user = "K1967";
         public string password = "a69f9j2568jd79w";
         public string path = "db4free.net";
 
@@ -121,7 +121,7 @@ namespace Peliverkkokauppa
                     string genre = Convert.ToString(obj[6]);
 
 
-                    Game new_game = new Game(name,description,price,genre,developer,releaseDate);
+                    Game new_game = new Game(gameID,name,description,price,genre,developer,releaseDate,"");
 
                     //Tarkistetaan onko peli olemassa jo "Statistics" -listassa
                     bool existsInApp = Statistics.ListOfGames.ContainsKey(new_game.GameID);

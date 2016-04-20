@@ -110,10 +110,10 @@ namespace Peliverkkokauppa
                     ReleaseDate = ReleaseDate_input.Date.Value;
 
 
-                    Game NewGame = new Game(GameName, Description, Price, Genre, Developer, ReleaseDate);
+                    Game NewGame = new Game(GameID, GameName, Description, Price, Genre, Developer, ReleaseDate, "");
                     NewGame.GameID = GameID;
-                    
-                    this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
+
+                this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
 
                 }
                 catch (Exception ex)
