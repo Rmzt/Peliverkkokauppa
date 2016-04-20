@@ -45,15 +45,16 @@ namespace Peliverkkokauppa
             return true;
         }
 
-        private List<Customer> CustomersList()
+        internal List<Customer> CustomersList()
         {
+
             List<Customer> ListofCustomers = new List<Customer>();
             string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Customer.txt");
 
             foreach (string line in mydocument)
             {
                 string[] arrays = line.Split(Convert.ToChar(";"));
-                Customer Customer = new Customer(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToInt32(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
+                Customer Customer = new Customer(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
                 ListofCustomers.Add(Customer);
             }
 

@@ -13,12 +13,12 @@ namespace Peliverkkokauppa
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public int Phonenumber { get; set; }
+        public string Phonenumber { get; set; }
         public string Address { get; set; }
         public DateTime AccountCreated { get; set; }
 
 
-        public Person(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
+        public Person(string firstname, string lastname, string username, string password, string email, string phonenumber, string address, DateTime accountCreated)
         {
             Firstname = firstname;
             Lastname = lastname;
