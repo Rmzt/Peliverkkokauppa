@@ -12,11 +12,10 @@
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
             <StackPanel Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Left">
-                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="70" Height="100"/>
+                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="200" Height="200"/>
                     <StackPanel Margin="20,0,0,0">
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
-                        <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="14"/>
-                    </StackPanel>
+                     </StackPanel>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>

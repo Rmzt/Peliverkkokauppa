@@ -46,6 +46,7 @@ namespace Peliverkkokauppa
             try
             {
                 this.InitializeComponent();
+                Username_output.Text = Statistics.LoggedInUser.Username;
             }
             catch (Exception ex)
             {

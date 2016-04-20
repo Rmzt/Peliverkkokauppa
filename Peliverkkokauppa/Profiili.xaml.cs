@@ -24,17 +24,16 @@ namespace Peliverkkokauppa
     {
 
         public string username = Statistics.LoggedInUser.Username;
+        public Statistics stat { get; set; }
+        public List<Game> Game = new List<Game>();
 
         public Profiili()
         {
             this.InitializeComponent();
-
+            Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
 
             Username.Text = username;
-            foreach (Game game in Statistics.LoggedInUser.OwnedGame.Values)
-            {
-                Owned_Games.Items.Add(game.Name);
-            }
+            
 
         }
 

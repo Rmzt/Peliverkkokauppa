@@ -5,7 +5,22 @@
     xmlns:local="using:Peliverkkokauppa"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Peliverkkokauppa"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Left">
+                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="200" Height="200"/>
+                    <StackPanel Margin="20,0,0,0">
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
 
     <Grid Background="#FFBFB6C9">
         <Grid  HorizontalAlignment="Stretch" Height="111" VerticalAlignment="Top" Background="#FF434B70">
@@ -18,9 +33,13 @@
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
             <Button x:Name="Profile" Content="Frontpage" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
+            </Grid
+               >     
+            <GridView ItemsSource="{x:Bind Game}"
+              IsItemClickEnabled="True"
+              ItemTemplate="{StaticResource GameDataList}" Margin="52,227,367,51"/>
 
-
-        </Grid>
+       
         <Grid Width="287" HorizontalAlignment="Right" Margin="0,116,0,0" >
             <Image x:Name="image" HorizontalAlignment="Left" Height="156" VerticalAlignment="Top" Width="129" Margin="80,27,0,0"/>
             <TextBlock x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,287,0,0" Height="41" Width="277" FontSize="33.333" TextAlignment="Center"/>
@@ -30,7 +49,6 @@
             <Button x:Name="button" Content="Vaihda Kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,188,0,0" Height="39" Width="129"/>
             <Button x:Name="button1" Content="Vaihda Tietoja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,503,0,0" Width="129" Height="39"/>
         </Grid>
-        <ComboBox x:Name="Owned_Games" HorizontalAlignment="Left" Height="45" Margin="52,219,0,0" VerticalAlignment="Top" Width="517" IsDropDownOpen="True" />
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Omat Pelit" VerticalAlignment="Top" Margin="52,146,0,0" Width="517" Height="53" FontSize="33.333"/>
     </Grid>
 </Page>

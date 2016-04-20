@@ -30,6 +30,8 @@ namespace Peliverkkokauppa
             this.InitializeComponent();
 
             Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
+            
+
 
         }
         
