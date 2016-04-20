@@ -11,12 +11,10 @@ namespace Peliverkkokauppa
    class Authenticate
     {
         public SQL_queryies Sql = new SQL_queryies();
+        public Statistics stat { get; set; }
 
-        public Authenticate()
-        {
-
-        }
-
+  
+        
 
 
 

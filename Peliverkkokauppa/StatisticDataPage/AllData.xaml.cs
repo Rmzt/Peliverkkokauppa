@@ -48,18 +48,18 @@ namespace Peliverkkokauppa
             }
 
 
-            if (Games.Count == 0) { 
+            if (Games.Count != 0) { 
             foreach(Game game in Games)
             {
                 Games_box.Text += "---Game" + game.Name + "-------" + Environment.NewLine;
-                Games_box.Text += Convert.ToString(game.GameID) + Environment.NewLine; ;
-                Games_box.Text += game.Name + Environment.NewLine; ;
-                Games_box.Text += Convert.ToString(game.Price) + Environment.NewLine; ;
-                Games_box.Text += game.Description + Environment.NewLine; ;
-                Games_box.Text += game.Developer + Environment.NewLine; ;
-                Games_box.Text += game.Genre + Environment.NewLine; ;
-                Games_box.Text += Convert.ToString(game.ReleaseDate) + Environment.NewLine; ;
-                Games_box.Text += game.Coverimg + Environment.NewLine; ;
+                Games_box.Text += Convert.ToString(game.GameID) + Environment.NewLine;
+                Games_box.Text += game.Name + Environment.NewLine;
+                Games_box.Text += Convert.ToString(game.Price) + Environment.NewLine;
+                Games_box.Text += game.Description + Environment.NewLine;
+                Games_box.Text += game.Developer + Environment.NewLine;
+                Games_box.Text += game.Genre + Environment.NewLine;
+                Games_box.Text += Convert.ToString(game.ReleaseDate) + Environment.NewLine;
+                Games_box.Text += game.Coverimg + Environment.NewLine;
                 Games_box.Text += "-------------------" + Environment.NewLine;
             }
                 Games_box.Text += "End of stream";
@@ -68,7 +68,26 @@ namespace Peliverkkokauppa
                 Games_box.Text = "No games found";
             }
 
+            if (Developer.Count != 0)
+            {
+                foreach (Developer dev in Developer)
+                {
+                    Games_box.Text += "---dev" + dev.Name + "-------" + Environment.NewLine;
+                    Games_box.Text += dev.Name + Environment.NewLine; ;
+                    Games_box.Text += dev.Description + Environment.NewLine; ;
+                    Games_box.Text += dev.Email + Environment.NewLine;
+                    Games_box.Text += dev.Address + Environment.NewLine;
+                    Games_box.Text += "-------------------" + Environment.NewLine;
+                }
+                Games_box.Text += "End of stream";
+            }
+            else
+            {
+                Games_box.Text = "No devs found";
+            }
+
         }
+
 
 
         public void GetDeveloper()
