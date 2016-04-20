@@ -24,6 +24,11 @@ namespace Peliverkkokauppa
 
 
 
+        public void Logout()
+        {
+            LoggedInUser = null;
+            IsCustomer = true;
+        }
 
         public Statistics()
         {
@@ -118,13 +123,6 @@ namespace Peliverkkokauppa
 
             return Games;
         }
-
-        public void Logout()
-        {
-            
-            IsCustomer = true;
-        }
-        
 
     }
 }

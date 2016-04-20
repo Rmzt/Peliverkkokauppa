@@ -95,6 +95,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameSearch.xaml.cs">
+      <DependentUpon>GameSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Profilepage\CustomerProfilepage.xaml.cs">
       <DependentUpon>CustomerProfilepage.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GameSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Profilepage\CustomerProfilepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

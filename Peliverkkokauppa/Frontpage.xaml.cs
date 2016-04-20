@@ -98,6 +98,11 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(CustomerProfilepage));
         }
+
+        private void Selailu_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GameSearch));
+        }
     }
 
     }

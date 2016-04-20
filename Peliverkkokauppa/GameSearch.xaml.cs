@@ -20,41 +20,40 @@ namespace Peliverkkokauppa
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Profiili : Page
+    public sealed partial class GameSearch : Page
     {
-
-        public string username = Statistics.LoggedInUser.Username;
-        public Statistics stat { get; set; }
-        public List<Game> Game = new List<Game>();
-
-        public Profiili()
+        public List<string> Genres = Statistics.ListOfGenres;
+        public String SelectedFilter { get; set; }
+        public string DefaultUser = "Not logged in";
+        
+        public GameSearch()
         {
             this.InitializeComponent();
-            Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
-
-            if(Statistics.LoggedInUser.Username != null)
+            if(User.Text.Length != 0)
             {
-                Username.Text = username;
-            }
-            else
+                User.Text = Statistics.LoggedInUser.Username;
+            } else
             {
-
+                User.Text = DefaultUser;
             }
 
+
+            
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Frontpage));
+            this.Frame.Navigate(typeof(Profiili));
         }
 
-        private void Logout_Click(object sender, RoutedEventArgs e)
+        private void Options_ItemClick(object sender, ItemClickEventArgs e)
         {
-            stat.Logout();
-            this.Frame.Navigate(typeof(login1));
+            SelectedFilter = e.ClickedItem.ToString();
         }
-
-       
     }
 }

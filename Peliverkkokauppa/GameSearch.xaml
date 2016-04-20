@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="Peliverkkokauppa.GameSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Peliverkkokauppa"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Peliverkkokauppa"
+    mc:Ignorable="d">
+
+
+    <Grid Background="#FFBFB6C9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header" Margin="0,0,0,0" Grid.Row="0" Background="#FF434B70">
+            <Image x:Name="Logo" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="111"/>
+            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="150" Width="844" FontSize="73.333"/>
+            <StackPanel Margin="960,0,0,0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="User" HorizontalAlignment="Center" Height="39" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="282" Margin="0,0,0,24"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button x:Name="Profile" Content="Profile" HorizontalAlignment="Left" Height="45" VerticalAlignment="Stretch" Width="118" Click="Profile_Click"/>
+                    <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" Height="42" VerticalAlignment="Top" Margin="47,0,0,0" Width="118" Click="Logout_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <GridView x:Name="Options" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Genres}" HorizontalAlignment="Stretch" Margin="0" Width="318" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" ItemClick="Options_ItemClick">
+                <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                        <ItemsStackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+            <GridView x:Name="Output" Margin="0,0,0,0" Grid.Column="1"/>
+        </Grid>
+
+    </Grid>
+</Page>

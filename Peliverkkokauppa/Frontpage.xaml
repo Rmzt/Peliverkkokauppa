@@ -42,8 +42,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Background="#FF606785" Orientation="Horizontal">
-                <Button Name="Selailu" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5"/>
-                <Button x:Name="Profile2" Content="ProfilePage2 test" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5" Click="Profile2_Click"/>
+                <Button Name="Selailu" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5" Click="Selailu_Click"/>
+    
             </StackPanel>
 
 
