@@ -164,16 +164,31 @@ namespace Peliverkkokauppa
                 foreach (string line in mydocument)
                 {
                     string[] arrays = line.Split(Convert.ToChar(";"));
-                    Game game = new Game(arrays[1], arrays[2], Convert.ToUInt32(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]));
+                    Game game = new Game(arrays[1], arrays[2], float.Parse(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]), arrays[7]);
+                    //Game game = new Game(arrays[1], arrays[2], Convert.ToUInt32(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]));
                     game.GameID = Convert.ToInt32(arrays[0]);
                     Statistics.ListOfGames.Add(game.GameID, game);
                 }
 
-                
+            /*
 
+            private Dictionary<int, Game> GamesList()
+            {
+                Dictionary<int, Game> ListOfGames = new Dictionary<int, Game>();
+                string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Games.txt");
 
+                foreach (string line in mydocument)
+                {
+                    string[] arrays = line.Split(Convert.ToChar(";"));
+                    Game Game = new Game(Convert.ToInt32(arrays[0]), arrays[1], arrays[2], float.Parse(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]), arrays[7]);
+                    ListOfGames.Add(Game.GameID, Game);
+                }
 
+                return ListOfGames;
             }
+
+            */
+    }
             catch (Exception x)
             {
                 string y = x.Message;

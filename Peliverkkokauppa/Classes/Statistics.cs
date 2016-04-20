@@ -60,6 +60,7 @@ namespace Peliverkkokauppa
             return ListofCustomers;
         }
 
+
         public bool CustomerExists(string username, string password)
         {
             List<Customer> Customers = CustomersList();

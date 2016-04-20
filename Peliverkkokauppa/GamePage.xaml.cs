@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging; // tämä piti lisätä että sai tuon cover image converterin toimimaan
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -29,8 +30,11 @@ namespace Peliverkkokauppa
         public string Description { get; set; }
         public float Price_input { get; set; }
         public string Genre { get; set; }
+        public string Developer { get; set; }
         public string Cover { get; set; }
-        
+        public DateTimeOffset ReleaseDate { get; set; }
+
+
         public GamePage()
         {
             this.InitializeComponent();
@@ -60,17 +64,37 @@ namespace Peliverkkokauppa
 
 
                 Description = Selection.Description;
+                Description_t.Text = Description;
 
-                Price_input = Selection.Price;
-                
+                Price_input = Selection.Price;                
                 Price.Text = Price_input.ToString() + "€";
 
                 Genre = Selection.Genre;
+                Developer = Selection.Developer;
                 Cover = Selection.Coverimg;
+                ReleaseDate = Selection.ReleaseDate;
+
+                Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
+                //Cover = Selection.Coverimg;
+                Cover = "Assets/coverimg/pelipeli.bmp"; //testi kuva
+
+                Uri imageUri = new Uri(Cover, UriKind.Relative);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                Image myImage = new Image();
+                image.Source = imageBitmap;
+
+
+
+                
             }
 
 
             base.OnNavigatedTo(e);
+        }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
