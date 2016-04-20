@@ -55,7 +55,7 @@ namespace Peliverkkokauppa
         {
             //Otetaan vastaan sivulle siiretty data valitusta pelistä.
 
-            if(e.Parameter is Game)
+            if (e.Parameter is Game)
             {
                 Selection = (Game)e.Parameter;
 
@@ -66,7 +66,7 @@ namespace Peliverkkokauppa
                 Description = Selection.Description;
                 Description_t.Text = Description;
 
-                Price_input = Selection.Price;                
+                Price_input = Selection.Price;
                 Price.Text = Price_input.ToString() + "€";
 
                 Genre = Selection.Genre;
@@ -75,22 +75,23 @@ namespace Peliverkkokauppa
                 ReleaseDate = Selection.ReleaseDate;
 
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
-                //Cover = Selection.Coverimg;
-                Cover = "Assets/coverimg/pelipeli.bmp"; //testi kuva
+                Cover = Selection.Coverimg;
 
+
+                /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
                 Uri imageUri = new Uri(Cover, UriKind.Relative);
                 BitmapImage imageBitmap = new BitmapImage(imageUri);
                 Image myImage = new Image();
                 image.Source = imageBitmap;
+                */
 
 
 
-                
             }
 
 
             base.OnNavigatedTo(e);
-        }
+            }
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {
