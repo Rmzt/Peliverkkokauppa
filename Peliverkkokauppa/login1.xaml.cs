@@ -30,11 +30,16 @@ namespace Peliverkkokauppa
         public Statistics statistics = new Statistics();
         public SQL_queryies sql = new SQL_queryies();
         public bool isConnected { get; set; }
-        public bool Firsttry = false;    
+        public bool Firsttry = true;    
 
 
         public login1()
         {
+            if(Firsttry == true)
+            {
+                readData();
+                Firsttry = false;
+            }
             this.InitializeComponent();
         }
 
@@ -53,24 +58,17 @@ namespace Peliverkkokauppa
 
 
             //Lisätään koodi, jolla tarkistetaan käyttäjätunnuksen olemassaolo
- 
+
 
             ////https://msdn.microsoft.com/en-us/library/windows/apps/windows.security.cryptography.core.hashalgorithmnames.md5
             //var md5 = HashAlgorithmNames.Md5;
             //string Pass = PasswordBox.Password;
 
             //var hasher = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5);
-            
+
             //var hashed = hasher.CreateHash();
-            
+
             //UsernameBox.Text = hashed.ToString();
-
-
-
-            TestSQLCon();
-
-            
-            
 
             /*
 
@@ -83,7 +81,7 @@ namespace Peliverkkokauppa
 
 
 
-            bool IsValidAccount = Auth.AuthenticateUser(Username, Password);
+            bool IsValidAccount = statistics.CustomerExists(Username, Password);
 
 
             if (IsValidAccount == true)
@@ -92,14 +90,8 @@ namespace Peliverkkokauppa
             }
             else
             {
-                if (isConnected == false)
-                {
-                    ErrorBlock.Text = "Login failed. Cannot connect to server";
-                }
-                else
-                {
-                    ErrorBlock.Text = "Login failed. Try again";
-                }
+            
+                ErrorBlock.Text = "Login failed. Try again";      
                 PasswordBox.Password = "";
             }
 
@@ -125,14 +117,7 @@ namespace Peliverkkokauppa
 
         private void Exit_click(object sender, RoutedEventArgs e)
         {
-            if (Firsttry == false)
-            {
-                TestSQLCon();
-                Firsttry = true;
-            }
-
-
-//            App.Current.Exit();
+                      App.Current.Exit();
         }
 
         private void Debugger_Click(object sender, RoutedEventArgs e)
@@ -154,6 +139,8 @@ namespace Peliverkkokauppa
         {
             
             try { 
+
+                //Genren lukeminen
                 string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Genres.txt");
 
                 foreach (string line in mydocument)
@@ -161,25 +148,35 @@ namespace Peliverkkokauppa
                     Statistics.ListOfGenres.Add(line); 
                 }
 
-                /*
-                mydocument = System.IO.File.ReadAllLines(@"Assets/Developers.txt");
 
-
+                //Kehittäjien lukeminen
+                mydocument = System.IO.File.ReadAllLines(@"Assets/Developer.txt");
 
                 foreach (string line in mydocument)
                 {
                     string[] arrays = line.Split(Convert.ToChar(";"));
-
-                    Statistics.ListOfDevelopers.Add(line);
+                    Developer dev = new Developer(arrays[0], arrays[1],arrays[2],arrays[3]);
+                    Statistics.ListOfDevelopers.Add(dev.Name,dev);
                 }
 
-                */
+                mydocument = System.IO.File.ReadAllLines(@"Assets/Games.txt");
+
+                foreach (string line in mydocument)
+                {
+                    string[] arrays = line.Split(Convert.ToChar(";"));
+                    Game game = new Game(arrays[1], arrays[2], Convert.ToUInt32(arrays[3]), arrays[4], arrays[5], Convert.ToDateTime(arrays[6]));
+                    game.GameID = Convert.ToInt32(arrays[0]);
+                    Statistics.ListOfGames.Add(game.GameID, game);
+                }
+
+                
+
 
 
             }
-            catch (Exception)
+            catch (Exception x)
             {
-
+                string y = x.Message;
             }
 
             

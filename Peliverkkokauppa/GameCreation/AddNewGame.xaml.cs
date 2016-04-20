@@ -101,7 +101,7 @@ namespace Peliverkkokauppa
          
                 try
                 {
-                    
+                    int GameID = Statistics.ListOfGames.Count + 1;
                     GameName = Name_input.Text;
                     Description = Description_input.Text;
                     Price = Convert.ToInt32(Price_input.Text);
@@ -111,7 +111,8 @@ namespace Peliverkkokauppa
 
 
                     Game NewGame = new Game(GameName, Description, Price, Genre, Developer, ReleaseDate);
-
+                    NewGame.GameID = GameID;
+                    
                     this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
 
                 }
@@ -135,6 +136,7 @@ namespace Peliverkkokauppa
 
             if (e.Parameter is Game)
             {
+                
                 Game Game_Create = (Game)e.Parameter;
                 Name_input.Text = Game_Create.Name;
                 Price_input.Text = Convert.ToString(Game_Create.Price);

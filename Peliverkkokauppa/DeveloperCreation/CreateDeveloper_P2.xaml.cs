@@ -44,6 +44,7 @@ namespace Peliverkkokauppa
                 Output.Text += "Email: " + dev.Email + Environment.NewLine;
 
 
+
             }
 
 

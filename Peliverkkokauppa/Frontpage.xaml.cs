@@ -43,9 +43,8 @@ namespace Peliverkkokauppa
                 Listat.Add(game);
             }
 
-
-
-            try {
+            try
+            {
                 this.InitializeComponent();
             }
             catch (Exception ex)
@@ -53,25 +52,11 @@ namespace Peliverkkokauppa
                 string x = ex.Message;
             }
 
-
-
-
-            foreach (string genre in Statistics.ListOfGenres)
-            {
-                Game_By_Genre.Items.Add(genre);
-            }
-
-
-
-
-
-
-
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            Statistics.LoggedInUser = "";
+            
             this.Frame.Navigate(typeof(login1));
         }
 

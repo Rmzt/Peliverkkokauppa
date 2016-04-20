@@ -45,7 +45,7 @@
         <Button x:Name="Buy" Content="Buy" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,243,569,0" Height="52" Width="135" FontSize="33.333"/>
         <Canvas HorizontalAlignment="Right" Height="52
                 " VerticalAlignment="Top" Width="135" Margin="0,303,569,0" Background="#7A3F5E83">
-            <TextBlock x:Name="Price" TextWrapping="Wrap" Text="11,50€" Height="40" FontSize="33.333" SelectionHighlightColor="{x:Null}" Width="135" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="Price" TextWrapping="Wrap" Text="{Binding Price_input}" Height="40" FontSize="33.333" SelectionHighlightColor="{x:Null}" Width="135" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         </Canvas>
         <Button x:Name="Gallery" Content="Gallery" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,360,569,0" Height="52" Width="135" FontSize="33.333"/>
 

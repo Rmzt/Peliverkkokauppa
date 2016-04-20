@@ -42,8 +42,7 @@ namespace Peliverkkokauppa
 
             MediaFiles = new Dictionary<int, MediaFile>();
             Reviews = new Dictionary<int, Review>();
-
-            GetCover(GameID);
+            
         }
 
         public Game()
@@ -78,14 +77,6 @@ namespace Peliverkkokauppa
             Reviews.Add(i, t);
 
         }
-
-        public void GetCover(int GameID)
-        {
-            SQL_queryies sql = new SQL_queryies();
-            string path = sql.CoverImg(GameID);
-            Coverimg = path;
-        }
-
 
     }
 }

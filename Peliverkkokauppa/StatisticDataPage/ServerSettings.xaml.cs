@@ -41,7 +41,7 @@ namespace Peliverkkokauppa
             Pbox.Password = SQL.password;
             Dbox.Text = SQL.database;
 
-            string x = "";
+ 
 
             /*
             try { 
