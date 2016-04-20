@@ -62,6 +62,7 @@ namespace Peliverkkokauppa
                 Games_box.Text += game.Coverimg + Environment.NewLine; ;
                 Games_box.Text += "-------------------" + Environment.NewLine;
             }
+                Games_box.Text += "End of stream";
             } else
             {
                 Games_box.Text = "No games found";
