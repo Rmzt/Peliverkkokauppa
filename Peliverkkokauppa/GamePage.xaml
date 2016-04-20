@@ -19,7 +19,7 @@
             <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
             <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
-            <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="509" Margin="32,139,0,-333" Source="Assets/coverimg/default.png"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="509" Margin="32,139,0,-333" Source="{x:Bind Cover}"/>
 
 
             <Canvas Height="81" VerticalAlignment="Top" Width="412" HorizontalAlignment="Right" Margin="808,363,60,-333" Background="#7A3F5E83" Grid.ColumnSpan="2">
