@@ -8,7 +8,7 @@ namespace Peliverkkokauppa
 {
     class Employee : Person
     {
-        public Employee(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
+        public Employee(string firstname, string lastname, string username, string password, string email, string phonenumber, string address, DateTime accountCreated)
             : base (firstname, lastname, username, password, email, phonenumber, address, accountCreated)
         {
             Firstname = firstname;

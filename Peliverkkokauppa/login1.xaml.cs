@@ -40,6 +40,7 @@ namespace Peliverkkokauppa
                 readData();
                 Firsttry = false;
             }
+
             this.InitializeComponent();
         }
 

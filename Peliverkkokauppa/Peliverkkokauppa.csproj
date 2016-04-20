@@ -165,6 +165,7 @@
     <Content Include="Assets\ConnectionSettings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\coverimg\default.png" />
     <Content Include="Assets\coverimg\pelipeli.bmp" />
     <Content Include="Assets\coverimg\pilkki.bmp" />
     <Content Include="Assets\coverimg\pimea.bmp" />
