@@ -22,9 +22,20 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class Profiili : Page
     {
+
+        public string username = Statistics.LoggedInUser.Username;
+
         public Profiili()
         {
             this.InitializeComponent();
+
+
+            Username.Text = username;
+            foreach (Game game in Statistics.LoggedInUser.OwnedGame.Values)
+            {
+                Owned_Games.Items.Add(game.Name);
+            }
+
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)

@@ -10,13 +10,11 @@
 
     <Page.Resources>
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
-            <StackPanel Orientation="Horizontal">
-                <StackPanel HorizontalAlignment="Left">
-                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="70" Height="100" ImageFailed="Image_ImageFailed"/>
-                    <StackPanel Margin="20,0,0,0">
-                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
-                        <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="14"/>
-                    </StackPanel>
+            <StackPanel HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="200" Height="200" ImageFailed="Image_ImageFailed"/>
+                <StackPanel Margin="20,0,0,10">
+                    <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
+                    <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="14"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -45,7 +43,6 @@
 
             <StackPanel Grid.Row="0" Background="#FF606785" Orientation="Horizontal">
                 <Button Name="Selailu" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5"/>
-                <Button x:Name="Selailu_Copy" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5"/>
             </StackPanel>
 
 
@@ -54,9 +51,9 @@
                 <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
             </Button>
 
-            <ListView x:Name="New_Games" Grid.Row="1" FlowDirection="LeftToRight" HorizontalAlignment="Left"  ItemsSource="{x:Bind Listat}"
+            <ListView x:Name="New_Games" Grid.Row="1"  ItemsSource="{x:Bind Listat}"
               IsItemClickEnabled="True"
-              ItemTemplate="{StaticResource GameDataList}" Margin="86,361,0,32" Width="1108" TabNavigation="Once" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" Header="New_games" BorderThickness="1" ItemClick="New_Games_ItemClick">
+              ItemTemplate="{StaticResource GameDataList}" Margin="2,0,15,5" TabNavigation="Cycle" Header="New_games" BorderThickness="1" ItemClick="New_Games_ItemClick" VerticalAlignment="Bottom" Width="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Stretch" CanDrag="True" Height="317" HorizontalContentAlignment="Stretch" CanDragItems="True">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Horizontal"/>
@@ -64,6 +61,6 @@
                 </ListView.ItemsPanel>
             </ListView>
         </Grid>
-
     </Grid>
+
 </Page>

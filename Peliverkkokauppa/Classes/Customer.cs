@@ -11,7 +11,7 @@ namespace Peliverkkokauppa
     {
         public Dictionary<int, Game> OwnedGame = new Dictionary<int, Game>();
         public List<Customer> Customers { get; set; }
-        public Customer(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
+        public Customer(string firstname, string lastname, string username, string password, string email, string phonenumber, string address, DateTime accountCreated)
             : base (firstname, lastname, username, password, email, phonenumber, address, accountCreated)
         {
             Firstname = firstname;
