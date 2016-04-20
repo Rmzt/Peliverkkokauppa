@@ -62,7 +62,9 @@ namespace Peliverkkokauppa
 
         private void Peli1_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(GamePage));
+            //Game testgame = new Game { };
+            //testgame = ListOfGames[1];
+            this.Frame.Navigate(typeof(GamePage), Statistics.ListOfGames[1]);
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
