@@ -23,6 +23,11 @@ namespace Peliverkkokauppa
     public sealed partial class GameSearch : Page
     {
         public List<string> Genres = Statistics.ListOfGenres;
+        public List<Game> GameList { get; set; }
+        public Dictionary<int, Game> DictionaryOfGames = Statistics.ListOfGames;
+        public List<Game> SortedList { get; set; }
+
+
         public String SelectedFilter { get; set; }
         public string DefaultUser = "Not logged in";
         
@@ -37,8 +42,10 @@ namespace Peliverkkokauppa
                 User.Text = DefaultUser;
             }
 
-
+            GameList = DictionaryOfGames.Values.ToList();
+            SortedList = GameList.OrderBy(o => o.ReleaseDate).ToList();
             
+
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
