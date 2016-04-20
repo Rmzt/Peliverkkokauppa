@@ -102,5 +102,10 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(Frontpage));
         }
+
+        private void Rating_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Score.Text = "Selected employee: ";
+        }
     }
 }
