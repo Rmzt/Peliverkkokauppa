@@ -15,13 +15,12 @@ namespace Peliverkkokauppa
         public static Dictionary<string, Developer> ListOfDevelopers = new Dictionary<string, Developer>();
         public static List<string> ListOfGenres = new List<string>();
 
+        private static List<Customer> ListofCustomers { get; set; }
 
-        public static string LoggedInUser { get; set; }
+        internal static Customer LoggedInUser = new Customer();
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
 
         //public static Customer LoggedInCustomer { get; set; }
-
-        public static Dictionary<int, Game> OwnedGames = new Dictionary<int, Game>();
 
 
 
@@ -46,27 +45,61 @@ namespace Peliverkkokauppa
             return true;
         }
 
-        public bool AddtoDev(Developer X)
+        private List<Customer> CustomersList()
         {
-            SQL_queryies sql = new SQL_queryies();
+            List<Customer> ListofCustomers = new List<Customer>();
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Customer.txt");
 
+            foreach (string line in mydocument)
+            {
+                string[] arrays = line.Split(Convert.ToChar(";"));
+                Customer Customer = new Customer(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToInt32(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
+                ListofCustomers.Add(Customer);
+            }
 
-            try {
-                Developer InsertDev = new Developer(X.Name, X.Address, X.Description, X.Email);
-                sql.SQL_Insert_Developer(InsertDev);
-                ListOfDevelopers.Add(X.Name, InsertDev);           
-                return true;
+            return ListofCustomers;
+        }
+
+        public bool CustomerExists(string username, string password)
+        {
+            List<Customer> Customers = CustomersList();
+
+            foreach(Customer user in Customers)
+            {
+                if(user.Username == username && user.Password == password)
+                {
+                    return true;
+                }
             }
-            catch (Exception) {
-                return false;
+            
+            return false;
+        }
+
+        private Dictionary<int,Game> GetOwnedGames(Customer customer)
+        {
+            Dictionary<int, Game> Games = new Dictionary<int, Game>();
+
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Transactions.txt");
+
+            foreach (string line in mydocument)
+            {
+                string[] arrays = line.Split(Convert.ToChar(";"));
+
+                if (arrays[2] == customer.Username)
+                {
+                    Games.Add(Convert.ToInt32(arrays[0]), ListOfGames[Convert.ToInt32(arrays[0])]);
+                }
             }
+
+            return Games;
         }
 
         public void Logout()
         {
-            LoggedInUser = "";
+            
             IsCustomer = true;
-            OwnedGames.Clear();
         }
+        
+
     }
 }

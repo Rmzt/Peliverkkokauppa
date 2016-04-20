@@ -17,25 +17,10 @@ namespace Peliverkkokauppa
 
         }
 
-        public bool AuthenticateUser(string Username, string Password)
-        {
-
-            //Kun on aikaa, kokeile encryptaus ja decryptaus menetelmiä
-            try {
-               
-                string query = String.Format("Select * From Account Where Username = {0} and Password = {1};", Username, Password);
-                MySqlDataReader lukija = Sql.Query(query);
-                return true;
 
 
-            } catch(MySqlException error)
-            {
-                string x = error.Message;
-                return false;
-                
-            }
-            
-            
-        }
+
+
     }
 }
+

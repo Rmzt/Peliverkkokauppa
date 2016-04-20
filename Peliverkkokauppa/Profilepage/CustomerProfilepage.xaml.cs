@@ -23,13 +23,16 @@ namespace Peliverkkokauppa
     public sealed partial class CustomerProfilepage : Page
     {
         public Statistics stat { get; set; }
+        public Dictionary<int, Game> Games = new Dictionary<int, Game>();
 
         public CustomerProfilepage()
-        {
-            string user = Statistics.LoggedInUser;
+        { 
+           
 
             this.InitializeComponent();
         }
+        
+        
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {

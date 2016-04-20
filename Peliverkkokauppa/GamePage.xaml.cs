@@ -25,9 +25,16 @@ namespace Peliverkkokauppa
 
         public Game Selection { get; set; }
 
+        public string Name_input { get; set; }
+        public string Description { get; set; }
+        public float Price_input { get; set; }
+        public string Genre { get; set; }
+        public string Cover { get; set; }
+        
         public GamePage()
         {
             this.InitializeComponent();
+            Price.Text = Convert.ToString(Price_input);
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -42,10 +49,24 @@ namespace Peliverkkokauppa
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //Otetaan vastaan sivulle siiretty data valitusta pelistä.
+
             if(e.Parameter is Game)
             {
                 Selection = (Game)e.Parameter;
 
+                Name_input = Selection.Name;
+                Title.Text = Name_input;
+
+
+                Description = Selection.Description;
+
+                Price_input = Selection.Price;
+                
+                Price.Text = Price_input.ToString() + "€";
+
+                Genre = Selection.Genre;
+                Cover = Selection.Coverimg;
             }
 
 

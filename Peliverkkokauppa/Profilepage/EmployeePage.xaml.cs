@@ -20,23 +20,11 @@ namespace Peliverkkokauppa
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Profiili : Page
+    public sealed partial class EmployeePage : Page
     {
-        public Profiili()
+        public EmployeePage()
         {
             this.InitializeComponent();
         }
-
-        private void Profile_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Frontpage));
-        }
-
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(login1));
-        }
-
-       
     }
 }

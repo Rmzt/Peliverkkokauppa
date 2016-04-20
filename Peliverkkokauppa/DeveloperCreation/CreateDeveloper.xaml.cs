@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Text;
+using System.Threading.Tasks;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -44,41 +47,28 @@ namespace Peliverkkokauppa
             string Email = Email_input.Text;
 
             //tarkistetaan onko käyttäjä merkinnyt hyväskyttävät vaihtoehdot 
-            if(ValidName(Name) != true || ValidAddress(Address) != true || ValidEmail(Email) != false)
+            if (ValidName(Name) != true || ValidAddress(Address) != true || ValidEmail(Email) != false)
             {
                 System_error.Text = "There were error on new information. Check them for error messages";
-            } else
+            }
+            else
             {
-                
-            
-            
-            if(ValidName(Name) == true && ValidAddress(Address) == true)
-            {
-                Developer newPublisher = new Developer(Name, Address, Description, Email);
-
-                SQL_queryies sql = new SQL_queryies();
 
 
-                try { 
-                    sql.TestConnection();
-                    if (Statistics.AddtoDev(newPublisher) == true)
-                    {
-                        this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
-                    }
-                    else
-                    {
-                        System_error.Text = "Creating new Developer has failed";
-                    }
-                }
 
-                catch (Exception)
+                if (ValidName(Name) == true && ValidAddress(Address) == true)
                 {
-                        System_error.Text = "There was an error on creating the developer. Try again later";
+                    Developer newPublisher = new Developer(Name, Address, Description, Email);
+                    StringWriter write = new StringWriter();
+
+                    
+                this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
+
+
+
                 }
-              }
             }
         }
-
         public bool ValidName(string name)
         {
             if (name.Length <= 4)

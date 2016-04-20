@@ -9,7 +9,7 @@ namespace Peliverkkokauppa
 {
     class Customer : Person
     {
-        public Dictionary<int, Game> OwnedGame { get; set; }
+        public Dictionary<int, Game> OwnedGame = new Dictionary<int, Game>();
         public List<Customer> Customers { get; set; }
         public Customer(string firstname, string lastname, string username, string password, string email, int phonenumber, string address, DateTime accountCreated)
             : base (firstname, lastname, username, password, email, phonenumber, address, accountCreated)
@@ -72,6 +72,22 @@ namespace Peliverkkokauppa
 
 
 
+        }
+
+        public Dictionary<int, Game> GetOwnedGames()
+        {
+            Dictionary<int, Game> UsersGames = new Dictionary<int, Game>();
+
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Customer.txt");
+
+            foreach (string line in mydocument)
+            {
+                string[] arrays = line.Split(Convert.ToChar(";"));
+                Developer dev = new Developer(arrays[0], arrays[1], arrays[2], arrays[3]);
+                Statistics.ListOfDevelopers.Add(dev.Name, dev);
+            }
+
+            return UsersGames;
         }
 
     }

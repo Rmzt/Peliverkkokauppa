@@ -56,8 +56,7 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(Debugger));
 
-            SQL_queryies SQL = new SQL_queryies();
-            SQL.SQL_INSERT_GAME(New_Game);
+            Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
 
         }
 

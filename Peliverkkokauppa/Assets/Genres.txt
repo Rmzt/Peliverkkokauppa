@@ -1,0 +1,5 @@
+﻿Action
+Horror
+Simulation
+Puzzle
+Point and click
