@@ -93,7 +93,10 @@ namespace Peliverkkokauppa
            // this.Frame.Navigate(typeof(SearchPage));
         }
 
-        
+        private void Profile2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CustomerProfilepage));
+        }
     }
 
     }

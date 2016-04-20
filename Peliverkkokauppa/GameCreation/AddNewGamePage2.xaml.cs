@@ -57,7 +57,10 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(Debugger));
 
             Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
-
+          
+            System.IO.StreamWriter file = new System.IO.StreamWriter(File.OpenWrite(@"Assets/Games.txt"));
+            file.WriteLineAsync("toimii");
+            file.Dispose();
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

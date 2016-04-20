@@ -12,7 +12,7 @@
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
             <StackPanel Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Left">
-                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="70" Height="100" ImageFailed="Image_ImageFailed"/>
+                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="70" Height="100"/>
                     <StackPanel Margin="20,0,0,0">
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="14"/>
@@ -54,7 +54,6 @@
             </StackPanel>
 
             <GridView ItemsSource="{x:Bind Game}"
-              ItemClick="ListView_ItemClick"
               IsItemClickEnabled="True"
               ItemTemplate="{StaticResource GameDataList}" Margin="491,10,75,88"/>
 
