@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Reflection;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,12 +27,15 @@ namespace Peliverkkokauppa
         public List<string> Genres = Statistics.ListOfGenres;
         public List<Game> GameList { get; set; }
         public Dictionary<int, Game> DictionaryOfGames = Statistics.ListOfGames;
-        public List<Game> SortedList { get; set; }
 
-
-        public String SelectedFilter { get; set; }
-        public string DefaultUser = "Not logged in";
         
+        public ObservableCollection<Game> List = new ObservableCollection<Game>();
+        
+        public PropertyInfo SelectedFilter { get; set; }
+        public string DefaultUser = "Not logged in";
+
+        public bool First = true;
+
         public GameSearch()
         {
             this.InitializeComponent();
@@ -42,15 +47,29 @@ namespace Peliverkkokauppa
                 User.Text = DefaultUser;
             }
 
-            GameList = DictionaryOfGames.Values.ToList();
-            SortedList = GameList.OrderBy(o => o.ReleaseDate).ToList();
             
+            if(First == true)
+            {
+                GameList = DictionaryOfGames.Values.ToList();
+                foreach(Game game in GameList)
+                {
+                    List.Add(game);
+                }
+                First = false;
+            }
+            else
+            {
+                Output.DataContextChanged += (s, e) => Bindings.Update();
+            }
+
 
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            Statistics stat = new Statistics();
+            stat.Logout();
+            this.Frame.Navigate(typeof(login1));
         }
 
         private void Profile_Click(object sender, RoutedEventArgs e)
@@ -60,7 +79,25 @@ namespace Peliverkkokauppa
 
         private void Options_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SelectedFilter = e.ClickedItem.ToString();
+            List.Clear();
+            foreach (Game game in GameList)
+            {
+                if(game.Genre == e.ClickedItem.ToString())
+                {
+                    List.Add(game);
+                    
+                }
+
+            }
+            
         }
+
+
+
+        /*
+        //Järjestellään valinnan mukaan...
+            SelectedFilter = typeof(Game).GetProperty(e.ClickedItem.ToString());
+            SortedList = SortedList.OrderBy(o => SelectedFilter).ToList();
+        */
     }
 }

@@ -30,9 +30,17 @@ namespace Peliverkkokauppa
         public Profiili()
         {
             this.InitializeComponent();
+            try { 
             Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
+            Username.Text = Statistics.LoggedInUser.Username;
+            Age.Text = Statistics.LoggedInUser.Username;
+            Firstname.Text = Statistics.LoggedInUser.Firstname;
+            Surname.Text = Statistics.LoggedInUser.Lastname;
+            Mail.Text = Statistics.LoggedInUser.Address;
+            Number.Text = Statistics.LoggedInUser.Phonenumber;
+            AccountCreated.Text = Statistics.LoggedInUser.AccountCreated.Date.ToString();
 
-            if(Statistics.LoggedInUser.Username != null)
+            if (Statistics.LoggedInUser.Username != null)
             {
                 Username.Text = username;
             }
@@ -40,7 +48,10 @@ namespace Peliverkkokauppa
             {
 
             }
-
+            } catch(ArgumentNullException)
+            {
+                Username.Text = "No user logged in";
+            }
 
         }
 

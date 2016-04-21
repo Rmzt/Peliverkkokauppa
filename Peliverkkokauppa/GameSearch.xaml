@@ -8,6 +8,23 @@
     xmlns:data="using:Peliverkkokauppa"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <Grid>
+                    <TextBlock Text="{x:Bind Name}" FontSize="16" TextAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                    <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,0,0">
+                        <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="#FFBFB6C9">
         <Grid.RowDefinitions>
@@ -34,14 +51,15 @@
             </Grid.ColumnDefinitions>
 
 
-            <GridView x:Name="Options" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Genres}" HorizontalAlignment="Stretch" Margin="0" Width="318" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" ItemClick="Options_ItemClick">
+            <GridView x:Name="Options" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Genres}" HorizontalAlignment="Stretch" Margin="0" Width="318" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemClick="Options_ItemClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" IsItemClickEnabled="True">
                 <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
+                    <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>
-            <GridView x:Name="Output" Grid.Row="1" Grid.Column="1" ItemsSource="{x:Bind SortedList}" HorizontalAlignment="Stretch" Margin="0" Width="318" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" ItemClick="Options_ItemClick">
+
+            <GridView x:Name="Output" Grid.Column="1" ItemsSource="{x:Bind List}"  ItemTemplate="{StaticResource GameDataList}" Margin="10,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10"  Width="814">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Vertical"/>
