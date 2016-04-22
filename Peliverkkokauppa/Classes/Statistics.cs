@@ -156,5 +156,15 @@ namespace Peliverkkokauppa
             return Games;
         }
 
+
+
+        public void ChangeCustomers(string firstname, string lastname, string username, string password, string address, string phonenumber, string email, DateTime datecreated)
+        {
+            List<Customer> lista = CustomersList();
+            foreach(Customer cust in lista)
+            {
+               
+            }
+        }
     }
 }
