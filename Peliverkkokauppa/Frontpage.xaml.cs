@@ -70,7 +70,15 @@ namespace Peliverkkokauppa
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Profiili));
+            if (Statistics.IsCustomer == true)
+            {
+                this.Frame.Navigate(typeof(Profiili));
+
+            }
+            else
+            {
+                this.Frame.Navigate(typeof(EmployeePage));
+            }
         }
 
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
@@ -94,10 +102,6 @@ namespace Peliverkkokauppa
            // this.Frame.Navigate(typeof(SearchPage));
         }
 
-        private void Profile2_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Profiili));
-        }
 
         private void Selailu_Click(object sender, RoutedEventArgs e)
         {

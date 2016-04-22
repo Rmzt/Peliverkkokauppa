@@ -24,8 +24,8 @@
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
         </Grid>
         <Grid Grid.Row="1" Margin="-10,5,0,-5">
-            <StackPanel HorizontalAlignment="Left" Margin="70,0,0,30" Orientation="Vertical" VerticalAlignment="Bottom">
-                <StackPanel Orientation="Vertical" Width="645">
+            <StackPanel HorizontalAlignment="Left" Margin="70,0,0,62" Orientation="Vertical" VerticalAlignment="Bottom">
+                <StackPanel Orientation="Vertical" Width="645" VerticalAlignment="Top">
 
 
 
@@ -92,7 +92,7 @@
             </StackPanel>
             <Grid HorizontalAlignment="Right" Margin="0,80,70,218" Width="177">
                 <ToggleSwitch x:Name="customer_employee" Header="Customer/Employee" HorizontalAlignment="Stretch" Height="62" Margin="0,0,23,0" VerticalAlignment="Top" Width="126" IsOn="True" OffContent="Customer" OnContent="Employee"/>
-                <Button x:Name="Save" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,127,0,124" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+                <Button x:Name="Save" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,127,0,124" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Height="60"/>
                 <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="60" d:LayoutOverrides="LeftPosition, RightPosition"/>
 
 

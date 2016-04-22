@@ -20,25 +20,28 @@
 
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <Button x:Name="Frontpage" Content="Frontpage" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="194" Click="Frontpage_Click"/>
+            <Button x:Name="Frontpage" Content="Frontpage" Height="61" Foreground="White" Margin="0,30,274,20" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="194" Click="Frontpage_Click"/>
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
         </Grid>
         <Grid Grid.Row="1">
-            <TextBlock x:Name="Person_output" HorizontalAlignment="Left" Height="56" Margin="52,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442"/>
-            <StackPanel HorizontalAlignment="Left" Margin="52,100,0,0" VerticalAlignment="Top">
-                <StackPanel x:Name="Game" Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Button x:Name="Create_Game" Content="Create Game" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="297" Height="67" Margin="0,0,50,0" Click="Create_Game_Click"/>
-                    <Button x:Name="Manage_Games" Content="Manage Games" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="297" Height="67"/>
+            <TextBlock x:Name="UserOutput" Margin="0,55,39,136" TextWrapping="Wrap" Text="" Width="435" FontSize="21.333" HorizontalAlignment="Right"/>
+            <Grid Margin="100,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0,1,0,0" Height="390">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <StackPanel x:Name="Game" Margin="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Button x:Name="Create_Game" Content="Create Game" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="297" Height="67" Margin="0,0,50,0" Click="Create_Game_Click"/>
+                        <Button x:Name="Manage_Games" Content="Manage Games" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="297" Height="67"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Developer" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+                        <Button x:Name="Create_Developer" Content="Create Developer" HorizontalAlignment="Center" Width="297" Click="Create_Developer_Click" VerticalAlignment="Center" Height="67" Margin="0,0,50,-1"/>
+                        <Button x:Name="Manage_Developers" Content="Manage developers" VerticalAlignment="Center" HorizontalAlignment="Center" Width="297" Height="67" Margin="0,0,0,-1"/>
+                    </StackPanel>
+                    <StackPanel x:Name="Employees" Height="65" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,27,0,0">
+                        <Button x:Name="CreateEmployee" Click="Create_Employee_Click" Content="Create Employee" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" d:LayoutOverrides="TopPosition, BottomPosition" Width="297" Height="67" Margin="0,0,50,0"/>
+                        <Button x:Name="Manage_Employees" Content="Manage Employees" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" d:LayoutOverrides="TopPosition, BottomPosition" Width="297" Height="67"/>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel x:Name="Developer" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-                    <Button x:Name="Create_Developer" Content="Create Developer" HorizontalAlignment="Center" Width="297" VerticalAlignment="Center" Height="67" Margin="0,0,50,-1"/>
-                    <Button x:Name="Manage_Developers" Content="Manage developers" VerticalAlignment="Center" HorizontalAlignment="Center" Width="297" Height="67" Margin="0,0,0,-1"/>
-                </StackPanel>
-                <StackPanel x:Name="Employees" Height="65" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,27,0,0">
-                    <Button x:Name="CreateEmployee" Content="Create Employee" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" d:LayoutOverrides="TopPosition, BottomPosition" Width="297" Height="67" Margin="0,0,50,0"/>
-                    <Button x:Name="Manage_Employees" Content="Manage Employees" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" d:LayoutOverrides="TopPosition, BottomPosition" Width="297" Height="67"/>
-                </StackPanel>
-            </StackPanel>
+                <Button x:Name="ManageProfile" Content="Manage user profile" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="297" Height="67" Margin="180,0,0,0" Click="ManageProfile_Click"/>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

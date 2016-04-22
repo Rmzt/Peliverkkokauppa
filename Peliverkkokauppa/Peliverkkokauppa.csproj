@@ -95,7 +95,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeCreationPages\EmployeeCreation.xaml.cs">
+    <Compile Include="Employee\EmployeeCreation.xaml.cs">
       <DependentUpon>EmployeeCreation.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeePage.xaml.cs">
@@ -207,7 +207,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="EmployeeCreationPages\EmployeeCreation.xaml">
+    <Page Include="Employee\EmployeeCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

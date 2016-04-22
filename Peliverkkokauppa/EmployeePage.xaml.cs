@@ -22,9 +22,20 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class EmployeePage : Page
     {
+        internal Employee user = Statistics.LoggedInEmployee;
+
         public EmployeePage()
         {
             this.InitializeComponent();
+
+            string title = "------" + user.Username + "------";
+            int countlenght = title.Length;
+            string ender = new string('-', countlenght);
+            UserOutput.Text += "------" + user.Username + "------" + Environment.NewLine;
+            UserOutput.Text += "Name: " + user.Firstname + " " + user.Lastname + Environment.NewLine;
+            UserOutput.Text += "Phonenumber: " + user.Phonenumber + " Address: " + user.Address + Environment.NewLine;
+            UserOutput.Text += ender;
+
         }
 
         private void Create_Game_Click(object sender, RoutedEventArgs e)
@@ -54,6 +65,11 @@ namespace Peliverkkokauppa
         private void Frontpage_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Frontpage));
+        }
+
+        private void ManageProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(EmployeeCreation));
         }
     }
 }
