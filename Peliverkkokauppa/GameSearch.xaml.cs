@@ -89,7 +89,26 @@ namespace Peliverkkokauppa
                 }
 
             }
+
+        
             
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            List.Clear();
+            foreach(Game game in GameList)
+            {
+                List.Add(game);
+            }
+        }
+
+        private void Output_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if(e.ClickedItem.GetType() == typeof(Game))
+            {
+                this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+            }
         }
 
 

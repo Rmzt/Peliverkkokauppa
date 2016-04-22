@@ -18,6 +18,9 @@ namespace Peliverkkokauppa
         private static List<Customer> ListofCustomers { get; set; }
 
         internal static Customer LoggedInUser = new Customer();
+        internal static Employee LoggedInEmployee = new Employee();
+
+
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
 
         //public static Customer LoggedInCustomer { get; set; }
@@ -66,7 +69,23 @@ namespace Peliverkkokauppa
             return ListofCustomers;
         }
 
-        /* ignoree tämä, olikin toteutettu login1 sivulle
+        internal List<Employee> EmployeeList()
+        {
+
+            List<Employee> ListofEmployees = new List<Employee>();
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/Employees.txt");
+
+            foreach (string line in mydocument)
+            {
+                string[] arrays = line.Split(Convert.ToChar(";"));
+                Employee employee= new Employee(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
+                ListofEmployees.Add(employee);
+            }
+
+            return ListofEmployees;
+        }
+
+        /* ignore tämä, olikin toteutettu login1 sivulle
 
         private Dictionary<int, Game> GamesList()
         {
@@ -86,8 +105,10 @@ namespace Peliverkkokauppa
         */
 
 
-        public bool CustomerExists(string username, string password)
+        public bool Authenticate(string username, string password)
         {
+
+            List<Employee> Employees = EmployeeList();
             List<Customer> Customers = CustomersList();
 
             foreach(Customer user in Customers)
@@ -101,7 +122,18 @@ namespace Peliverkkokauppa
                     return true;
                 }
             }
-            
+
+            foreach (Employee emplo in Employees)
+            {
+                if (emplo.Username == username && emplo.Password == password)
+                {
+                    Statistics.LoggedInEmployee = Employees.Find(Employee => Employee.Username.Contains(username) && Employee.Password.Contains(password));
+
+                    Statistics.IsCustomer = false;
+                    return true;
+                }
+            }
+
             return false;
         }
 

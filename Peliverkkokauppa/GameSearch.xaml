@@ -13,8 +13,8 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                     <Grid>
-                    <TextBlock Text="{x:Bind Name}" FontSize="16" TextAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
-                    <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
+                        <TextBlock Text="{x:Bind Name}" FontSize="16" TextAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                        <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
                     </Grid>
                     <StackPanel Margin="20,0,0,0">
                         <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16"/>
@@ -43,29 +43,41 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
 
-            <GridView x:Name="Options" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Genres}" HorizontalAlignment="Stretch" Margin="0" Width="318" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemClick="Options_ItemClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" IsItemClickEnabled="True">
-                <GridView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <ItemsStackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </GridView.ItemsPanel>
-            </GridView>
 
-            <GridView x:Name="Output" Grid.Column="1" ItemsSource="{x:Bind List}"  ItemTemplate="{StaticResource GameDataList}" Margin="10,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10"  Width="814">
-                <GridView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <ItemsStackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </GridView.ItemsPanel>
-            </GridView>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Reset" Grid.Row="0" Content="Reset Filters"  Height="32" HorizontalAlignment="Left" Margin="100,0,0,0" Click="Reset_Click"/>
+          
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <GridView x:Name="Options" Grid.Row="1" Grid.Column="0" ItemsSource="{x:Bind Genres}" HorizontalAlignment="Stretch" Margin="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemClick="Options_ItemClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" IsItemClickEnabled="True">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+
+
+
+                <GridView x:Name="Output" Grid.Column="1" Grid.Row="1" ItemsSource="{x:Bind List}"  ItemTemplate="{StaticResource GameDataList}" Margin="0,0,78,0" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" ItemClick="Output_ItemClick" IsItemClickEnabled="True">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </Grid>
+
         </Grid>
 
     </Grid>

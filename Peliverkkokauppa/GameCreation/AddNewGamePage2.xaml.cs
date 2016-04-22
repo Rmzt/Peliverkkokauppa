@@ -44,7 +44,7 @@ namespace Peliverkkokauppa
                 Game_info.Text += "Genre: " + New_Game.Genre + Environment.NewLine;
                 Game_info.Text += "Developer: " + New_Game.Developer + Environment.NewLine;
                 Game_info.Text += "Price: " + New_Game.Price + Environment.NewLine;
-                Game_info.Text += "ReleaseDate: " + New_Game.ReleaseDate + Environment.NewLine;
+                Game_info.Text += "ReleaseDate: " + New_Game.ReleaseDate.Date + Environment.NewLine;
                 
 
             }
@@ -57,10 +57,11 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(Debugger));
 
             Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
-          
-            System.IO.StreamWriter file = new System.IO.StreamWriter(File.OpenWrite(@"Assets/Games.txt"));
+          /*
+            System.IO.StreamWriter file = new System.IO.StreamWriter(File.OpenWrite(@"Assets/testcustomer.txt"));
             file.WriteLineAsync("toimii");
             file.Dispose();
+          */
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

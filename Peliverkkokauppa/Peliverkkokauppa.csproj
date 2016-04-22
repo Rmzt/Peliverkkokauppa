@@ -95,11 +95,14 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeCreationPages\EmployeeCreation.xaml.cs">
+      <DependentUpon>EmployeeCreation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePage.xaml.cs">
+      <DependentUpon>EmployeePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GameSearch.xaml.cs">
       <DependentUpon>GameSearch.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Profilepage\CustomerProfilepage.xaml.cs">
-      <DependentUpon>CustomerProfilepage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StatisticDataPage\AllData.xaml.cs">
       <DependentUpon>AllData.xaml</DependentUpon>
@@ -181,6 +184,7 @@
     <Content Include="Assets\Developer.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Employees.txt" />
     <Content Include="Assets\Games.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -203,11 +207,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GameSearch.xaml">
+    <Page Include="EmployeeCreationPages\EmployeeCreation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Profilepage\CustomerProfilepage.xaml">
+    <Page Include="EmployeePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GameSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

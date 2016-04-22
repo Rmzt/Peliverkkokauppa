@@ -96,7 +96,7 @@ namespace Peliverkkokauppa
 
         private void Profile2_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CustomerProfilepage));
+            this.Frame.Navigate(typeof(Profiili));
         }
 
         private void Selailu_Click(object sender, RoutedEventArgs e)

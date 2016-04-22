@@ -30,6 +30,14 @@ namespace Peliverkkokauppa
         public Profiili()
         {
             this.InitializeComponent();
+
+            if (Statistics.IsCustomer == false)
+            {
+                this.Frame.Navigate(typeof(EmployeePage));
+            }
+
+            
+
             try { 
             Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
             Username.Text = Statistics.LoggedInUser.Username;
@@ -66,6 +74,9 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(login1));
         }
 
-       
+        private void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+        }
     }
 }

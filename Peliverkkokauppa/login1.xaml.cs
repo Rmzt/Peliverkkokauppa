@@ -57,7 +57,7 @@ namespace Peliverkkokauppa
             string Password = PasswordBox.Password;
             Authenticate Auth = new Authenticate();
 
-            bool IsValidAccount = statistics.CustomerExists(Username, Password);
+            bool IsValidAccount = statistics.Authenticate(Username, Password);
 
             Statistics sk = new Statistics();
             

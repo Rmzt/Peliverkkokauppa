@@ -26,5 +26,34 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
         }
+
+        private void Create_Game_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddNewGame));
+        }
+
+        private void Create_Developer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CreateDeveloper));
+        }
+
+        private void Create_Employee_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(EmployeeCreation));
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Statistics stat = new Statistics();
+            stat.Logout();
+
+            this.Frame.Navigate(typeof(login1));
+        }
+
+
+        private void Frontpage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Frontpage));
+        }
     }
 }

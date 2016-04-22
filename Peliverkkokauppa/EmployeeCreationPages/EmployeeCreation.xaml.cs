@@ -20,27 +20,24 @@ namespace Peliverkkokauppa
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CustomerProfilepage : Page
+    public sealed partial class EmployeeCreation : Page
     {
-        public Statistics stat { get; set; }
-        public List<Game> Game = new List<Game>();
-
-        public CustomerProfilepage()
-        { 
+        public EmployeeCreation()
+        {
             this.InitializeComponent();
-
-            Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
-            
-
-
         }
-        
-        
+
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            Statistics stat = new Statistics();
             stat.Logout();
             this.Frame.Navigate(typeof(login1));
+        }
+
+        private void Frontpage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Frontpage));
         }
     }
 }

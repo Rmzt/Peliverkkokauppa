@@ -37,7 +37,7 @@
                >     
             <GridView ItemsSource="{x:Bind Game}"
               IsItemClickEnabled="True"
-              ItemTemplate="{StaticResource GameDataList}" Margin="52,227,367,51"/>
+              ItemTemplate="{StaticResource GameDataList}" Margin="52,227,367,51" ItemClick="GridView_ItemClick"/>
 
        
         <Grid Width="287" HorizontalAlignment="Right" Margin="0,116,0,0" >
