@@ -32,6 +32,7 @@ namespace Peliverkkokauppa
         public string Genre { get; set; }
         public string Developer { get; set; }
         public string Cover { get; set; }
+        public string ScoreNumber { get; set; }
         public DateTimeOffset ReleaseDate { get; set; }
 
 
@@ -82,6 +83,8 @@ namespace Peliverkkokauppa
                 Cover = Selection.Coverimg;
                 ReleaseDate = Selection.ReleaseDate;
 
+                ScoreNumber = Selection.GetScore();
+
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
                 Cover = Selection.Coverimg;
 
@@ -103,7 +106,7 @@ namespace Peliverkkokauppa
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {
-
+            Statistics.LoggedInUser.AddOwnedGame(Selection.GameID, Selection);
         }
 
         private void Frontpage_Click(object sender, RoutedEventArgs e)
@@ -113,7 +116,8 @@ namespace Peliverkkokauppa
 
         private void Rating_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Score.Text = "Selected employee: ";
+            Score.TextAlignment = TextAlignment.Left;
+            Score.Text = "Review added: ";
         }
     }
 }

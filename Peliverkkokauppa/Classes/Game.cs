@@ -64,6 +64,26 @@ namespace Peliverkkokauppa
             
         }
 
+        public string GetScore()
+        {
+            float i = 0;
+
+            if (Reviews.Count != 0)
+            {
+                return "No reviews";
+
+            } else
+            {
+                foreach(Review rew in Reviews.Values)
+                {
+                    i += rew.Stars; 
+                }
+            }
+            
+            string x = Convert.ToString(i);
+            return x;
+        }
+
         public Game()
         {
             MediaFiles = new Dictionary<int, MediaFile>();
@@ -93,8 +113,14 @@ namespace Peliverkkokauppa
 
         public void AddReview(int i, Review t)
         {
-            Reviews.Add(i, t);
-
+            foreach(Game game in Statistics.ListOfGames.Values)
+            {
+                if(GameID == game.GameID)
+                {
+                    game.Reviews.Add(i, t);
+                }
+            }
+            
         }
 
     }
