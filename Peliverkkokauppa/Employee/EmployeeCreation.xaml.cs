@@ -53,7 +53,7 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(Frontpage));
         }
 
-        private void Save_Employee_Click(object sender, RoutedEventArgs e)
+        private async void Save_Employee_Click(object sender, RoutedEventArgs e)
         {
             int i;
             bool AcceptInput = true;
@@ -94,7 +94,18 @@ namespace Peliverkkokauppa
                 AcceptInput = false;
             }
 
-            if(AcceptInput != false)
+
+
+            Windows.Storage.StorageFolder storage =
+                        Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            Windows.Storage.StorageFile file = await storage.CreateFileAsync("Customers.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
+            Windows.Storage.StorageFile samplefile = await storage.GetFileAsync("Customer.txt");
+
+
+
+
+            if (AcceptInput != false)
             {
                 if(ChangeData == false)
                 {
@@ -103,6 +114,11 @@ namespace Peliverkkokauppa
                     if (Accounttype == "Employee")
                     {
                         Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
+
+                        await Windows.Storage.FileIO.WriteTextAsync(samplefile, employee.Firstname);
+
+
+
                     } else
                     {
                         Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
@@ -111,6 +127,8 @@ namespace Peliverkkokauppa
                 }
                 else
                 {
+                    
+                    
                     //Muutetaan työntekijän tietoja
                 }
                 

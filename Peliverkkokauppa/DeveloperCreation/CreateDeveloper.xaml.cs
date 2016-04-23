@@ -55,7 +55,6 @@ namespace Peliverkkokauppa
             {
 
 
-
                 if (ValidName(Name) == true && ValidAddress(Address) == true)
                 {
                     Developer newPublisher = new Developer(Name, Address, Description, Email);
@@ -69,6 +68,10 @@ namespace Peliverkkokauppa
                 }
             }
         }
+
+
+        
+
         public bool ValidName(string name)
         {
             if (name.Length <= 4)

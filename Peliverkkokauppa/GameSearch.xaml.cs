@@ -39,7 +39,17 @@ namespace Peliverkkokauppa
         public GameSearch()
         {
             this.InitializeComponent();
-            if(User.Text.Length != 0)
+
+            OtherFilter.Items.Add("No filter");
+            OtherFilter.Items.Add("Lowest price");
+            OtherFilter.Items.Add("Highest price");
+            OtherFilter.Items.Add("Biggest score");
+            OtherFilter.Items.Add("Lowest score");
+           
+
+
+
+            if (User.Text.Length != 0)
             {
                 User.Text = Statistics.LoggedInUser.Username;
             } else
@@ -105,10 +115,14 @@ namespace Peliverkkokauppa
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             List.Clear();
-            foreach(Game game in GameList)
+
+
+            foreach (Game game in GameList)
             {
                 List.Add(game);
             }
+
+
         }
 
         private void Output_ItemClick(object sender, ItemClickEventArgs e)
@@ -119,6 +133,82 @@ namespace Peliverkkokauppa
             }
         }
 
+        private void ResetAllFilters_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OtherFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+             OtherFilter.Items.Add("No filter");
+            OtherFilter.Items.Add("Lowest price");
+            OtherFilter.Items.Add("Highest price");
+            OtherFilter.Items.Add("Biggest score");
+            OtherFilter.Items.Add("Lowest score");
+            */
+
+             List<Game> Sortedlist = new List<Game>();
+
+            switch (OtherFilter.SelectedValue.ToString())
+            {
+                case "No filter":
+                    {
+                        List.Clear();
+                        foreach(Game game in GameList)
+                        {
+                            List.Add(game);
+                        }
+
+                        break;
+                    }
+
+                case "Lowest price":
+                    {
+                        List.Clear();
+                        foreach (Game game in GameList)
+                        {
+                           Sortedlist.Add(game);
+                        }
+                        Sortedlist = Sortedlist.OrderBy(o => o.Price).ToList();
+                        
+                        foreach(Game game in Sortedlist)
+                        {
+                            List.Add(game);
+                        }
+
+                        break;
+                    }
+
+
+                case "Highest price":
+                    {
+                        List.Clear();
+                        foreach (Game game in GameList)
+                        {
+                            Sortedlist.Add(game);
+                        }
+                        Sortedlist = Sortedlist.OrderByDescending(o => o.Price).ToList();
+
+                        foreach (Game game in Sortedlist)
+                        {
+                            List.Add(game);
+                        }
+
+                        break;
+                    }
+                case "Biggest score":
+                    {
+                        break;
+                    }
+                case "Lowest score":
+                    {
+                        break;
+                    }
+            }
+
+        }
+
 
 
         /*
@@ -126,5 +216,5 @@ namespace Peliverkkokauppa
             SelectedFilter = typeof(Game).GetProperty(e.ClickedItem.ToString());
             SortedList = SortedList.OrderBy(o => SelectedFilter).ToList();
         */
+        }
     }
-}

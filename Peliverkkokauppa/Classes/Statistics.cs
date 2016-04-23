@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Authentication;
 using Windows.Security.Cryptography.Core;
+using Windows.Storage;
+using System.Reflection;
+
+
 namespace Peliverkkokauppa
 {
     public class Statistics
@@ -23,7 +27,13 @@ namespace Peliverkkokauppa
 
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
 
-        //public static Customer LoggedInCustomer { get; set; }
+        public StorageFolder folder = ApplicationData.Current.LocalFolder;
+
+
+        public static int Minimum = 0;
+        public static int Maximum = 100;
+        public static int LowerValue = 0;
+        public static int UpperValue = 100;
 
 
 
@@ -166,5 +176,62 @@ namespace Peliverkkokauppa
                
             }
         }
+
+
+        public async Task<StorageFile> CreateFile(string filename)
+        {
+             
+            //Luo appdata kasioon tiedosto
+            StorageFile file = await folder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);
+            return file;
+            
+        }
+
+        internal async void CustomerWriteToFile(string filename, List<Customer> InputList)
+        {
+            //Hakee tiedoston kirjoitettavaksi. Kirjoittaa tiedostoon C:/users/USER/AppData.....
+            var file = await folder.CreateFileAsync(filename,CreationCollisionOption.OpenIfExists);
+            var stream = await file.OpenAsync(FileAccessMode.ReadWrite);
+
+            Type tyyppi = InputList.GetType();
+            int attributeCount = 0;
+
+            foreach (PropertyInfo property in tyyppi.GetProperties())
+            {
+                attributeCount += property.GetCustomAttributes(false).Count();
+            }
+
+
+            using (var outputStream = stream.GetOutputStreamAt(0))
+            {
+                using(var datawriter = new Windows.Storage.Streams.DataWriter(outputStream))
+                {
+                    datawriter.WriteString("Testi");
+                    await datawriter.StoreAsync();
+                    
+                }
+            }
+
+            stream.Dispose();
+            
+        }
+
+        public async Task<bool> LocalFilesExists()
+        {
+            try
+            {
+                await folder.GetFileAsync("Customer.txt");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+
+            }
+
+        }
+
+
+
     }
 }

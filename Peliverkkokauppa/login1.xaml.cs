@@ -42,6 +42,7 @@ namespace Peliverkkokauppa
             }
 
             this.InitializeComponent();
+            
         }
 
         private void NeAcc_Click(object sender, RoutedEventArgs e)
@@ -50,6 +51,48 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(CreateAccount1));
 
         }
+        
+
+
+
+        public async void WriteInputsToLocalFile()
+        {
+            //Jos paikallisia tiedostoja ei ole olemassa ne luodaan.
+
+            /*
+
+            1. Tarkista onko tiedostot olemassa
+            2. Jos ei Kirjoita tekstitiedostojen sisältö localtiesdostoon
+            3. Jos kyllä ei tehdä mitään.
+
+            */
+
+
+            if (await statistics.LocalFilesExists() == false)
+            {
+                await statistics.CreateFile("Customer.txt");
+                await statistics.CreateFile("Developer.txt");
+                await statistics.CreateFile("Employees.txt");
+                await statistics.CreateFile("Games.txt");
+                await statistics.CreateFile("Genres.txt");
+                await statistics.CreateFile("Transactions.txt");
+
+             
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -125,7 +168,8 @@ namespace Peliverkkokauppa
 
                 foreach (string line in mydocument)
                 {
-                    Statistics.ListOfGenres.Add(line); 
+                    Statistics.ListOfGenres.Add(line);
+
                 }
 
 
