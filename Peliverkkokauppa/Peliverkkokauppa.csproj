@@ -191,6 +191,7 @@
     <Content Include="Assets\Genres.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Reviews.txt" />
     <Content Include="Assets\testcustomer.txt" />
     <Content Include="Assets\Transactions.txt" />
     <Content Include="Properties\Default.rd.xml" />

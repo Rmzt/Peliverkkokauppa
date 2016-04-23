@@ -57,14 +57,46 @@ namespace Peliverkkokauppa
                 User.Text = DefaultUser;
             }
 
-            
-            if(First == true)
+            float average = 0;
+
+            if (First == true)
             {
-                GameList = DictionaryOfGames.Values.ToList();
-                foreach(Game game in GameList)
+                try
                 {
-                    List.Add(game);
+                    GameList = DictionaryOfGames.Values.ToList();
+                    foreach (Game game in GameList)
+                    {
+                        
+                        foreach(Review rew in game.Reviews.Values)
+                        {
+                            average += rew.Stars;
+                        }
+
+                        average = average / game.Reviews.Values.Count;
+
+                        if(float.IsNaN(average) == true)
+                        {
+                            game.TotalScore = "No reviews";
+                            game.TrueScoreTotal = -1;
+                        }
+                        else
+                        {
+                            game.TotalScore = Convert.ToString(average);
+                            game.TrueScoreTotal = average;
+                        }
+
+                        List.Add(game);
+
+                        average = 0;
+
+                    }
+
                 }
+                catch (Exception)
+                {
+
+                }
+                
                 First = false;
             }
             else
@@ -199,10 +231,35 @@ namespace Peliverkkokauppa
                     }
                 case "Biggest score":
                     {
+                        List.Clear();
+                        foreach (Game game in GameList)
+                        {
+                            Sortedlist.Add(game);
+                        }
+
+                        Sortedlist = Sortedlist.OrderByDescending(o => o.TrueScoreTotal).ToList();
+
+                        foreach (Game game in Sortedlist)
+                        {
+                            List.Add(game);
+                        }
+
                         break;
                     }
                 case "Lowest score":
                     {
+                        List.Clear();
+                        foreach (Game game in GameList)
+                        {
+                            Sortedlist.Add(game);
+                        }
+
+                        Sortedlist = Sortedlist.OrderBy(o => o.TrueScoreTotal).ToList();
+
+                        foreach (Game game in Sortedlist)
+                        {
+                            List.Add(game);
+                        }
                         break;
                     }
             }

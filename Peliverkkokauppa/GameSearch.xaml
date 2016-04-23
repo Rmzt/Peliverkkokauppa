@@ -22,6 +22,7 @@
                         <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Text="{x:Bind TotalScore}" HorizontalAlignment="Left" FontSize="16"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

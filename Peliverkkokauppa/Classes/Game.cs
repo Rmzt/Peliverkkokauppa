@@ -25,7 +25,10 @@ namespace Peliverkkokauppa
         public Dictionary<int, MediaFile> MediaFiles { get; set; }
         public Dictionary<int, Review> Reviews { get; set; }
 
-        
+        //Binding element
+        public string TotalScore { get; set; }
+        public float TrueScoreTotal { get; set; }
+
         private float price { get; set; }
         //Scorea ei varmaan tarvitse tähän lisätä kun se voidaan laskea Reviews dictionarysta aina
 
@@ -39,6 +42,7 @@ namespace Peliverkkokauppa
             Developer = developer;
             ReleaseDate = releaseDate;
 
+        
             MediaFiles = new Dictionary<int, MediaFile>();
             Reviews = new Dictionary<int, Review>();
 

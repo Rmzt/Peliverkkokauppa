@@ -194,8 +194,24 @@ namespace Peliverkkokauppa
                     Statistics.ListOfGames.Add(game.GameID, game);
                 }
 
+                mydocument = System.IO.File.ReadAllLines(@"Assets/Reviews.txt");
 
-    }
+                foreach (string line in mydocument)
+                {
+                    string[] arrays = line.Split(Convert.ToChar(";"));
+                    Review review = new Review(Convert.ToInt32(arrays[0]), arrays[1], Convert.ToInt32(arrays[2]));
+
+                    foreach(Game game in Statistics.ListOfGames.Values)
+                    {
+                        if(game.Name == arrays[3])
+                        {
+                            game.AddReview(Convert.ToInt32(arrays[0]), review);
+                        }
+                    }
+
+                }
+
+            }
             catch (Exception x)
             {
                 string y = x.Message;
