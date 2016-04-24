@@ -24,6 +24,7 @@ namespace Peliverkkokauppa
         internal static Customer LoggedInUser = new Customer();
         internal static Employee LoggedInEmployee = new Employee();
 
+        internal static string Userloggedin { get; set; }
 
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
 
@@ -126,7 +127,7 @@ namespace Peliverkkokauppa
                 if(user.Username == username && user.Password == password)
                 {
                     Statistics.LoggedInUser = Customers.Find(Customer => Customer.Username.Contains(username) && Customer.Password.Contains(password));
-
+                    Statistics.Userloggedin = LoggedInUser.Username;
                     LoggedInUser.OwnedGame = GetOwnedGames(LoggedInUser);
 
                     return true;
@@ -138,7 +139,7 @@ namespace Peliverkkokauppa
                 if (emplo.Username == username && emplo.Password == password)
                 {
                     Statistics.LoggedInEmployee = Employees.Find(Employee => Employee.Username.Contains(username) && Employee.Password.Contains(password));
-
+                    Statistics.Userloggedin = LoggedInEmployee.Username;
                     Statistics.IsCustomer = false;
                     return true;
                 }

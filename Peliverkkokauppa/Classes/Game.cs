@@ -67,8 +67,9 @@ namespace Peliverkkokauppa
         public string GetScore()
         {
             float i = 0;
+            int divine = 0;
 
-            if (Reviews.Count != 0)
+            if (Reviews.Count == 0)
             {
                 return "No reviews";
 
@@ -76,12 +77,14 @@ namespace Peliverkkokauppa
             {
                 foreach(Review rew in Reviews.Values)
                 {
-                    i += rew.Stars; 
+                    i += rew.Stars;
+                    divine++; 
                 }
             }
-            
-            string x = Convert.ToString(i);
-            return x;
+            i = i / divine;
+
+
+            return string.Format("{0:0.00}", i);
         }
 
         public Game()

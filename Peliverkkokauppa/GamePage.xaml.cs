@@ -88,7 +88,15 @@ namespace Peliverkkokauppa
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
                 Cover = Selection.Coverimg;
 
+                if(Statistics.LoggedInEmployee.Username != null)
+                {
+                    UsernameBox.Text = Statistics.LoggedInEmployee.Username;
+                }
 
+                if(Statistics.LoggedInUser.Username != null)
+                {
+                    UsernameBox.Text = Statistics.LoggedInUser.Username;
+                }
                 /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
                 Uri imageUri = new Uri(Cover, UriKind.Relative);
                 BitmapImage imageBitmap = new BitmapImage(imageUri);
@@ -116,8 +124,37 @@ namespace Peliverkkokauppa
 
         private void Rating_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Score.TextAlignment = TextAlignment.Left;
-            Score.Text = "Review added: ";
+           
+        }
+
+        private void ConfirmReview_Click(object sender, RoutedEventArgs e)
+        {
+            if(Rating.SelectedValue != null)
+            {
+                Score.TextAlignment = TextAlignment.Left;
+                Score.Text = "Review added: ";
+
+                bool Exists = false;
+                //Käy läpi kaikki pelin arvostelut. JOs käyttäjä on jo antanut arvostelun ei hän voi sitä uudestaan
+                //antaa.
+
+                foreach(Review rew in Selection.Reviews.Values)
+                {
+                    if(rew.Username == Statistics.Userloggedin)
+                    {
+                        Exists = true;
+                        break;
+                    }
+                }
+                
+                if(Exists != true && Statistics.Userloggedin != null)
+                {
+                    int i = Selection.Reviews.Values.Count + 1;
+                    Review review = new Review(i, Statistics.LoggedInUser.Username, Convert.ToInt32(Rating.SelectedValue.ToString()));
+                    Selection.AddReview(i, review);
+                }
+                
+            }
         }
     }
 }

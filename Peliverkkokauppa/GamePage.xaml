@@ -16,14 +16,14 @@
 
             <TextBlock x:Name="Nimi" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,320,0" Height="111" FontSize="73.333" Grid.ColumnSpan="2"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <TextBlock Text="Username" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="UsernameBox" Text="No user logged in" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
             <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="425" Margin="32,139,0,-333" Source="{x:Bind Cover}"/>
 
 
             <Canvas Height="81" VerticalAlignment="Top" Width="412" HorizontalAlignment="Right" Margin="0,445,60,-415" Background="#7A3F5E83" Grid.ColumnSpan="2">
 
-                <ComboBox x:Name="Rating" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="255" IsDropDownOpen="True"  Canvas.Left="157" Canvas.Top="26" SelectionChanged="Rating_SelectionChanged">
+                <ComboBox x:Name="Rating" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="124" IsDropDownOpen="True"  Canvas.Left="157" Canvas.Top="26" SelectionChanged="Rating_SelectionChanged">
                     <ComboBoxItem Content="0"></ComboBoxItem>
                     <ComboBoxItem Content="0.5"></ComboBoxItem>
                     <ComboBoxItem Content="1"></ComboBoxItem>
@@ -38,6 +38,7 @@
                 </ComboBox>
                 <TextBlock x:Name="Score" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="135" FontSize="33.333" SelectionHighlightColor="{x:Null}" TextAlignment="Center" Canvas.Top="26" Text="{x:Bind ScoreNumber}" Canvas.Left="10"/>
                 <TextBlock x:Name="Rate" TextWrapping="Wrap" Text="Rate This Game" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="255" Height="40" Canvas.Left="157"/>
+                <Button x:Name="ConfirmReview" Content="Confirm" HorizontalAlignment="Stretch" Height="45" Canvas.Left="304" Canvas.Top="26" VerticalAlignment="Stretch" Width="98" Click="ConfirmReview_Click"/>
             </Canvas>
             <Canvas  Height="212" Width="412" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,228,60,-329" Background="#7A3F5E83" Grid.ColumnSpan="2">
                 <TextBlock x:Name="Info" TextWrapping="Wrap" Text="Info:" VerticalAlignment="Top" Height="202" FontSize="14.667" SelectionHighlightColor="{x:Null}" Width="411"/>

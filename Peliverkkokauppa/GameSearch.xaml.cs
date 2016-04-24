@@ -212,7 +212,7 @@ namespace Peliverkkokauppa
                 case "No filter":
                     {
                         List.Clear();
-                        foreach (Game game in GameList)
+                        foreach (Game game in lista)
                         {
                             List.Add(game);
                         }
