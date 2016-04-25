@@ -112,6 +112,10 @@ namespace Peliverkkokauppa
                     error = true;
                     NameError.Text = "Has to be only letters and larger than 0";
                     }
+                else
+                {
+                    NameError.Text = "";
+                }
 
                     Description = Description_input.Text;
                     
@@ -119,13 +123,19 @@ namespace Peliverkkokauppa
                     {
                     error = true;
                     PriceError.Text = "Price cannot be null";
-                }
-                else { 
-                    Price = Convert.ToInt32(Price_input.Text);
+                    }
+                    else {
+                    PriceError.Text = "";
+                    float Prices = Convert.ToInt32(Price_input.Text);
 
-                    if (PriceTest(Convert.ToInt32(Price)) == true)
+                    if (PriceTest(Price) != true)
                     {
                     error = true;
+                    }
+                    else
+                    {
+                        PriceError.Text = "";
+                        Price = Prices;
                     }
                 }
 
@@ -138,6 +148,7 @@ namespace Peliverkkokauppa
                 }
                 else
                 {
+                    GenreError.Text = "";
                     Genre = Convert.ToString(Genre_input.SelectedValue);
                 }
 
@@ -146,26 +157,29 @@ namespace Peliverkkokauppa
                      if (Developer_Combo.SelectedValue == null)
                      {
                     error = true;
-                    GenreError.Text = "Select developer";
+                    DeveloperError.Text = "Select developer";
                 }
                 else
                 {
+                    DeveloperError.Text = "";
                     Developer = Convert.ToString(Developer_Combo.SelectedValue);
                 }
-                   
-                   
-                   ReleaseDate = ReleaseDate_input.Date.Value;
 
-                if (ReleaseDate == null)
-                    {
+                if(ReleaseDate_input.Date.HasValue != false)
+                {
+                    ReleaseDate = ReleaseDate_input.Date.Value;
+                    ReleaseDateError.Text = "";
+                }
+                else
+                {
 
                     error = true;
                     ReleaseDateError.Text = "Select release date";
 
-                    }
-                    
+                }
 
-                     if(error != true)
+
+                if (error != true)
                     {
                   
                     Game NewGame = new Game(GameID,GameName, Description, Price, Genre, Developer, ReleaseDate, "");
@@ -232,7 +246,7 @@ namespace Peliverkkokauppa
             return false;
         }
 
-        public bool PriceTest(int Price)
+        public bool PriceTest(float Price)
         {
             if(Price < 0)
             {
