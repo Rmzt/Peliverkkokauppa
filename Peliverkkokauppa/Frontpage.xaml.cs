@@ -33,6 +33,9 @@ namespace Peliverkkokauppa
     {
         public static Dictionary<int,Game> Lista = Statistics.ListOfGames;
         public List<Game> Listat { get; set; }
+        public List<News> News_list { get; set; }
+
+        public News newestNews { get; set; }
 
         public Frontpage()
         {
@@ -43,15 +46,31 @@ namespace Peliverkkokauppa
                 Listat.Add(game);
             }
 
+            // Username_output.Text = Statistics.LoggedInUser.Username;
+
             try
             {
                 this.InitializeComponent();
-                Username_output.Text = Statistics.LoggedInUser.Username;
+                
+                Statistics stat = new Statistics();
+
+                News_list = stat.ListofNews();
+
+               List<News> OrderedList = News_list.OrderBy(o => o.Date).ToList();
+               newestNews = News_list[0];
+
+                News_Outbox.Text = string.Format("{0}", newestNews.Title + Environment.NewLine);
+                News_Outbox.Text += string.Format("{0}", newestNews.Date.Date.ToString("MMMM dd, yyyy") + Environment.NewLine);
+                News_Outbox.Text += string.Format("{0}", newestNews.Content + Environment.NewLine);
+
+
             }
             catch (Exception ex)
             {
                 string x = ex.Message;
             }
+
+
 
         }
 
@@ -106,6 +125,11 @@ namespace Peliverkkokauppa
         private void Selailu_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(GameSearch));
+        }
+
+        private void NewGames_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
         }
     }
 

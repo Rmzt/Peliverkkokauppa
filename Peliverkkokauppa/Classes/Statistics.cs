@@ -245,6 +245,20 @@ namespace Peliverkkokauppa
             return "false";
         }
 
+        public List<News> ListofNews()
+        {
+            List<News> List = new List<News>();
+            string[] mydocument = System.IO.File.ReadAllLines(@"Assets/News.txt");
+
+            foreach (string line in mydocument)
+            {
+                string[] arrays = line.Split(Convert.ToChar(";"));
+                News news = new News(arrays[0], arrays[1], Convert.ToDateTime(arrays[2]));
+                List.Add(news);
+            }
+
+            return List;
+        }
 
     }
 }

@@ -10,15 +10,26 @@
 
     <Page.Resources>
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
-            <StackPanel HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    <Image x:Name="Image" Source="{x:Bind Coverimg}" HorizontalAlignment="Center" Width="200" Height="200" ImageFailed="Image_ImageFailed"/>
-                <StackPanel Margin="20,0,0,10">
-                    <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="14"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Padding="30,0">
+                    <Grid>
+                        <TextBlock Text="{x:Bind Name}" FontSize="16" TextAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                        <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,0,0">
+                        <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
+
+
+
+
     </Page.Resources>
+
+
 
     <Grid Background="#FFBFB6C9">
         <Grid  HorizontalAlignment="Stretch" Height="111" VerticalAlignment="Top" Background="#FF434B70">
@@ -37,30 +48,28 @@
         </Grid>
         <Grid x:Name="MainPanel" BorderThickness="3" BorderBrush="Black" Margin="0,111,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0" Background="#FF606785" Orientation="Horizontal">
                 <Button Name="Selailu" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5" Click="Selailu_Click"/>
-    
+                <Button x:Name="News" Content="News" Width="219" Height="40" Margin="200,15,0,15" Background="#FF515D91" Foreground="#FFE6E5E5"/>
+                <Button x:Name="About_Company" Content="About_Company" Width="219" Height="40" Margin="200,15,0,15" Background="#FF515D91" Foreground="#FFE6E5E5"/>
+
             </StackPanel>
 
-
-
-            <Button x:Name="Peli1" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Margin="72,50,0,0" Height="101" Width="430" Background="#00000000" Click="Peli1_Click">
-                <TextBlock x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelipeli 2K16" VerticalAlignment="Top" Margin="-8,-51,-215,-50" Height="101" Width="223" FontSize="33.333"/>
-            </Button>
-
-            <ListView x:Name="New_Games" Grid.Row="1"  ItemsSource="{x:Bind Listat}"
-              IsItemClickEnabled="True"
-              ItemTemplate="{StaticResource GameDataList}" Margin="2,0,15,5" TabNavigation="Cycle" Header="New_games" BorderThickness="1" ItemClick="New_Games_ItemClick" VerticalAlignment="Bottom" Width="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Stretch" CanDrag="True" Height="317" HorizontalContentAlignment="Stretch" CanDragItems="True">
-                <ListView.ItemsPanel>
+            <GridView x:Name="NewGames" Grid.Row="1" ItemTemplate="{StaticResource GameDataList}" ItemsSource="{x:Bind Listat}" HorizontalAlignment="Stretch" Margin="0,0,0,30" ScrollViewer.VerticalScrollBarVisibility="Disabled" ItemClick="NewGames_ItemClick" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="24" Padding="0,20,0,10" IsItemClickEnabled="True" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+                <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Horizontal"/>
                     </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-            </ListView>
+                </GridView.ItemsPanel>
+            </GridView>
+
+            <TextBlock x:Name="Ads" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod neque a ullamcorper lobortis. Praesent varius leo non erat pulvinar ultrices. Aenean molestie ullamcorper eros, nec bibendum diam consectetur quis. Phasellus dapibus lacus massa, nec eleifend metus mattis eget. Donec nec massa vitae urna condimentum cursus in egestas nunc. Ut ac risus massa. Sed nec lectus dolor. Fusce eget odio dignissim, luctus massa quis, venenatis augue." HorizontalAlignment="Right" Width="662" Margin="0,38,33,269" Grid.Row="1"/>
+            <TextBlock x:Name="News_Outbox" HorizontalAlignment="Left" Height="226" Margin="47,34,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
+
         </Grid>
     </Grid>
 
