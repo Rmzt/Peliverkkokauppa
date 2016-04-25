@@ -39,7 +39,28 @@ namespace Peliverkkokauppa
 
         private void Restore_click(object sender, RoutedEventArgs e)
         {
+            
            //Create restore instance
+           if(Username.Text != "")
+            {
+                Statistics stat = new Statistics();
+                string email = stat.GetEmail(Username.Text);
+
+                if(email != "false")
+                {
+                    Result.Text = string.Format("Recorvery email sent to this address: {0}",email);
+                }
+                else
+                {
+                    Result.Text = "Account not found";
+                }
+                
+            }
+           else
+            {
+                Result.Text = "You need to tell us Username of the account you want to recorve";
+            }
+            
         }
     }
 }

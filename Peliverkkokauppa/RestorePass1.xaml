@@ -12,8 +12,9 @@
         <Button x:Name="Restore" Content="Restore Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,395,0,0" Height="72" Width="286" FontSize="33.333" Click="Restore_click"/>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
         <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
-        <TextBox x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Margin="438,261,0,0" Width="478" Height="72" FontSize="33.333"/>
+        <TextBox x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="438,261,0,0" Width="478" Height="72" FontSize="33.333" PlaceholderText="Username"/>
         <Button x:Name="Return" Content="&lt; Return" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="853,10,167,0" Height="80" Width="260" Click="Return_click" FontSize="46.667" Foreground="#FFFDFDFD"/>
-        <TextBlock x:Name="Generic" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Generistä tekstiä" VerticalAlignment="Top" Margin="49,245,0,0" Height="299" Width="302" FontSize="33.333"/>
+        <TextBlock x:Name="Generic" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Generistä tekstiä" VerticalAlignment="Top" Margin="75,245,0,0" Height="222" Width="302" FontSize="33.333"/>
+        <TextBlock x:Name="Result" HorizontalAlignment="Left" Height="107" Margin="210,505,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="903" FontSize="33.333"/>
     </Grid>
 </Page>

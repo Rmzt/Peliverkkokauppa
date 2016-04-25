@@ -232,6 +232,18 @@ namespace Peliverkkokauppa
 
         }
 
+        public string GetEmail(string user)
+        {
+            foreach(Customer cust in CustomersList())
+            {
+                if(cust.Username == user)
+                {
+                    return cust.Email;
+                }
+            }
+
+            return "false";
+        }
 
 
     }

@@ -20,17 +20,17 @@
         </Grid>
 
         <Grid x:Name="ContentGrid" Grid.Row="1">
-            <StackPanel x:Name="DescriptionStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" Margin="538,175,0,0" HorizontalAlignment="Left" Width="659" BorderThickness="0">
+            <StackPanel x:Name="DescriptionStack" Height="47" Orientation="Horizontal" VerticalAlignment="Top" Margin="0,76,10,0" BorderThickness="0" HorizontalAlignment="Right" Width="579">
                 <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Width="130" Text="Description" Height="42" VerticalAlignment="Bottom"/>
 
-                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="" Width="529" Height="200" Margin="0,0,0,-158" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" PlaceholderText=""/>
+                <TextBox x:Name="Description_input" TextWrapping="Wrap" Text="" Margin="0,0,0,-248" FontSize="18.667" ScrollViewer.VerticalScrollBarVisibility="Auto" AcceptsReturn="True" PlaceholderText="" Width="400"/>
             </StackPanel>
             <StackPanel Margin="100,25,803,162" Orientation="Vertical">
-                <TextBlock x:Name="Errorbox" HorizontalAlignment="Left" Height="49" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFEC0D0D"/>
                 <StackPanel x:Name="NameStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
                     <TextBlock x:Name="textBlock" TextWrapping="Wrap" Width="130" Text="Name"/>
 
-                    <TextBox x:Name="Name_input" TextWrapping="Wrap" Text="" Width="244" Foreground="Black" PointerEntered="Name_input_PointerEntered"/>
+                    <TextBox x:Name="Name_input" TextWrapping="Wrap" Text="" Width="244" Foreground="Black"/>
+                    <TextBlock x:Name="NameError" TextWrapping="Wrap" Text="TextBlock" Width="195" Margin="10,0,0,0"/>
                 </StackPanel>
                 <StackPanel x:Name="PriceStack" Height="42" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,25,-37,0">
                     <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Width="130">
@@ -39,8 +39,8 @@
             			<Run/>
                     </TextBlock>
 
-                    <TextBox x:Name="Price_input" TextWrapping="Wrap" Text="" Width="244" InputScope="CurrencyAmount"/>
-                    <TextBlock x:Name="textBlock9" HorizontalAlignment="Left" Margin="9,0,0,-1" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" FontSize="24"/>
+                    <TextBox x:Name="Price_input" TextWrapping="Wrap" Text="" Width="169" InputScope="CurrencyAmount"/>
+                    <TextBlock x:Name="PriceError" TextWrapping="Wrap" Text="" Margin="10,0,0,0"/>
                 </StackPanel>
                 <StackPanel x:Name="GenreStack" Orientation="Horizontal" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Margin="0,25,0,0">
 
@@ -50,14 +50,17 @@
             			<Run/>
                     </TextBlock>
                     <ComboBox x:Name="Genre_input" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="244"/>
+                    <TextBlock x:Name="GenreError" TextWrapping="Wrap" Text="" Width="195" Margin="10,0,0,0"/>
                 </StackPanel>
                 <StackPanel x:Name="DeveloperStack" Orientation="Horizontal" HorizontalAlignment="Left" Height="42" Margin="0,25,0,0">
                     <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Width="130" Text="Developer"/>
                     <ComboBox x:Name="Developer_Combo" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="244"/>
+                    <TextBlock x:Name="DeveloperError" TextWrapping="Wrap" Text="" Width="195" Margin="10,0,0,0"/>
                 </StackPanel>
                 <StackPanel x:Name="ReleaseDateStack" Orientation="Horizontal" HorizontalAlignment="Left" Height="42" Margin="0,25,0,0">
                     <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Width="130" Text="ReleaseDate"/>
                     <CalendarDatePicker x:Name="ReleaseDate_input" Margin="0,0,0,-2" VerticalAlignment="Stretch" Width="247" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="ReleaseDateError" TextWrapping="Wrap" Text="" Width="195" Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="CoverimageStack" Margin="0,0,487,64" VerticalAlignment="Bottom" HorizontalAlignment="Right">
@@ -82,7 +85,6 @@
                 <Button x:Name="Save" Content="Next" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Click="Save_Click" d:LayoutOverrides="LeftPosition, RightPosition"/>
 
             </Grid>
-            <TextBlock x:Name="InfoBox" Height="113" Margin="570,25,50,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="#FFF10E0E"/>
 
         </Grid>
 

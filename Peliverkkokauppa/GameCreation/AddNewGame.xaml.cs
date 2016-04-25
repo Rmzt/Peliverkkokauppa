@@ -83,9 +83,9 @@ namespace Peliverkkokauppa
 
 
             }
-            catch (NullReferenceException Error)
+            catch (NullReferenceException)
             {
-                Errorbox.Text = "Nullreference: " + Error.Message;
+                
             }
 
         }
@@ -101,24 +101,85 @@ namespace Peliverkkokauppa
          
                 try
                 {
+
+                    bool error = false;
+
                     int GameID = Statistics.ListOfGames.Count + 1;
                     GameName = Name_input.Text;
+
+                    if (StringTest(GameName) != true)
+                    {
+                    error = true;
+                    NameError.Text = "Has to be only letters and larger than 0";
+                    }
+
                     Description = Description_input.Text;
-                    Price = Convert.ToInt32(Price_input.Text);
-                    Genre = Convert.ToString(Genre_input.SelectedValue);
-                    Developer = Convert.ToString(Developer_Combo.SelectedValue);
-                    ReleaseDate = ReleaseDate_input.Date.Value;
-
-
-                    Game NewGame = new Game(GameID, GameName, Description, Price, Genre, Developer, ReleaseDate, "");
-                    NewGame.GameID = GameID;
-
-                this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
-
+                    
+                    if(Price_input.Text == "")
+                    {
+                    error = true;
+                    PriceError.Text = "Price cannot be null";
                 }
-                catch (Exception ex)
+                else { 
+                    Price = Convert.ToInt32(Price_input.Text);
+
+                    if (PriceTest(Convert.ToInt32(Price)) == true)
+                    {
+                    error = true;
+                    }
+                }
+
+               
+
+                    if (Genre_input.SelectedValue == null)
+                    {
+                    error = true;
+                    GenreError.Text = "Select genre";
+                }
+                else
                 {
-                    Errorbox.Text = ex.Message;
+                    Genre = Convert.ToString(Genre_input.SelectedValue);
+                }
+
+                   
+
+                     if (Developer_Combo.SelectedValue == null)
+                     {
+                    error = true;
+                    GenreError.Text = "Select developer";
+                }
+                else
+                {
+                    Developer = Convert.ToString(Developer_Combo.SelectedValue);
+                }
+                   
+                   
+                   ReleaseDate = ReleaseDate_input.Date.Value;
+
+                if (ReleaseDate == null)
+                    {
+
+                    error = true;
+                    ReleaseDateError.Text = "Select release date";
+
+                    }
+                    
+
+                     if(error != true)
+                    {
+                  
+                    Game NewGame = new Game(GameID,GameName, Description, Price, Genre, Developer, ReleaseDate, "");
+                    NewGame.GameID = GameID;
+                    this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
+
+                    }
+
+
+
+            }
+                catch (Exception)
+                {
+                    
                 }
         }
 
@@ -166,10 +227,8 @@ namespace Peliverkkokauppa
             int i = 0;
             if(Name_input.Text.Length > 0 && int.TryParse(Name_input.Text, out i) != true)
             {
-                InfoBox.Text = "";
                 return true;
             }
-            InfoBox.Text = "Name has to be only letters and not null";
             return false;
         }
 
@@ -177,21 +236,14 @@ namespace Peliverkkokauppa
         {
             if(Price < 0)
             {
-                InfoBox.Text = "Price has to be larger than 0";
+                
+                PriceError.Text = "Price has to be larger than 0";
                 return false;
             }
             return true;
         }
 
-        private void Name_input_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            StringTest(Name_input.Text);
-        }
-
-        private void Name_input_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            StringTest(Name_input.Text);
-        }
+        
 
     }
 
