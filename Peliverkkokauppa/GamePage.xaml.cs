@@ -54,7 +54,6 @@ namespace Peliverkkokauppa
             }
 
             Price.Text = Convert.ToString(Price_input);
-            UsernameBox.Text = Statistics.Userloggedin;
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
@@ -106,17 +105,7 @@ namespace Peliverkkokauppa
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
                 Cover = Selection.Coverimg;
 
-                if(Statistics.LoggedInEmployee.Username != null)
-                {
-                    UsernameBox.Text = Statistics.LoggedInEmployee.Username;
-                }
-
-
-
-                if(Statistics.LoggedInUser.Username != null)
-                {
-                    UsernameBox.Text = Statistics.LoggedInUser.Username;
-                }
+              
 
 
 

@@ -16,7 +16,7 @@
 
             <TextBlock x:Name="Nimi" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,320,0" Height="111" FontSize="73.333" Grid.ColumnSpan="2"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <TextBlock x:Name="UsernameBox" Text="No user logged in" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>
+            <!--<TextBlock x:Name="UsernameBox" Text="No user logged in" Width="412" Height="35" HorizontalAlignment="Right" VerticalAlignment="Top" TextAlignment="Center" FontSize="24" Margin="0,0,60,0" Grid.ColumnSpan="2"/>-->
             <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Image x:Name="image" HorizontalAlignment="Left" Height="305" VerticalAlignment="Top" Width="425" Margin="32,139,0,-333" Source="{x:Bind Cover}"/>
 
