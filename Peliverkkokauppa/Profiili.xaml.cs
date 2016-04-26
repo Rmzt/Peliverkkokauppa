@@ -65,16 +65,10 @@ namespace Peliverkkokauppa
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                stat.Logout();
-                this.Frame.Navigate(typeof(login1));
-            }
-            catch (Exception)
-            {
+            Statistics stat = new Statistics();
+            stat.Logout();
+            this.Frame.Navigate(typeof(login1));
 
-            }
-            
         }
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
