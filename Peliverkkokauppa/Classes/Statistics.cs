@@ -29,6 +29,9 @@ namespace Peliverkkokauppa
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
         public static List<News> NewsList = new List<News>();
 
+        internal static List<Customer> Customers { get; set; }
+        internal static List<Employee> Employees { get; set; }
+
 
         public StorageFolder folder = ApplicationData.Current.LocalFolder;
 
@@ -80,7 +83,7 @@ namespace Peliverkkokauppa
                 Customer Customer = new Customer(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
                 ListofCustomers.Add(Customer);
             }
-
+            Customers = ListofCustomers;
             return ListofCustomers;
         }
 
@@ -96,7 +99,7 @@ namespace Peliverkkokauppa
                 Employee employee= new Employee(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
                 ListofEmployees.Add(employee);
             }
-
+            Employees = ListofEmployees;
             return ListofEmployees;
         }
 
