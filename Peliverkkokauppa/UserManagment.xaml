@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+       
+    
     <Grid Background="#FFBFB6C9">
         <Grid.RowDefinitions>
             <RowDefinition Height="111"/>
@@ -24,7 +25,9 @@
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="120,30,60,20" Grid.Column="1" HorizontalAlignment="Stretch"/>
         </Grid>
 
-        <Grid x:Name="UsersGrid" Margin="436,32,86,39" Grid.Row="1"/>
+        <Grid x:Name="UsersGrid" Margin="436,32,86,39" Grid.Row="1">
+            <GridView x:Name="gridView" HorizontalAlignment="Left" Height="538" VerticalAlignment="Top" Width="758"/>
+        </Grid>
         <ToggleSwitch x:Name="AccoutTypes" Header="Account types" HorizontalAlignment="Left" Height="81" Margin="99,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="222" OffContent="Customer" OnContent="Employee"/>
 
     </Grid>

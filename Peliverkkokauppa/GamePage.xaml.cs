@@ -60,7 +60,7 @@ namespace Peliverkkokauppa
                 {
                     Score.TextAlignment = TextAlignment.Left;
                     Score.FontSize = 15;
-                    Score.Text = "Review Already exists";
+                    Score.Text = "Review already exists";
 
                 }
             }
