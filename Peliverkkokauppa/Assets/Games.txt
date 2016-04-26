@@ -7,4 +7,4 @@
 7;Palapeli;Description 7;15;Puzzle;Developer 4;1-1-2016;Assets/coverimg/default.png
 8;Teleportteri;Description 8;15;Puzzle;Developer 3;1-1-2016;Assets/coverimg/default.png
 9;Ammuskelia;Description 9;20;Action;Developer 1;1-1-2016;Assets/coverimg/default.png
-10;Yön Timo;Description 10;60;Horror;Developer 3;1-1-2016;Assets/coverimg/default.png
+10;Yön Timo;Description 10;30;Horror;Developer 3;1-1-2016;Assets/coverimg/default.png

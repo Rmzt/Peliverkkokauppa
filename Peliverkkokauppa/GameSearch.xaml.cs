@@ -64,13 +64,7 @@ namespace Peliverkkokauppa
             ChangeSelectionBox.Items.Add("Delete Games");
 
 
-            if (User.Text.Length != 0)
-            {
-                User.Text = Statistics.LoggedInUser.Username;
-            } else
-            {
-                User.Text = DefaultUser;
-            }
+           
 
             float average = 0;
 

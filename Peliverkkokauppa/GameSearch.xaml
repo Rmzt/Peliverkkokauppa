@@ -44,16 +44,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="Header" Margin="0,0,0,0" Grid.Row="0" Background="#FF434B70">
-            <Image x:Name="Logo" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="111"/>
-            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="150" Width="844" FontSize="73.333"/>
-            <StackPanel Margin="960,0,0,0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="User" HorizontalAlignment="Center" Height="39" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="282" Margin="0,0,0,24"/>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                    <Button x:Name="Profile" Content="Profile" HorizontalAlignment="Left" Height="45" VerticalAlignment="Stretch" Width="118" Click="Profile_Click"/>
-                    <Button x:Name="Logout" Content="Logout" HorizontalAlignment="Right" Height="42" VerticalAlignment="Top" Margin="47,0,0,0" Width="118" Click="Logout_Click"/>
-                </StackPanel>
-            </StackPanel>
+        <Grid x:Name="Header" Margin="0,0,0,44" Grid.Row="0" Background="#FF434B70">
+            <Image x:Name="Logo" HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="111"/>
+            <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="110" Width="844" FontSize="73.333"/>
+            <Button x:Name="Profile" Content="Profile" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
+            <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
+
+
         </Grid>
         <Grid Grid.Row="1">
 
@@ -65,7 +62,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel HorizontalAlignment="Left" Margin="51,8,0,10" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Margin="45,-22,0,40" Orientation="Horizontal">
+
                 <Button x:Name="ResetAllFilters" Content="Reset all filters" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="ResetAllFilters_Click"/>
 
                 <Button x:Name="Reset" Content="Reset Genre filters" HorizontalAlignment="Stretch" Click="Reset_Click" VerticalAlignment="Stretch" Margin="150,0,0,0"/>
