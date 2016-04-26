@@ -31,7 +31,6 @@
                         <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind TotalScore}" HorizontalAlignment="Left" FontSize="16"/>
                     </StackPanel>
-                    <CheckBox x:Name="IsSelected" Width="auto" Height="auto" HorizontalAlignment="Center" Margin="20,0,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>

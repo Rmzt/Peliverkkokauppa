@@ -56,7 +56,30 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(Debugger));
 
-            Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
+
+            if (Statistics.ListOfGames.ContainsKey(New_Game.GameID)){
+
+                foreach(Game gamevalues in Statistics.ListOfGames.Values)
+                {
+                    if(gamevalues.GameID == New_Game.GameID)
+                    {
+                        gamevalues.Name = New_Game.Name;
+                        gamevalues.Price = New_Game.Price;
+                        gamevalues.Genre = New_Game.Genre;
+                        gamevalues.Developer = New_Game.Developer;
+                        gamevalues.ReleaseDate = New_Game.ReleaseDate;
+                       
+                    }
+                }
+
+
+
+            }else
+            {
+                Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
+            }
+
+            
           /*
             System.IO.StreamWriter file = new System.IO.StreamWriter(File.OpenWrite(@"Assets/testcustomer.txt"));
             file.WriteLineAsync("toimii");

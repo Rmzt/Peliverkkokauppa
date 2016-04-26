@@ -44,11 +44,10 @@
             </StackPanel>
 
             <Grid Grid.Row="1">
-                <GridView x:Name="NewGames" ItemTemplate="{StaticResource NewsList}" ItemsSource="{x:Bind News}" Margin="0,0,635,0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="0,20,0,10" IsItemClickEnabled="True" VerticalAlignment="Top" ItemClick="NewGames_ItemClick">
+                <GridView x:Name="NewGames" ItemTemplate="{StaticResource NewsList}" ItemsSource="{x:Bind News}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Padding="0,20,0,10" IsItemClickEnabled="True" ItemClick="NewGames_ItemClick" Margin="0,0,600,0">
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <ItemsStackPanel Orientation="Vertical" Height="504">
-                            </ItemsStackPanel>
+                            <ItemsStackPanel Orientation="Vertical" Height="512" Width="588" VerticalAlignment="Top"/>
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
                 </GridView>

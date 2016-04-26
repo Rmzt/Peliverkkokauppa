@@ -32,20 +32,13 @@ namespace Peliverkkokauppa
     public sealed partial class Frontpage : Page
     {
         public static Dictionary<int,Game> Lista = Statistics.ListOfGames;
-        public List<Game> Listat { get; set; }
+        public List<Game> Listat = Statistics.ListOfGames.Values.ToList();
         public List<News> News_list { get; set; }
 
         public News newestNews { get; set; }
 
         public Frontpage()
-        {
-            Listat = new List<Game>();
-
-            foreach (Game game in Lista.Values)
-            {
-                Listat.Add(game);
-            }
-
+        {         
             // Username_output.Text = Statistics.LoggedInUser.Username;
 
             try
@@ -114,11 +107,7 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(GamePage), peli);
         }
 
-        private void Game_By_Genre_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-           // this.Frame.Navigate(typeof(SearchPage));
-        }
-
+ 
 
         private void Selailu_Click(object sender, RoutedEventArgs e)
         {
@@ -133,6 +122,12 @@ namespace Peliverkkokauppa
         private void News_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(NewsPage));
+        }
+
+        private void Output_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Game peli = (Game)e.ClickedItem;
+            this.Frame.Navigate(typeof(GamePage), peli);
         }
     }
 
