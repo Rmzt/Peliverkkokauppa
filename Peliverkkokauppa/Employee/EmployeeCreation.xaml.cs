@@ -96,14 +96,6 @@ namespace Peliverkkokauppa
             }
 
 
-            /*
-            Windows.Storage.StorageFolder storage =
-                        Windows.Storage.ApplicationData.Current.LocalFolder;
-
-            Windows.Storage.StorageFile file = await storage.CreateFileAsync("Customers.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
-            Windows.Storage.StorageFile samplefile = await storage.GetFileAsync("Customer.txt");
-            */
-
             if (customer_employee.IsOn)
             {
                 Accounttype = "Employee";
@@ -124,11 +116,13 @@ namespace Peliverkkokauppa
                         //Jos luodaan työntekijä
                         Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
                         System_info.Text = string.Format("New account created! User: {0}, Account type: {1}", employee.Username, Accounttype);
+                        Statistics.Stat_EmployeeLists.Add(employee);
                     } else
                     {
                         //Jos luodaan Asiakas
                         Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
                         System_info.Text = string.Format("New account created! User: {0}, Account type: {1}", customer.Username, Accounttype);
+                        Statistics.Stat_CustomersList.Add(customer);
                     }
                     
                 }

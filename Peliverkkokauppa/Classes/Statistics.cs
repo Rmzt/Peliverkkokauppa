@@ -29,11 +29,26 @@ namespace Peliverkkokauppa
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
         public static List<News> NewsList = new List<News>();
 
-        internal static List<Customer> Stat_CustomersList { get; set; }
-        internal static List<Employee> Stat_EmployeeLists { get; set; }
+        internal static List<Customer> Stat_CustomersList = new List<Customer>();
+        internal static List<Employee> Stat_EmployeeLists = new List<Employee>();
 
 
         public StorageFolder folder = ApplicationData.Current.LocalFolder;
+
+        internal void AddtoCustomers(Customer x)
+        {
+        
+            Stat_CustomersList.Add(x);
+
+        }
+
+        internal void AddtoEmployees(Employee x)
+        {
+
+            Stat_EmployeeLists.Add(x);
+
+        }
+
 
 
         public void Logout()
@@ -49,20 +64,6 @@ namespace Peliverkkokauppa
 
         }
      
-              
-        public bool Authentication(string Username, string Password)
-        {
-
-           /* 
-            byte[] buffer = System.Text.Encoding.ASCII.GetBytes(Password);
-            CryptographicKey
-            CryptographicHash hash = CryptographicEngine.Encrypt(Password, 0, buffer.Length);
-
-            string encrypted;
-            */
-                
-            return true;
-        }
 
         internal void CustomersList()
         {
@@ -144,14 +145,12 @@ namespace Peliverkkokauppa
         public bool Authenticate(string username, string password)
         {
 
-            List<Employee> Employees = Stat_EmployeeLists;
-            List<Customer> Customers = Stat_CustomersList;
-
-            foreach(Customer user in Customers)
+            
+            foreach(Customer user in Stat_CustomersList)
             {
                 if(user.Username == username && user.Password == password)
                 {
-                    Statistics.LoggedInUser = Customers.Find(Customer => Customer.Username.Contains(username) && Customer.Password.Contains(password));
+                    Statistics.LoggedInUser = Stat_CustomersList.Find(Customer => Customer.Username.Contains(username) && Customer.Password.Contains(password));
                     Statistics.Userloggedin = LoggedInUser.Username;
                     LoggedInUser.OwnedGame = GetOwnedGames(LoggedInUser);
 
@@ -159,11 +158,11 @@ namespace Peliverkkokauppa
                 }
             }
 
-            foreach (Employee emplo in Employees)
+            foreach (Employee emplo in Stat_EmployeeLists)
             {
                 if (emplo.Username == username && emplo.Password == password)
                 {
-                    Statistics.LoggedInEmployee = Employees.Find(Employee => Employee.Username.Contains(username) && Employee.Password.Contains(password));
+                    Statistics.LoggedInEmployee = Stat_EmployeeLists.Find(Employee => Employee.Username.Contains(username) && Employee.Password.Contains(password));
                     Statistics.Userloggedin = LoggedInEmployee.Username;
                     Statistics.IsCustomer = false;
                     return true;

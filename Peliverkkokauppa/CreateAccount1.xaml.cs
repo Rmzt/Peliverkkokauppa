@@ -226,13 +226,27 @@ namespace Peliverkkokauppa
 
                 */
 
+                Statistics stat = new Statistics();
+
+               
+
                 if (Statistics.Stat_CustomersList.Find(o => o.Username == Username.Text) == null)
                 {
                     Customer cust = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
+
+                    stat.AddtoCustomers(cust);
+
                     Statistics.Stat_CustomersList.Add(cust);
+
+
+                    int i = 0;
+                }
+                else
+                {
+                    SystemInfo.Text = "User creation failed";
                 }
 
-
+                /*
                 System.IO.MemoryStream mStream = new System.IO.MemoryStream(System.Text.Encoding.UTF8.GetBytes(@"Assets/testcustomer.txt"));
 
                 using (StreamWriter outputFile = new StreamWriter(mStream))
@@ -240,6 +254,7 @@ namespace Peliverkkokauppa
                     outputFile.WriteLine("New Line");
                 }
 
+                */
                 //login1 sivulle onpagenavigated kohtaan tarkistus että onko palautettu numero 1
                 // jos on niin näytetään viesti "account creation succesful"
                 //int success = 1;

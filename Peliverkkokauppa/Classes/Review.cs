@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Peliverkkokauppa
 {
-   public class Review
+    public class Review
     {
         public int ReviewID { get; set; }
         public string Username { get; set; }
         public float Stars { get; set; }
-    
+
 
         public Review(int reviewID, string username, float stars)
         {
@@ -25,6 +25,19 @@ namespace Peliverkkokauppa
 
         }
 
-     
+
+    }
+
+    public class AcceptValues
+    {
+    
+        public double Value { get; set; }
+
+        public AcceptValues(double x)
+        {
+            Value = x;
+        }
+
+
     }
 }

@@ -23,18 +23,8 @@
 
             <Canvas Height="81" VerticalAlignment="Top" Width="412" HorizontalAlignment="Right" Margin="0,445,60,-415" Background="#7A3F5E83" Grid.ColumnSpan="2">
 
-                <ComboBox x:Name="Rating" HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="124" IsDropDownOpen="True"  Canvas.Left="157" Canvas.Top="26" SelectionChanged="Rating_SelectionChanged">
-                    <ComboBoxItem Content="0"></ComboBoxItem>
-                    <ComboBoxItem Content="0.5"></ComboBoxItem>
-                    <ComboBoxItem Content="1"></ComboBoxItem>
-                    <ComboBoxItem Content="1.5"></ComboBoxItem>
-                    <ComboBoxItem Content="2"></ComboBoxItem>
-                    <ComboBoxItem Content="2.5"></ComboBoxItem>
-                    <ComboBoxItem Content="3"></ComboBoxItem>
-                    <ComboBoxItem Content="3.5"></ComboBoxItem>
-                    <ComboBoxItem Content="4"></ComboBoxItem>
-                    <ComboBoxItem Content="4.5"></ComboBoxItem>
-                    <ComboBoxItem Content="5"></ComboBoxItem>
+                <ComboBox x:Name="Rating" HorizontalAlignment="Left" ItemsSource="{x:Bind Values}" Height="45" VerticalAlignment="Center" Width="124" IsDropDownOpen="True"  Canvas.Left="157" Canvas.Top="26" SelectionChanged="Rating_SelectionChanged">
+                
                 </ComboBox>
                 <TextBlock x:Name="Score" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="135" FontSize="33.333" SelectionHighlightColor="{x:Null}" TextAlignment="Center" Canvas.Top="26" Text="{x:Bind ScoreNumber}" Canvas.Left="10"/>
                 <TextBlock x:Name="Rate" TextWrapping="Wrap" Text="Rate This Game" FontSize="14.667" SelectionHighlightColor="{x:Null}" HorizontalAlignment="Right" Width="255" Height="40" Canvas.Left="157"/>

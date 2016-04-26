@@ -105,11 +105,7 @@ namespace Peliverkkokauppa
             Authenticate Auth = new Authenticate();
 
             bool IsValidAccount = statistics.Authenticate(Username, Password);
-
-            Statistics sk = new Statistics();
             
-
-
             if (IsValidAccount == true)
             {
 
@@ -200,7 +196,7 @@ namespace Peliverkkokauppa
 
                     foreach(Game game in Statistics.ListOfGames.Values)
                     {
-                        if(game.Name == arrays[3])
+                        if(game.GameID == Convert.ToInt32(arrays[3]))
                         {
                             game.AddReview(Convert.ToInt32(arrays[0]), review);
                         }

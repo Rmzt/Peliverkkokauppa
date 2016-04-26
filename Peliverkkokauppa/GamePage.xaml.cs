@@ -35,12 +35,37 @@ namespace Peliverkkokauppa
         public string ScoreNumber { get; set; }
         public DateTimeOffset ReleaseDate { get; set; }
 
+        public List<Double> Values = new List<Double>();
 
         public GamePage()
         {
             this.InitializeComponent();
 
-            if(Statistics.IsCustomer == true)
+            
+            Values.Add(0);
+            Values.Add(0.5);
+            Values.Add(1);
+            Values.Add(1.5);
+            Values.Add(2);
+            Values.Add(2.5);
+            Values.Add(3);
+            Values.Add(3.5);
+            Values.Add(4);
+            Values.Add(4.5);
+            Values.Add(5);
+
+            foreach (Review rew in Selection.Reviews.Values)
+            {
+                if (rew.Username == Statistics.Userloggedin)
+                {
+                    Score.TextAlignment = TextAlignment.Left;
+                    Score.FontSize = 15;
+                    Score.Text = "Review Already exists";
+
+                }
+            }
+
+            if (Statistics.IsCustomer == true)
             {
                 if (Statistics.LoggedInUser.OwnedGame.ContainsValue(Selection))
                 {
@@ -156,6 +181,7 @@ namespace Peliverkkokauppa
             if(Rating.SelectedValue != null)
             {
                 Score.TextAlignment = TextAlignment.Left;
+                Score.FontSize = 15;
                 Score.Text = "Review added: ";
 
                 bool Exists = false;
@@ -176,16 +202,25 @@ namespace Peliverkkokauppa
                     int i = Selection.Reviews.Values.Count + 1;
                     if(Statistics.IsCustomer == true)
                     {
-                        Review review = new Review(i, Statistics.LoggedInUser.Username, Convert.ToInt32(Rating.SelectedValue.ToString()));
+                        
+                        float x = float.Parse(Rating.SelectedValue.ToString());
+
+                        Review review = new Review(i, Statistics.LoggedInUser.Username, x);
                         Selection.AddReview(i, review);
+
+
+
                     } else
                     {
 
-                        float floatti = (float)Convert.ToDouble(Rating.SelectedItem.ToString());
+                        float x = float.Parse(Rating.SelectedValue.ToString());
 
-                        Review review = new Review(i, Statistics.LoggedInEmployee.Username, floatti);
+                        Review review = new Review(i, Statistics.LoggedInEmployee.Username, x);
                         Selection.AddReview(i, review);
                     }
+                    
+                } else
+                {
                     
                 }
                 

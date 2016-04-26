@@ -64,7 +64,7 @@
             </GridView>
 
 
-            <TextBlock x:Name="Ads" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod neque a ullamcorper lobortis. Praesent varius leo non erat pulvinar ultrices. Aenean molestie ullamcorper eros, nec bibendum diam consectetur quis. Phasellus dapibus lacus massa, nec eleifend metus mattis eget. Donec nec massa vitae urna condimentum cursus in egestas nunc. Ut ac risus massa. Sed nec lectus dolor. Fusce eget odio dignissim, luctus massa quis, venenatis augue." HorizontalAlignment="Right" Width="618" Margin="0,300,611,33" Grid.Row="1"/>
+            <TextBlock x:Name="Ads" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod neque a ullamcorper lobortis. Praesent varius leo non erat pulvinar ultrices. Aenean molestie ullamcorper eros, nec bibendum diam consectetur quis. Phasellus dapibus lacus massa, nec eleifend metus mattis eget. Donec nec massa vitae urna condimentum cursus in egestas nunc. Ut ac risus massa. Sed nec lectus dolor. Fusce eget odio dignissim, luctus massa quis, venenatis augue." HorizontalAlignment="Left" Width="618" Margin="40,300,0,33" Grid.Row="1"/>
             <StackPanel Grid.Row="1">
                 <TextBlock x:Name="News_Outbox_Title" HorizontalAlignment="Left" Height="34"  TextWrapping="Wrap" Text="" Width="475" RenderTransformOrigin="0.5,0.5" Margin="50,20,0,0" d:LayoutOverrides="LeftPosition, RightPosition">
                 </TextBlock>

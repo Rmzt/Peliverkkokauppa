@@ -1,15 +1,15 @@
-﻿1;UserFirst;2;Game 1
-2;UserFirst;4;Game 1
-3;UserFirst2;2;Game 2
-4;UserFirst2;1;Game 3
-5;UserFirst3;1;Game 4
-6;UserFirst4;2;Game 5
-7;UserFirst5;5;Game 6
-8;UserFirst6;4;Game 7
-9;UserFirst7;2.5;Game 10
-10;UserFirst8;1.5;Game 2
-11;UserFirst3;1;Game 3
-12;UserFirst4;2;Game 4
-13;UserFirst5;3.5;Game 5
-14;UserFirst6;3;Game 7
-15;UserFirst7;5;Game 6
+﻿1;UserFirst;2;1
+2;UserFirst;4;1
+3;UserFirst2;2;2
+4;UserFirst2;1;3
+5;UserFirst3;1;4
+6;UserFirst4;2;5
+7;UserFirst5;5;6
+8;UserFirst6;4;7
+9;UserFirst7;2.5;10
+10;UserFirst8;1.5;2
+11;UserFirst3;1;3
+12;UserFirst4;2;4
+13;UserFirst5;3.5;5
+14;UserFirst6;3;7
+15;UserFirst7;5;6

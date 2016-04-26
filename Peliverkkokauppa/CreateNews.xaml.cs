@@ -60,9 +60,13 @@ namespace Peliverkkokauppa
             {
 
                 News news = new News(input_title, input_Content, DateTime.Now);
-                if (Statistics.NewsList.Contains(news))
+
+                bool exists = Statistics.NewsList.Any(x => x.Title == news.Title);
+
+                if (exists == true)
                 {
                     SystemInfo.Text = "Title is already in use";
+
                 }
                 else
                 {

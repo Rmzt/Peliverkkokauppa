@@ -48,9 +48,7 @@ namespace Peliverkkokauppa
         private Statistics Statistics { get; set; }
         public string Default { get; set; }
 
-        //Error laskee kuinka monta erroria on olemassa. Kun erroreita on 0 niin voidaan siirtyä eteenpäin.
-        
-        public Dictionary<string, string> ErrorDictionary = new Dictionary<string, string>();
+       
         public AddNewGame()
         {
 
