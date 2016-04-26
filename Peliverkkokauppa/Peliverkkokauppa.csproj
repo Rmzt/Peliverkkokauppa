@@ -95,6 +95,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserManagment.xaml.cs">
+      <DependentUpon>UserManagment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\News.cs" />
     <Compile Include="CreateNews.xaml.cs">
       <DependentUpon>CreateNews.xaml</DependentUpon>
@@ -216,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="UserManagment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateNews.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

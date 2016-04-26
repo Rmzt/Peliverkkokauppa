@@ -2,7 +2,7 @@
     x:Class="Peliverkkokauppa.EmployeeCreation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Peliverkkokauppa.EmployeeCreation"
+    xmlns:local="using:Peliverkkokauppa"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -91,7 +91,7 @@
 
             </StackPanel>
             <Grid HorizontalAlignment="Right" Margin="0,80,70,218" Width="177">
-                <ToggleSwitch x:Name="customer_employee" Header="Customer/Employee" HorizontalAlignment="Stretch" Height="62" Margin="0,0,23,0" VerticalAlignment="Top" Width="126" IsOn="True" OffContent="Customer" OnContent="Employee"/>
+                <ToggleSwitch x:Name="customer_employee" Header="Account type" HorizontalAlignment="Stretch" Height="62" Margin="0,0,23,0" VerticalAlignment="Top" Width="126" IsOn="True" OffContent="Customer" OnContent="Employee"/>
                 <Button x:Name="Save" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,127,0,124" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Height="60"/>
                 <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="60" d:LayoutOverrides="LeftPosition, RightPosition"/>
 

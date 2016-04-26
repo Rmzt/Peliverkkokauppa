@@ -54,7 +54,7 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(Frontpage));
         }
 
-        private async void Save_Employee_Click(object sender, RoutedEventArgs e)
+        private void Save_Employee_Click(object sender, RoutedEventArgs e)
         {
             int i;
             bool AcceptInput = true;
@@ -104,8 +104,12 @@ namespace Peliverkkokauppa
             Windows.Storage.StorageFile samplefile = await storage.GetFileAsync("Customer.txt");
             */
 
+            if (customer_employee.IsOn)
+            {
+                Accounttype = "Employee";
+            }
 
-
+            //Varmistetaan että tiedot ovat hyväksyttäviä ja käyttäjä ei ole jo olemassa.
             if (AcceptInput != false && stat.UserExists(Username.Text) == true)
             {
                 if(ChangeData == false)
@@ -119,11 +123,12 @@ namespace Peliverkkokauppa
                         
                         //Jos luodaan työntekijä
                         Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
-
+                        System_info.Text = string.Format("New account created! User: {0}, Account type: {1}", employee.Username, Accounttype);
                     } else
                     {
                         //Jos luodaan Asiakas
                         Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
+                        System_info.Text = string.Format("New account created! User: {0}, Account type: {1}", customer.Username, Accounttype);
                     }
                     
                 }
@@ -131,14 +136,26 @@ namespace Peliverkkokauppa
                 {
                     if (customer_employee.IsOn)
                     {
+                        //Muutetaan valitun työntekijän tietoja
                         Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
                     } else
                     {
+                        //Muutetaan valitun asiakkaan tietoja tietoja
                         Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
                     }
                     
                 }
                 
+            } else
+            {
+                if(stat.UserExists(Username.Text) == false)
+                {
+                    System_info.Text = "Error. User already exists!";
+                }
+                else
+                {
+                    System_info.Text = "Error. Input is not valid";
+                }
             }
 
         }
@@ -179,6 +196,12 @@ namespace Peliverkkokauppa
 
                 Accounttype = "Customer";
                 ChangeData = true;
+            }
+
+            if(e.Parameter == null){
+                customer_employee.Visibility = Visibility.Visible;
+                ChangeData = false;
+
             }
 
             base.OnNavigatedTo(e);
