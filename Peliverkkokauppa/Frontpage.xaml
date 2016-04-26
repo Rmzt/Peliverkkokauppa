@@ -61,6 +61,7 @@
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>
+            
 
             <TextBlock x:Name="Ads" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod neque a ullamcorper lobortis. Praesent varius leo non erat pulvinar ultrices. Aenean molestie ullamcorper eros, nec bibendum diam consectetur quis. Phasellus dapibus lacus massa, nec eleifend metus mattis eget. Donec nec massa vitae urna condimentum cursus in egestas nunc. Ut ac risus massa. Sed nec lectus dolor. Fusce eget odio dignissim, luctus massa quis, venenatis augue." HorizontalAlignment="Right" Width="662" Margin="0,38,33,269" Grid.Row="1"/>
             <StackPanel Grid.Row="1">
