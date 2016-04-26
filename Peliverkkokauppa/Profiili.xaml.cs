@@ -34,10 +34,10 @@ namespace Peliverkkokauppa
             try { 
             Game.AddRange(Statistics.LoggedInUser.OwnedGame.Values);
             Username.Text = Statistics.LoggedInUser.Username;
-            Age.Text = Statistics.LoggedInUser.Username;
+            Email.Text = Statistics.LoggedInUser.Email;
             Firstname.Text = Statistics.LoggedInUser.Firstname;
             Surname.Text = Statistics.LoggedInUser.Lastname;
-            Mail.Text = Statistics.LoggedInUser.Address;
+            Address.Text = Statistics.LoggedInUser.Address;
             Number.Text = Statistics.LoggedInUser.Phonenumber;
             AccountCreated.Text = Statistics.LoggedInUser.AccountCreated.Date.ToString();
 

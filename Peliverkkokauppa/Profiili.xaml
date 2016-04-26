@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:Peliverkkokauppa"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
             <StackPanel Orientation="Horizontal">
@@ -33,26 +33,36 @@
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
             <Button x:Name="Profile" Content="Frontpage" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" Click="Profile_Click" HorizontalAlignment="Right" Width="194"/>
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
-            </Grid
-               >     
-            <GridView ItemsSource="{x:Bind Game}"
+        </Grid
+               >
+        <GridView ItemsSource="{x:Bind Game}"
               IsItemClickEnabled="True"
               ItemTemplate="{StaticResource GameDataList}" Margin="52,227,367,51" ItemClick="GridView_ItemClick"/>
 
-       
+
         <Grid Width="287" HorizontalAlignment="Right" Margin="0,116,0,0" >
 
 
-            <StackPanel Margin="0,178,10,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <TextBlock x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,5,0,0" Height="41" Width="277" FontSize="33.333" TextAlignment="Center"/>
-            <TextBlock x:Name="Age" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="277" FontSize="33.333" TextAlignment="Center" Margin="0,5,0,0"/>
-            <TextBlock x:Name="Firstname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="277" FontSize="33.333" TextAlignment="Center" Margin="0,5,0,0"/>
-            <TextBlock x:Name="Surname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="277" FontSize="33.333" TextAlignment="Center" Margin="0,5,0,0"/>
-            <TextBlock x:Name="Mail" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="277" FontSize="33.333" TextAlignment="Center" Margin="0,5,0,0"/>
-            <TextBlock x:Name="Number" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"  Height="42" Width="277" FontSize="33.333" TextAlignment="Center"/>
-                <TextBlock x:Name="AccountCreated" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="277" FontSize="33.333" TextAlignment="Center" Margin="0,5,0,0"/>
+            <StackPanel Margin="110,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="594" Width="167">
+                <TextBlock x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,5,0,0" Height="70" Width="177" FontSize="21.333"/>
+                <TextBlock x:Name="Email" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="126" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Firstname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Surname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Address" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="126" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Number" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"  Height="42" Width="177" FontSize="21.333"/>
+                <TextBlock x:Name="AccountCreated" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="87" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
             </StackPanel>
-            <Button x:Name="button1" Content="Change info" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="80,0,0,30" Width="129" Height="39"/>
+            <StackPanel Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="559">
+                <TextBlock x:Name="Username1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="User:" VerticalAlignment="Top" Margin="0,5,0,0" Height="70" Width="95" FontSize="21.333"/>
+                <TextBlock x:Name="Email1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Height="126" Width="95" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Firstname1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Firstname:" VerticalAlignment="Top" Height="41" Width="95" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Surname1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Surname:" VerticalAlignment="Top" Height="41" Width="95" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Address1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Height="126" Width="95" FontSize="21.333" Margin="0,5,0,0"/>
+                <TextBlock x:Name="Number1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top"  Height="42" Width="95" FontSize="21.333"/>
+                <TextBlock x:Name="AccountCreated1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Created:" VerticalAlignment="Top" Height="41" Width="95" FontSize="21.333" Margin="0,5,0,0"/>
+            </StackPanel>
+
+
         </Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Omat Pelit" VerticalAlignment="Top" Margin="52,146,0,0" Width="517" Height="53" FontSize="33.333"/>
     </Grid>
