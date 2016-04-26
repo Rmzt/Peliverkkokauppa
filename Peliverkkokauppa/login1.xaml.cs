@@ -144,20 +144,13 @@ namespace Peliverkkokauppa
                       App.Current.Exit();
         }
 
-        private void Debugger_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Debugger));
-        }
 
         private void Fpass_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RestorePass1));
         }
 
-        private void Skip_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Frontpage));
-        }
+     
 
         public void readData()
         {
