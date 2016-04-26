@@ -54,9 +54,7 @@ namespace Peliverkkokauppa
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Debugger));
-
-
+           
             if (Statistics.ListOfGames.ContainsKey(New_Game.GameID)){
 
                 foreach(Game gamevalues in Statistics.ListOfGames.Values)
@@ -72,19 +70,12 @@ namespace Peliverkkokauppa
                     }
                 }
 
-
-
             }else
             {
                 Statistics.ListOfGames.Add(New_Game.GameID, New_Game);
             }
 
-            
-          /*
-            System.IO.StreamWriter file = new System.IO.StreamWriter(File.OpenWrite(@"Assets/testcustomer.txt"));
-            file.WriteLineAsync("toimii");
-            file.Dispose();
-          */
+            this.Frame.Navigate(typeof(GamePage), New_Game);
         }
 
         private void GoBack_Click(object sender, RoutedEventArgs e)

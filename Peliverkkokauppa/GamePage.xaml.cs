@@ -39,6 +39,20 @@ namespace Peliverkkokauppa
         public GamePage()
         {
             this.InitializeComponent();
+
+            if(Statistics.IsCustomer == true)
+            {
+                if (Statistics.LoggedInUser.OwnedGame.ContainsValue(Selection))
+                {
+                    Buy.Visibility = Visibility.Collapsed;
+                }
+
+            }
+            else
+            {
+                Buy.Visibility = Visibility.Collapsed;
+            }
+
             Price.Text = Convert.ToString(Price_input);
             UsernameBox.Text = Statistics.Userloggedin;
         }
@@ -122,8 +136,20 @@ namespace Peliverkkokauppa
             }
 
         private void Buy_Click(object sender, RoutedEventArgs e)
-        {
-            Statistics.LoggedInUser.AddOwnedGame(Selection.GameID, Selection);
+        {   
+            if(Statistics.IsCustomer == true)
+            {
+                if (Statistics.LoggedInUser.OwnedGame.Values.Contains(Selection))
+                {
+
+                }
+                else
+                {
+                    Statistics.LoggedInUser.AddOwnedGame(Selection.GameID, Selection);
+                }
+                
+            }
+            
         }
 
         private void Frontpage_Click(object sender, RoutedEventArgs e)

@@ -178,11 +178,13 @@ namespace Peliverkkokauppa
 
                 }
 
+                
+
 
                 if (error != true)
                     {
                   
-                    Game NewGame = new Game(GameID,GameName, Description, Price, Genre, Developer, ReleaseDate, "");
+                    Game NewGame = new Game(GameID,GameName, Description, Price, Genre, Developer, ReleaseDate,"Assets/coverimg/default.png");
                     NewGame.GameID = GameID;
                     this.Frame.Navigate(typeof(AddNewGamePage2), NewGame);
 

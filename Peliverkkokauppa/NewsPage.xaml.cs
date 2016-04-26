@@ -56,7 +56,14 @@ namespace Peliverkkokauppa
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Profiili));
+            if(Statistics.IsCustomer == true)
+            {
+                this.Frame.Navigate(typeof(Profiili));
+            } else
+            {
+                this.Frame.Navigate(typeof(EmployeePage));
+            }
+            
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
