@@ -25,7 +25,7 @@ namespace Peliverkkokauppa
     public sealed partial class GameSearch : Page
     {
         public List<string> Genres = Statistics.ListOfGenres;
-        public List<Game> GameList { get; set; }
+        public List<Game> GameList = Statistics.ListOfGames.Values.ToList();
         public Dictionary<int, Game> DictionaryOfGames = Statistics.ListOfGames;
 
         
@@ -169,21 +169,26 @@ namespace Peliverkkokauppa
 
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
+            ResetGenreFilters();
+        }
+
+        public void ResetGenreFilters()
+        {
             List.Clear();
 
+            GameList = Statistics.ListOfGames.Values.ToList();
 
             foreach (Game game in GameList)
             {
                 List.Add(game);
             }
 
-            if(OtherFilterIsSet == true)
+            if (OtherFilterIsSet == true)
             {
                 OrderList(List.ToList(), OtherFilter.SelectedValue.ToString());
             }
-
-
         }
+
 
         private void Output_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -191,9 +196,25 @@ namespace Peliverkkokauppa
             {
                 Game selectedgame = (Game)e.ClickedItem;
 
-                if(HiddenOptions.Visibility != Visibility.Visible)
+                bool x = false;
+
+                if(ChangeSelectionBox.SelectedItem.ToString() == "Change information")
                 {
-                    this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+                    x = true;
+                }
+
+
+                if (HiddenOptions.Visibility != Visibility.Visible)
+                {
+                    if(x == true)
+                    {
+                        //mennään muuttamaan pelin tietoja.
+                        this.Frame.Navigate(typeof(AddNewGame), e.ClickedItem);
+                    } else
+                    {
+                        //Siirytään tutkimaan peliä
+                        this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+                    }
 
                 } else
                 {
@@ -410,12 +431,14 @@ namespace Peliverkkokauppa
             {
                 case "Change information":
                     SelectedDeletions.Clear();
-                    Save.Visibility = Visibility.Visible;
-                    Output.IsMultiSelectCheckBoxEnabled = true;
-                    Output.SelectionMode = ListViewSelectionMode.Multiple;
-                    TextInfo.Text = "Games to be deleted:";
-                    Save.Content = "Delete";
-                    Output.SelectedItems.Clear();
+                    Save.Visibility = Visibility.Collapsed;
+                    Output.IsMultiSelectCheckBoxEnabled = false;
+                    Output.SelectionMode = ListViewSelectionMode.Single;
+                    TextInfo.Text = "Select game to change game information";
+                    if(SelectedDeletions.Count > 0)
+                    {
+                        Output.SelectedItems.Clear();
+                    }
 
                     break;
 
@@ -445,10 +468,12 @@ namespace Peliverkkokauppa
             {
                 //Tässä poistettaisiin mediatiedostot, arvostelut ja peli muistista, jos niiden tallentaminen onnistuisi.
                 Statistics.ListOfGames.Remove(game.GameID);
-
-
+                List.Remove(game);
             }
-                
+
+            TextInfo.Text = "Games Removed";
+            ResetGenreFilters();
+
         }
 
         private void SelectedValuesOutput_ItemClick(object sender, ItemClickEventArgs e)
