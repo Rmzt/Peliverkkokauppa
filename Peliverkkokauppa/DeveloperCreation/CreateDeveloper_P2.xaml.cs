@@ -64,7 +64,7 @@ namespace Peliverkkokauppa
 
         private void Profile_Page_Click(object sender, RoutedEventArgs e)
         {
-            Profile_Page.Content = "Out of Order";
+            this.Frame.Navigate(typeof(EmployeePage));
         }
 
         private void Developer_Page_Click(object sender, RoutedEventArgs e)

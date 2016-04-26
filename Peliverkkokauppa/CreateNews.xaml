@@ -24,7 +24,7 @@
             <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="0,30,60,20" Click="Logout_Click" Grid.Column="1" HorizontalAlignment="Right" Width="194"/>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Left" Margin="35,24,0,78" Width="553" d:LayoutOverrides="TopPosition, BottomPosition">
+            <StackPanel HorizontalAlignment="Left" Margin="10,91,0,11" Width="553">
                 <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0" Orientation="Horizontal">
                     <TextBlock x:Name="Title_Info" Height="50" TextWrapping="Wrap" Text="Title" FontSize="32" Width="120" Margin="0,0,20,0"/>
                     <TextBox x:Name="Title" Height="55" TextWrapping="Wrap" Text="" Width="350" d:LayoutOverrides="TopPosition, BottomPosition" PlaceholderText="Insert newsletter title here"/>
@@ -38,6 +38,7 @@
             </StackPanel>
             <Button x:Name="Cancel" Content="Cancel" Foreground="White" Background="#FF363C5A" HorizontalAlignment="Right" Height="63" Margin="0,112,109,0" VerticalAlignment="Top" Width="278" Click="Cancel_Click"/>
             <Button x:Name="Save" Content="Save" Foreground="White" Background="#FF363C5A" HorizontalAlignment="Right" Height="63" Margin="0,231,109,0" VerticalAlignment="Top" Width="278" Click="Save_Click"/>
+            <TextBlock x:Name="SystemInfo" HorizontalAlignment="Left" Height="53" Margin="163,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="693" FontSize="24"/>
         </Grid>
     </Grid>
 </Page>

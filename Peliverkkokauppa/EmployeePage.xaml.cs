@@ -33,7 +33,7 @@ namespace Peliverkkokauppa
             string ender = new string('-', countlenght);
             UserOutput.Text += "------" + user.Username + "------" + Environment.NewLine;
             UserOutput.Text += "Name: " + user.Firstname + " " + user.Lastname + Environment.NewLine;
-            UserOutput.Text += "Phonenumber: " + user.Phonenumber + " Address: " + user.Address + Environment.NewLine;
+            UserOutput.Text += "Phonenumber: " + user.Phonenumber + Environment.NewLine + " Address: " + user.Address + Environment.NewLine;
             UserOutput.Text += ender;
 
         }
@@ -69,12 +69,13 @@ namespace Peliverkkokauppa
 
         private void ManageProfile_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(EmployeeCreation));
+            string parameter = "OwnData";
+            this.Frame.Navigate(typeof(EmployeeCreation),parameter);
         }
 
         private void CreateNewsletter_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(NewsPage));
+            this.Frame.Navigate(typeof(CreateNews));
         }
 
         private void Manage_Games_Click(object sender, RoutedEventArgs e)

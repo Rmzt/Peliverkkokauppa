@@ -196,36 +196,56 @@ namespace Peliverkkokauppa
             {
                 Game selectedgame = (Game)e.ClickedItem;
 
+                
+
                 bool x = false;
 
-                if(ChangeSelectionBox.SelectedItem.ToString() == "Change information")
-                {
-                    x = true;
-                }
+               
 
+                
+                
+              
 
-                if (HiddenOptions.Visibility != Visibility.Visible)
+                if (HiddenOptions.Visibility == Visibility.Visible)
                 {
-                    if(x == true)
+
+                    if (ChangeSelectionBox.SelectedItem.ToString() == "Change information")
                     {
+                        x = true;
+                    }
+
+
+                    if (x == true)
+                    {          
                         //mennään muuttamaan pelin tietoja.
                         this.Frame.Navigate(typeof(AddNewGame), e.ClickedItem);
-                    } else
+                    }
+
+
+                    else if(ChangeSelectionBox.SelectedItem.ToString() == "")
                     {
                         //Siirytään tutkimaan peliä
                         this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
                     }
 
-                } else
+                    else if(ChangeSelectionBox.SelectedItem.ToString() == "Delete Games")
+                    {
+                        if (SelectedDeletions.Contains(e.ClickedItem))
+                        {
+                            SelectedDeletions.Remove(selectedgame);
+                        }
+                        else
+                        {
+                            SelectedDeletions.Add((Game)e.ClickedItem);
+                        }
+                    }
+
+                }
+
+                else
                 {
-                    if (SelectedDeletions.Contains(e.ClickedItem))
-                    {
-                        SelectedDeletions.Remove(selectedgame);
-                    }
-                    else
-                    {
-                        SelectedDeletions.Add((Game)e.ClickedItem);
-                    }
+                    Frame.Navigate(typeof(GamePage), e.ClickedItem);
+
                 }
                 
             }

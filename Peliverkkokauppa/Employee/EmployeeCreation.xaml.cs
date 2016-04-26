@@ -198,6 +198,24 @@ namespace Peliverkkokauppa
                 ChangeData = true;
             }
 
+            if(e.Parameter is String)
+            {
+                Employee PersonalData = Statistics.LoggedInEmployee;
+                employee = PersonalData;
+                Firstname.Text = PersonalData.Firstname;
+                Lastname.Text = PersonalData.Lastname;
+
+                Username.Text = PersonalData.Username;
+                Password.Password = PersonalData.Password;
+
+                Email.Text = PersonalData.Email;
+                Address.Text = PersonalData.Address;
+                Phonenumber.Text = PersonalData.Phonenumber;
+
+                Accounttype = "Employee";
+                ChangeData = true;
+            }
+
             if(e.Parameter == null){
                 customer_employee.Visibility = Visibility.Visible;
                 ChangeData = false;

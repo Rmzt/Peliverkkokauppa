@@ -64,6 +64,9 @@ namespace Peliverkkokauppa
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             //Otetaan vastaan sivulle siiretty data valitusta pelistä.
+            base.OnNavigatedTo(e);
+
+            
 
             if (e.Parameter is Game)
             {
@@ -94,10 +97,15 @@ namespace Peliverkkokauppa
                     UsernameBox.Text = Statistics.LoggedInEmployee.Username;
                 }
 
+
+
                 if(Statistics.LoggedInUser.Username != null)
                 {
                     UsernameBox.Text = Statistics.LoggedInUser.Username;
                 }
+
+
+
                 /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
                 Uri imageUri = new Uri(Cover, UriKind.Relative);
                 BitmapImage imageBitmap = new BitmapImage(imageUri);
@@ -110,7 +118,7 @@ namespace Peliverkkokauppa
             }
 
 
-            base.OnNavigatedTo(e);
+       
             }
 
         private void Buy_Click(object sender, RoutedEventArgs e)

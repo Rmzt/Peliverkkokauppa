@@ -71,12 +71,7 @@ namespace Peliverkkokauppa
             this.Frame.Navigate(typeof(login1));
         }
 
-        private void Peli1_Click(object sender, RoutedEventArgs e)
-        {
-            //Game testgame = new Game { };
-            //testgame = ListOfGames[1];
-            this.Frame.Navigate(typeof(GamePage), Statistics.ListOfGames[1]);
-        }
+     
 
         private void Profile_Click(object sender, RoutedEventArgs e)
         {
@@ -102,11 +97,20 @@ namespace Peliverkkokauppa
 
         private void New_Games_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //siirtää asiakkaan pelisivulle
             Game peli = (Game)e.ClickedItem;
-            this.Frame.Navigate(typeof(GamePage), peli);
-        }
 
+            //siirtää asiakkaan pelisivulle
+            try {
+                
+            this.Frame.Navigate(typeof(GamePage), peli);
+            }
+            catch (Exception exa)
+            {
+                string h = exa.Message;
+            }
+            
+         }
+    
  
 
         private void Selailu_Click(object sender, RoutedEventArgs e)

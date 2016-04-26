@@ -2,4 +2,4 @@
 Horror
 Simulation
 Puzzle
-Point and click
+Point and Click

@@ -58,8 +58,18 @@ namespace Peliverkkokauppa
 
             if(error == false)
             {
+
                 News news = new News(input_title, input_Content, DateTime.Now);
-                Statistics.NewsList.Add(news);
+                if (Statistics.NewsList.Contains(news))
+                {
+                    SystemInfo.Text = "Title is already in use";
+                }
+                else
+                {
+                    Statistics.NewsList.Add(news);
+                    SystemInfo.Text = string.Format("Created new newsletteri: {0}", news.Title);
+                }
+                
             }
         }
 
