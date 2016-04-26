@@ -38,6 +38,7 @@ namespace Peliverkkokauppa
             if(Firsttry == true)
             {
                 readData();
+                statistics.ListofNews();
                 Firsttry = false;
             }
 
@@ -210,6 +211,7 @@ namespace Peliverkkokauppa
                     }
 
                 }
+
 
                 
 

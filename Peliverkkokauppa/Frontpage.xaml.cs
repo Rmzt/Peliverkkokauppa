@@ -51,17 +51,15 @@ namespace Peliverkkokauppa
             try
             {
                 this.InitializeComponent();
-                
-                Statistics stat = new Statistics();
 
-                News_list = stat.ListofNews();
+                News_list = Statistics.NewsList;
 
-               List<News> OrderedList = News_list.OrderBy(o => o.Date).ToList();
+               List<News> OrderedList = News_list.OrderByDescending(o => o.Date).ToList();
                newestNews = News_list[0];
 
-                News_Outbox.Text = string.Format("{0}", newestNews.Title + Environment.NewLine);
-                News_Outbox.Text += string.Format("{0}", newestNews.Date.Date.ToString("MMMM dd, yyyy") + Environment.NewLine);
-                News_Outbox.Text += string.Format("{0}", newestNews.Content + Environment.NewLine);
+                News_Outbox_Title.Text = string.Format("{0}", newestNews.Title);
+                News_Outbox_Date.Text += string.Format("{0}", newestNews.Date.Date.ToString("MMMM dd, yyyy"));
+                News_Outbox_Content.Text += string.Format("{0}", newestNews.Content);
 
 
             }
@@ -130,6 +128,11 @@ namespace Peliverkkokauppa
         private void NewGames_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+        }
+
+        private void News_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(NewsPage));
         }
     }
 

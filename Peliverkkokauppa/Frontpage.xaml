@@ -24,9 +24,6 @@
             </StackPanel>
         </DataTemplate>
 
-
-
-
     </Page.Resources>
 
 
@@ -54,8 +51,7 @@
 
             <StackPanel Grid.Row="0" Background="#FF606785" Orientation="Horizontal">
                 <Button Name="Selailu" Content="Browse Games" Width="219" Height="40" Margin="100,5,0,5" Background="#FF515D91" Foreground="#FFE6E5E5" Click="Selailu_Click"/>
-                <Button x:Name="News" Content="News" Width="219" Height="40" Margin="200,15,0,15" Background="#FF515D91" Foreground="#FFE6E5E5"/>
-                <Button x:Name="About_Company" Content="About_Company" Width="219" Height="40" Margin="200,15,0,15" Background="#FF515D91" Foreground="#FFE6E5E5"/>
+                <Button x:Name="News" Content="News" Width="219" Height="40" Margin="200,15,0,15" Background="#FF515D91" Foreground="#FFE6E5E5" Click="News_Click"/>
 
             </StackPanel>
 
@@ -68,8 +64,12 @@
             </GridView>
 
             <TextBlock x:Name="Ads" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam euismod neque a ullamcorper lobortis. Praesent varius leo non erat pulvinar ultrices. Aenean molestie ullamcorper eros, nec bibendum diam consectetur quis. Phasellus dapibus lacus massa, nec eleifend metus mattis eget. Donec nec massa vitae urna condimentum cursus in egestas nunc. Ut ac risus massa. Sed nec lectus dolor. Fusce eget odio dignissim, luctus massa quis, venenatis augue." HorizontalAlignment="Right" Width="662" Margin="0,38,33,269" Grid.Row="1"/>
-            <TextBlock x:Name="News_Outbox" HorizontalAlignment="Left" Height="226" Margin="47,34,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="475"/>
-
+            <StackPanel Grid.Row="1">
+                <TextBlock x:Name="News_Outbox_Title" HorizontalAlignment="Left" Height="34"  TextWrapping="Wrap" Text="" Width="475" RenderTransformOrigin="0.5,0.5" Margin="50,20,0,0" d:LayoutOverrides="LeftPosition, RightPosition">
+                </TextBlock>
+                <TextBlock x:Name="News_Outbox_Date" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="" Width="475" Margin="50,0,0,0" d:LayoutOverrides="LeftPosition, RightPosition"/>
+                <TextBlock x:Name="News_Outbox_Content" HorizontalAlignment="Left" Height="136" TextWrapping="Wrap" Text="" Width="475" Margin="50,0,0,0" d:LayoutOverrides="LeftPosition, RightPosition"/>
+            </StackPanel>
         </Grid>
     </Grid>
 

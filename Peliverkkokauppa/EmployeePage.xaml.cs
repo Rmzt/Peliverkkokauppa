@@ -71,5 +71,17 @@ namespace Peliverkkokauppa
         {
             this.Frame.Navigate(typeof(EmployeeCreation));
         }
+
+        private void CreateNewsletter_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(NewsPage));
+        }
+
+        private void Manage_Games_Click(object sender, RoutedEventArgs e)
+        {
+            string parameter = "ChangeGames";
+
+            this.Frame.Navigate(typeof(GameSearch), parameter);
+        }
     }
 }

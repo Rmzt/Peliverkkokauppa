@@ -23,6 +23,7 @@ namespace Peliverkkokauppa
     public sealed partial class EmployeeCreation : Page
     {
         //Jos halutaan muuttaa tietoja
+        public Statistics stat = new Statistics();
         public bool ChangeData = false;
         public string Accounttype { get; set; }
 
@@ -95,41 +96,47 @@ namespace Peliverkkokauppa
             }
 
 
-
+            /*
             Windows.Storage.StorageFolder storage =
                         Windows.Storage.ApplicationData.Current.LocalFolder;
 
             Windows.Storage.StorageFile file = await storage.CreateFileAsync("Customers.txt", Windows.Storage.CreationCollisionOption.ReplaceExisting);
             Windows.Storage.StorageFile samplefile = await storage.GetFileAsync("Customer.txt");
+            */
 
 
 
-
-            if (AcceptInput != false)
+            if (AcceptInput != false && stat.UserExists(Username.Text) == true)
             {
                 if(ChangeData == false)
                 {
                     //Jos lisätään uusia käyttäjiä
 
+
+
                     if (Accounttype == "Employee")
                     {
+                        
+                        //Jos luodaan työntekijä
                         Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
-
-                        await Windows.Storage.FileIO.WriteTextAsync(samplefile, employee.Firstname);
-
-
 
                     } else
                     {
+                        //Jos luodaan Asiakas
                         Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
                     }
                     
                 }
                 else
                 {
+                    if (customer_employee.IsOn)
+                    {
+                        Employee employee = new Employee(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
+                    } else
+                    {
+                        Customer customer = new Customer(Firstname.Text, Lastname.Text, Username.Text, Password.Password, Email.Text, Phonenumber.Text, Address.Text, DateTime.Now);
+                    }
                     
-                    
-                    //Muutetaan työntekijän tietoja
                 }
                 
             }

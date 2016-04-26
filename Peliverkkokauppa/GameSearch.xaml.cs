@@ -30,7 +30,8 @@ namespace Peliverkkokauppa
 
         
         public ObservableCollection<Game> List = new ObservableCollection<Game>();
-        
+        public ObservableCollection<Game> SelectedDeletions = new ObservableCollection<Game>();
+
         public PropertyInfo SelectedFilter { get; set; }
         public string DefaultUser = "Not logged in";
 
@@ -40,7 +41,7 @@ namespace Peliverkkokauppa
         public bool GenreFilterIsSet = false;
         public bool OtherFilterIsSet = false;
 
-
+        public bool ChangingData = false;
 
 
 
@@ -59,7 +60,8 @@ namespace Peliverkkokauppa
             OtherFilter.Items.Add("Name accending");
             OtherFilter.Items.Add("Name decending");
 
-
+            ChangeSelectionBox.Items.Add("Change information");
+            ChangeSelectionBox.Items.Add("Delete Games");
 
 
             if (User.Text.Length != 0)
@@ -187,7 +189,24 @@ namespace Peliverkkokauppa
         {
             if(e.ClickedItem.GetType() == typeof(Game))
             {
-                this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+                Game selectedgame = (Game)e.ClickedItem;
+
+                if(HiddenOptions.Visibility != Visibility.Visible)
+                {
+                    this.Frame.Navigate(typeof(GamePage), e.ClickedItem);
+
+                } else
+                {
+                    if (SelectedDeletions.Contains(e.ClickedItem))
+                    {
+                        SelectedDeletions.Remove(selectedgame);
+                    }
+                    else
+                    {
+                        SelectedDeletions.Add((Game)e.ClickedItem);
+                    }
+                }
+                
             }
         }
 
@@ -361,7 +380,82 @@ namespace Peliverkkokauppa
 
 
             }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if(e.Parameter is string)
+            {
+                string parameter = (String)e.Parameter;
+                
+                if(parameter == "ChangeGames")
+                {
+                    HiddenOptions.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    HiddenOptions.Visibility = Visibility.Collapsed;
+                }
+            }
 
+            base.OnNavigatedTo(e);
         }
+
+        private void ChangeSelectionBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            /*
+            "Change information");
+            ChangeSelectionBox.Items.Add("Delete Games");
+            */
+
+            switch (ChangeSelectionBox.SelectedValue.ToString())
+            {
+                case "Change information":
+                    SelectedDeletions.Clear();
+                    Save.Visibility = Visibility.Visible;
+                    Output.IsMultiSelectCheckBoxEnabled = true;
+                    Output.SelectionMode = ListViewSelectionMode.Multiple;
+                    TextInfo.Text = "Games to be deleted:";
+                    Save.Content = "Delete";
+                    Output.SelectedItems.Clear();
+
+                    break;
+
+                case "Delete Games":
+                    Save.Visibility = Visibility.Visible;
+                    Output.IsMultiSelectCheckBoxEnabled = true;
+                    Output.SelectionMode = ListViewSelectionMode.Multiple;
+                    TextInfo.Text = "Games to be deleted:";
+                    Save.Content = "Delete";
+                    break;
+            }
+
+
+           
+           
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.GoBack();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            //Poistetaan pelejä
+              foreach(Game game in Output.SelectedItems)
+            {
+                //Tässä poistettaisiin mediatiedostot, arvostelut ja peli muistista, jos niiden tallentaminen onnistuisi.
+                Statistics.ListOfGames.Remove(game.GameID);
+
+
+            }
+                
+        }
+
+        private void SelectedValuesOutput_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SelectedDeletions.Remove((Game)e.ClickedItem);
+            Output.SelectedItems.Remove(e.ClickedItem); 
+        }
+    }
  }
     

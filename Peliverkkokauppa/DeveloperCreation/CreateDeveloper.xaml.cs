@@ -58,10 +58,10 @@ namespace Peliverkkokauppa
                 if (ValidName(Name) == true && ValidAddress(Address) == true)
                 {
                     Developer newPublisher = new Developer(Name, Address, Description, Email);
-                    StringWriter write = new StringWriter();
 
                     
-                this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
+                    Statistics.ListOfDevelopers.Add(newPublisher.Name, newPublisher);
+                    this.Frame.Navigate(typeof(CreateDeveloper_P2), newPublisher);
 
 
 

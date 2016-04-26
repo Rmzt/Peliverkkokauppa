@@ -27,6 +27,8 @@ namespace Peliverkkokauppa
         internal static string Userloggedin { get; set; }
 
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
+        public static List<News> NewsList = new List<News>();
+
 
         public StorageFolder folder = ApplicationData.Current.LocalFolder;
 
@@ -41,7 +43,9 @@ namespace Peliverkkokauppa
         public void Logout()
         {
             LoggedInUser = null;
+            LoggedInEmployee = null;
             IsCustomer = true;
+            
         }
 
         public Statistics()
@@ -114,6 +118,29 @@ namespace Peliverkkokauppa
         }
 
         */
+
+       public bool UserExists(string username)
+        {
+            List<Employee> Employees = EmployeeList();
+            List<Customer> Customers = CustomersList();
+
+            foreach (Customer user in Customers)
+            {
+                if (user.Username == username)
+                { 
+                   return true;
+                }
+            }
+
+            foreach (Employee emplo in Employees)
+            {
+                if (emplo.Username == username)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
         public bool Authenticate(string username, string password)
@@ -245,7 +272,7 @@ namespace Peliverkkokauppa
             return "false";
         }
 
-        public List<News> ListofNews()
+        public void ListofNews()
         {
             List<News> List = new List<News>();
             string[] mydocument = System.IO.File.ReadAllLines(@"Assets/News.txt");
@@ -254,10 +281,9 @@ namespace Peliverkkokauppa
             {
                 string[] arrays = line.Split(Convert.ToChar(";"));
                 News news = new News(arrays[0], arrays[1], Convert.ToDateTime(arrays[2]));
-                List.Add(news);
+                NewsList.Add(news);
             }
-
-            return List;
+            
         }
 
     }

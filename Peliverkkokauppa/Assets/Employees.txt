@@ -1,4 +1,5 @@
-﻿Employee1;LastName1;EmpLast1;Pass1Last;Email@email.com;23432423423423;Address 1;04-20-2016
+﻿Employee;Lastname;Employee;Password;Email@email.com;23432423423423;Address 1;04-20-2016
+Employee1;LastName1;EmpLast1;Pass1Last;Email@email.com;23432423423423;Address 1;04-20-2016
 Employee2;LastName2;EmpLast2;Pass1Last;Email@email.com;23432423423423;Address 2;04-20-2016
 Employee3;LastName3;EmpLast3;Pass1Last;Email@email.com;23432423423423;Address 3;04-20-2016
 Employee4;LastName4;EmpLast4;Pass1Last;Email@email.com;23432423423423;Address 4;04-20-2016

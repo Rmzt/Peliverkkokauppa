@@ -40,6 +40,7 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
             Price.Text = Convert.ToString(Price_input);
+            UsernameBox.Text = Statistics.Userloggedin;
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
