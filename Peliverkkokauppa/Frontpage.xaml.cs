@@ -31,8 +31,14 @@ namespace Peliverkkokauppa
 
     public sealed partial class Frontpage : Page
     {
+
         public static Dictionary<int,Game> Lista = Statistics.ListOfGames;
-        public List<Game> Listat = Statistics.ListOfGames.Values.ToList();
+
+        public List<Game> Listat
+        {
+            get; set;
+        }
+
         public List<News> News_list { get; set; }
 
         public News newestNews { get; set; }
@@ -46,6 +52,8 @@ namespace Peliverkkokauppa
                 this.InitializeComponent();
 
                 News_list = Statistics.NewsList;
+
+                Listat = Statistics.ListOfGames.Values.ToList();
 
                List<News> OrderedList = News_list.OrderByDescending(o => o.Date).ToList();
                newestNews = News_list[0];
@@ -133,6 +141,8 @@ namespace Peliverkkokauppa
             Game peli = (Game)e.ClickedItem;
             this.Frame.Navigate(typeof(GamePage), peli);
         }
+
+       
     }
 
     }

@@ -29,18 +29,11 @@ namespace Peliverkkokauppa
         public static bool IsCustomer = true; //defaulttina käyttäjä on asiakas, jos muuten ei tietoa muuteta
         public static List<News> NewsList = new List<News>();
 
-        internal static List<Customer> Customers { get; set; }
-        internal static List<Employee> Employees { get; set; }
+        internal static List<Customer> Stat_CustomersList { get; set; }
+        internal static List<Employee> Stat_EmployeeLists { get; set; }
 
 
         public StorageFolder folder = ApplicationData.Current.LocalFolder;
-
-
-        public static int Minimum = 0;
-        public static int Maximum = 100;
-        public static int LowerValue = 0;
-        public static int UpperValue = 100;
-
 
 
         public void Logout()
@@ -71,7 +64,7 @@ namespace Peliverkkokauppa
             return true;
         }
 
-        internal List<Customer> CustomersList()
+        internal void CustomersList()
         {
 
             List<Customer> ListofCustomers = new List<Customer>();
@@ -83,11 +76,12 @@ namespace Peliverkkokauppa
                 Customer Customer = new Customer(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
                 ListofCustomers.Add(Customer);
             }
-            Customers = ListofCustomers;
-            return ListofCustomers;
+
+            Stat_CustomersList = ListofCustomers;
+            
         }
 
-        internal List<Employee> EmployeeList()
+        internal void EmployeeList()
         {
 
             List<Employee> ListofEmployees = new List<Employee>();
@@ -99,8 +93,9 @@ namespace Peliverkkokauppa
                 Employee employee= new Employee(arrays[0], arrays[1], arrays[2], arrays[3], arrays[4], Convert.ToString(arrays[5]), arrays[6], Convert.ToDateTime(arrays[7]));
                 ListofEmployees.Add(employee);
             }
-            Employees = ListofEmployees;
-            return ListofEmployees;
+           
+            Stat_EmployeeLists = ListofEmployees;
+            
         }
 
         /* ignore tämä, olikin toteutettu login1 sivulle
@@ -124,8 +119,8 @@ namespace Peliverkkokauppa
 
        public bool UserExists(string username)
         {
-            List<Employee> Employees = EmployeeList();
-            List<Customer> Customers = CustomersList();
+            List<Employee> Employees = Stat_EmployeeLists;
+            List<Customer> Customers = Stat_CustomersList;
 
             foreach (Customer user in Customers)
             {
@@ -149,8 +144,8 @@ namespace Peliverkkokauppa
         public bool Authenticate(string username, string password)
         {
 
-            List<Employee> Employees = EmployeeList();
-            List<Customer> Customers = CustomersList();
+            List<Employee> Employees = Stat_EmployeeLists;
+            List<Customer> Customers = Stat_CustomersList;
 
             foreach(Customer user in Customers)
             {
@@ -201,7 +196,7 @@ namespace Peliverkkokauppa
 
         public void ChangeCustomers(string firstname, string lastname, string username, string password, string address, string phonenumber, string email, DateTime datecreated)
         {
-            List<Customer> lista = CustomersList();
+            List<Customer> lista = Stat_CustomersList;
             foreach(Customer cust in lista)
             {
                
@@ -264,7 +259,7 @@ namespace Peliverkkokauppa
 
         public string GetEmail(string user)
         {
-            foreach(Customer cust in CustomersList())
+            foreach(Customer cust in Stat_CustomersList)
             {
                 if(cust.Username == user)
                 {

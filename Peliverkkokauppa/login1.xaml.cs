@@ -40,6 +40,8 @@ namespace Peliverkkokauppa
             {
                 readData();
                 statistics.ListofNews();
+                statistics.CustomersList();
+                statistics.EmployeeList();
                 Firsttry = false;
             }
 
