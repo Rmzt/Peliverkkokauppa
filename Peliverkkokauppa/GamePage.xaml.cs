@@ -141,7 +141,7 @@ namespace Peliverkkokauppa
             {
                 if (Statistics.LoggedInUser.OwnedGame.Values.Contains(Selection))
                 {
-
+                    //On jo sivun luonti konstruktorissa käsitelty
                 }
                 else
                 {
@@ -185,8 +185,19 @@ namespace Peliverkkokauppa
                 if(Exists != true && Statistics.Userloggedin != null)
                 {
                     int i = Selection.Reviews.Values.Count + 1;
-                    Review review = new Review(i, Statistics.LoggedInUser.Username, Convert.ToInt32(Rating.SelectedValue.ToString()));
-                    Selection.AddReview(i, review);
+                    if(Statistics.IsCustomer == true)
+                    {
+                        Review review = new Review(i, Statistics.LoggedInUser.Username, Convert.ToInt32(Rating.SelectedValue.ToString()));
+                        Selection.AddReview(i, review);
+                    } else
+                    {
+
+                        float floatti = (float)Convert.ToDouble(Rating.SelectedItem.ToString());
+
+                        Review review = new Review(i, Statistics.LoggedInEmployee.Username, floatti);
+                        Selection.AddReview(i, review);
+                    }
+                    
                 }
                 
             }
