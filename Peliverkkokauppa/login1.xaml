@@ -14,7 +14,6 @@
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         </Grid>
-        <Button x:Name="Debugger" Content="Debugger" Height="68" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="150" Click="Debugger_Click" HorizontalAlignment="Left"/>
         <Grid x:Name="InnerBox" Margin="234,162,320,136" Height="422">
             <Grid.RowDefinitions>
                 <RowDefinition Height="73*"/>
@@ -27,7 +26,6 @@
                     <PasswordBox x:Name="PasswordBox" VerticalAlignment="Top" Width="442" Height="70" FontSize="33.333" PlaceholderText="Password" Margin="-100,30,0,0" Padding="10,3,6,25"/>
                     <StackPanel x:Name="Login_Panel" Margin="0,40,0,0" Orientation="Horizontal" Padding="0" Height="61">
                         <Button x:Name="Login" Content="Log in" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="120" FontSize="33.333" Click="Login_Click" Margin="0"/>
-                        <Button x:Name="Skip" Content="Skip" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="143" FontSize="33.333" Click="Skip_Click" Margin="56,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="Buttons" Margin="84,4,0,114" Orientation="Vertical" Width="270">

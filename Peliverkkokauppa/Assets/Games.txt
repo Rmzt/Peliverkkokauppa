@@ -1,10 +1,10 @@
-﻿1;Game 1;Description 1;60;Action;Developer 1;1-1-2016;Assets/coverimg/space.bmp
-2;Game 2;Description 2;40;Puzzle;Developer 5;1-1-2016;Assets/coverimg/pelipeli.bmp
-3;Game 3;Description 3;14;Horror;Developer 1;1-1-2016;Assets/coverimg/pimea.bmp
-4;Game 4;Description 4;60;Point and Click;Developer 2;1-1-2016;Assets/coverimg/sieni.bmp
-5;Game 5;Description 5;35;Horror;Developer 3;1-1-2016;Assets/coverimg/terrori.bmp
-6;Game 6;Description 6;25;Action;Developer 4;1-1-2016;Assets/coverimg/pilkki.bmp
-7;Game 7;Description 7;15;Puzzle;Developer 4;1-1-2016;Assets/coverimg/default.png
-8;Game 8;Description 8;15;Puzzle;Developer 3;1-1-2016;Assets/coverimg/default.png
-9;Game 9;Description 9;20;Action;Developer 1;1-1-2016;Assets/coverimg/default.png
-10;Game 10;Description 10;60;Horror;Developer 3;1-1-2016;Assets/coverimg/default.png
+﻿1;Space Knights;Description 1;60;Action;Developer 1;1-1-2016;Assets/coverimg/space.bmp
+2;Pelipeli;Description 2;40;Puzzle;Developer 5;1-1-2016;Assets/coverimg/pelipeli.bmp
+3;P.I.M.E.Ä.;Description 3;14;Horror;Developer 1;1-1-2016;Assets/coverimg/pimea.bmp
+4;Olipa Lerran Sieni;Description 4;60;Point and Click;Developer 2;1-1-2016;Assets/coverimg/sieni.bmp
+5;Terrori;Description 5;35;Horror;Developer 3;1-1-2016;Assets/coverimg/terrori.bmp
+6;Pilkki Simulaattori 2K15;Description 6;25;Simulation;Developer 4;1-1-2016;Assets/coverimg/pilkki.bmp
+7;Palapeli;Description 7;15;Puzzle;Developer 4;1-1-2016;Assets/coverimg/default.png
+8;Teleportteri;Description 8;15;Puzzle;Developer 3;1-1-2016;Assets/coverimg/default.png
+9;Ammuskelia;Description 9;20;Action;Developer 1;1-1-2016;Assets/coverimg/default.png
+10;Yön Timo;Description 10;60;Horror;Developer 3;1-1-2016;Assets/coverimg/default.png
