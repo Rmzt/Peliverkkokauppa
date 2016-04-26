@@ -21,15 +21,17 @@
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                    <Grid>
-
-                        <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
+                        <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200"/>
+                    </StackPanel>
                     <StackPanel Margin="20,0,0,0">
                         <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Text="{x:Bind TotalScore}" HorizontalAlignment="Left" FontSize="16"/>
+                    </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
