@@ -54,6 +54,8 @@ namespace Peliverkkokauppa
             Values.Add(4.5);
             Values.Add(5);
 
+
+            try { 
             foreach (Review rew in Selection.Reviews.Values)
             {
                 if (rew.Username == Statistics.Userloggedin)
@@ -63,6 +65,13 @@ namespace Peliverkkokauppa
                     Score.Text = "Review already exists";
 
                 }
+            }
+            }
+            catch (NullReferenceException)
+            {
+                Score.TextAlignment = TextAlignment.Left;
+                Score.FontSize = 15;
+                Score.Text = "Review already exists";
             }
 
             if (Statistics.IsCustomer == true)

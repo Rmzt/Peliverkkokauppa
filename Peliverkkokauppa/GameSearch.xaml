@@ -27,11 +27,23 @@
                         <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200"/>
                     </StackPanel>
                     <StackPanel Margin="20,0,0,0">
-                        <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16"/>
-                        <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
-                        <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
-                        <TextBlock Text="{x:Bind TotalScore}" HorizontalAlignment="Left" FontSize="16"/>
-                    </StackPanel>
+                        <TextBlock Text="{x:Bind Description}" HorizontalAlignment="Left" FontSize="16" Margin="0,0,0,5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
+                                <TextBlock Text="€" HorizontalAlignment="Left" FontSize="16" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Genre:" HorizontalAlignment="Left" FontSize="16" Margin="0,0,10,0"/>
+                                <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
+                                
+                            </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="User rating:" HorizontalAlignment="Left" FontSize="16" Margin="0,0,10,0"/>
+                                <TextBlock Text="{x:Bind TotalScore}" HorizontalAlignment="Left" FontSize="16"/>
+                            </StackPanel>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

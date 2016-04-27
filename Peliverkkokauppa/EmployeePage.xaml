@@ -33,7 +33,7 @@
                     </StackPanel>
                     <StackPanel x:Name="Developer" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
                         <Button x:Name="Create_Developer" Content="Create Developer" HorizontalAlignment="Center" Width="297" Click="Create_Developer_Click" VerticalAlignment="Center" Height="67" Margin="0,0,50,-1"/>
-                        <Button x:Name="Manage_Developers" Content="Manage users" VerticalAlignment="Center" HorizontalAlignment="Center" Width="297" Height="67" Margin="50,0,0,-1" Background="#33F30E0E"/>
+                        <Button x:Name="Manage_Developers" Content="Manage users" VerticalAlignment="Center" HorizontalAlignment="Center" Width="297" Height="67" Margin="50,0,0,-1" Background="#FF9992A1" Click="Manage_Developers_Click"/>
                     </StackPanel>
                 </StackPanel>
                 <Button x:Name="ManageProfile" Content="Manage your profile" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="297" Height="67" Click="ManageProfile_Click" d:LayoutOverrides="HorizontalAlignment" Background="#FF9992A1"/>

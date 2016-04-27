@@ -16,10 +16,21 @@
                     <TextBlock Text="{x:Bind Name}" FontSize="16" TextAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Top" Padding="0,0,0,10"/>
                     <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200" Margin="0,10,0,0"/>
                 </Grid>
-                <StackPanel Margin="20,0,0,0" Width="165">
+                <StackPanel Margin="20,0,0,0" Width="180">
+                    <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{x:Bind Price}" HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBlock Text="{x:Bind Developer}" HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16"/>
+                    <TextBlock Text="€" HorizontalAlignment="Left" FontSize="16" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Developer:" HorizontalAlignment="Left" FontSize="16" Margin="0"/>
+                        <TextBlock Text="{x:Bind Developer}" HorizontalAlignment="Left" FontSize="16" Margin="6,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Genre:" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Text="{x:Bind Genre}" HorizontalAlignment="Left" FontSize="16" Margin="6,0,0,0"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
 

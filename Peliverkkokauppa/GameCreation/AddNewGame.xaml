@@ -63,23 +63,7 @@
                     <TextBlock x:Name="ReleaseDateError" TextWrapping="Wrap" Text="" Width="195" Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>
-            <StackPanel x:Name="CoverimageStack" Margin="0,0,487,64" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-
-                <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Width="130" HorizontalAlignment="Left">
-                	<Run Text="Cover image"/>
-                	<LineBreak/>
-                	<Run/>
-                </TextBlock>
-                <Button x:Name="CoverImg" Content="Add Cover" HorizontalAlignment="Stretch" Margin="0,0,0,6" VerticalAlignment="Stretch" Width="255" Click="CoverImg_Click"/>
-            </StackPanel>
-            <StackPanel x:Name="MediaStack" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="100,0,0,64">
-                <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Width="258" HorizontalAlignment="Left">
-            		<Run Text="MediaFiles"/>
-            		<LineBreak/>
-            		<Run/>
-                </TextBlock>
-                <Button x:Name="AddMediafiles" Content="Add Mediafiles" Margin="0,0,0,6" VerticalAlignment="Top" Width="255" HorizontalAlignment="Left" Click="AddMediafiles_Click"/>
-            </StackPanel>
+            <StackPanel x:Name="MediaStack" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="100,0,0,64"/>
             <Grid HorizontalAlignment="Right" Height="124" Margin="0,0,50,66" VerticalAlignment="Bottom" Width="246">
                 <Button x:Name="Cancel" Content="Cancel" Height="44" VerticalAlignment="Top" HorizontalAlignment="Stretch" Click="Cancel_Click" d:LayoutOverrides="LeftPosition, RightPosition"/>
                 <Button x:Name="Save" Content="Next" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Click="Save_Click" d:LayoutOverrides="LeftPosition, RightPosition"/>

@@ -24,20 +24,24 @@ namespace Peliverkkokauppa
     /// </summary>
     public sealed partial class UserManagment : Page
     {
-        internal ObservableCollection<object> AccountList = new ObservableCollection<object>();
-        
+        internal ObservableCollection<Customer> AccountCustomers = new ObservableCollection<Customer>();
+        internal ObservableCollection<Employee> AccountEmployee = new ObservableCollection<Employee>();
+
         public UserManagment()
         {
             this.InitializeComponent();
 
             foreach (Customer customer in Statistics.Stat_CustomersList)
             {
-                AccountList.Add(customer);
+                AccountCustomers.Add(customer);
             }
 
-            
+            foreach (Employee employee in Statistics.Stat_EmployeeLists)
+            {
+                AccountEmployee.Add(employee);
+            }
 
-            
+
         }
 
 
@@ -46,24 +50,46 @@ namespace Peliverkkokauppa
             switch (type)
             {
                 case "Employee":
-                    AccountList.Clear();
 
-                    foreach (Employee employee in Statistics.Stat_EmployeeLists)
-                    {
-                        AccountList.Add(employee);
-                    }
+                    AccountGrid.ItemsSource = AccountEmployee;
 
                     break;
 
                 case "Customer":
-                    AccountList.Clear();
 
-                    foreach (Customer customer in Statistics.Stat_CustomersList)
-                    {
-                        AccountList.Add(customer);
-                    }
+                    AccountGrid.ItemsSource = AccountCustomers;
+                    
                     break;
             }
+        }
+
+        private void AccoutTypes_Toggled(object sender, RoutedEventArgs e)
+        {
+
+            string type;
+
+            if (AccoutTypes.IsOn)
+            {
+                type = "Employee";
+            } else
+            {
+                type = "Customer";
+            }
+
+            SelectedList(type);
+        }
+
+        private void Frontpage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Frontpage));
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            Statistics stat = new Statistics();
+            stat.Logout();
+            this.Frame.Navigate(typeof(login1));
+
         }
     }
 

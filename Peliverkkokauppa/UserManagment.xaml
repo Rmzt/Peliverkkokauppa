@@ -5,8 +5,23 @@
     xmlns:local="using:Peliverkkokauppa"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Peliverkkokauppa"
     mc:Ignorable="d">
-       
+
+    <Page.Resources>
+        <DataTemplate x:Key="Customers" x:DataType="data:Person">
+            <StackPanel Padding="10,10,50,15" BorderBrush="Black" BorderThickness="1" Margin="0,0,30,0">
+                
+                <TextBlock Text="{x:Bind Username}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                <TextBlock Text="{x:Bind Firstname}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                <TextBlock Text="{x:Bind Lastname}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                <TextBlock Text="{x:Bind Email}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                <TextBlock Text="{x:Bind Phonenumber}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+                <TextBlock Text="{x:Bind AccountCreated}" FontSize="16" Margin="0,0,0,10" VerticalAlignment="Top" Padding="0,0,0,10"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Page.Resources>
     
     <Grid Background="#FFBFB6C9">
         <Grid.RowDefinitions>
@@ -21,14 +36,16 @@
 
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
-            <Button x:Name="Frontpage" Content="Frontpage" Height="61" Foreground="White" Margin="0,30,278,20" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="194"/>
-            <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" Margin="120,30,60,20" Grid.Column="1" HorizontalAlignment="Stretch"/>
+            <StackPanel Grid.ColumnSpan="2" Margin="0,30,50,20" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="Frontpage" Content="Frontpage" Height="61" Foreground="White" HorizontalAlignment="Right" Width="194" Margin="0,0,20,0" Click="Frontpage_Click"/>
+                <Button x:Name="Logout" Content="Logout" Height="61" Foreground="White" HorizontalAlignment="Stretch" Width="194" Click="Logout_Click"/>
+            </StackPanel>
         </Grid>
 
         <Grid x:Name="UsersGrid" Margin="436,32,86,39" Grid.Row="1">
-            <GridView x:Name="gridView" HorizontalAlignment="Left" Height="538" VerticalAlignment="Top" Width="758"/>
+            <GridView x:Name="AccountGrid" ItemsSource="{x:Bind AccountCustomers}"  ItemTemplate="{StaticResource Customers}" IsItemClickEnabled="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Stretch" Padding="10,0,0,10"/>
         </Grid>
-        <ToggleSwitch x:Name="AccoutTypes" Header="Account types" HorizontalAlignment="Left" Height="81" Margin="99,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="222" OffContent="Customer" OnContent="Employee"/>
+        <ToggleSwitch x:Name="AccoutTypes" Header="Account types" HorizontalAlignment="Left" Height="81" Margin="99,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="222" OffContent="Customer" OnContent="Employee" Toggled="AccoutTypes_Toggled"/>
 
     </Grid>
 </Page>

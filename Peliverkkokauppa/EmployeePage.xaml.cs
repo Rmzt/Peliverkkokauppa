@@ -84,5 +84,10 @@ namespace Peliverkkokauppa
 
             this.Frame.Navigate(typeof(GameSearch), parameter);
         }
+
+        private void Manage_Developers_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(UserManagment));
+        }
     }
 }
