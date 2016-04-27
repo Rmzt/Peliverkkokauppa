@@ -21,7 +21,7 @@
         <DataTemplate x:Key="GameDataList" x:DataType="data:Game">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Width="480">
                     <StackPanel>
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left" FontSize="16"/>
                         <Image x:Name="Image" Source="{x:Bind Coverimg}" Width="200" Height="200"/>

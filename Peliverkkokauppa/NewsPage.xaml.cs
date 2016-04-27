@@ -26,7 +26,7 @@ namespace Peliverkkokauppa
     public sealed partial class NewsPage : Page
     {
         public bool firstloaded = false;
-    public List<News> News = new List<Peliverkkokauppa.News>();
+        public List<News> News = new List<Peliverkkokauppa.News>();
     
         public NewsPage()
         {
