@@ -25,17 +25,24 @@ namespace Peliverkkokauppa
 
     public sealed partial class NewsPage : Page
     {
-        public List<News> News = new List<Peliverkkokauppa.News>();
-
+        public bool firstloaded = false;
+    public List<News> News = new List<Peliverkkokauppa.News>();
+    
         public NewsPage()
         {
             this.InitializeComponent();
+
+
+            if(firstloaded == false)
+            {
 
             List<News> news = Statistics.NewsList;
 
             news = news.OrderByDescending(o => o.Date).ToList();
             News = news;
-            
+
+                firstloaded = true;
+            }
 
 
 
