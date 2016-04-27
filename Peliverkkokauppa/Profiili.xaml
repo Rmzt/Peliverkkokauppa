@@ -40,11 +40,11 @@
               ItemTemplate="{StaticResource GameDataList}" Margin="52,227,367,51" ItemClick="GridView_ItemClick"/>
 
 
-        <Grid Width="287" HorizontalAlignment="Right" Margin="0,116,0,0" >
+        <Grid Width="344" HorizontalAlignment="Right" Margin="0,116,0,0" >
 
 
-            <StackPanel Margin="110,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="594" Width="167">
-                <TextBlock x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,5,0,0" Height="70" Width="177" FontSize="21.333"/>
+            <StackPanel Margin="110,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="594" Width="224">
+                <TextBlock x:Name="Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="0,5,0,0" Height="70" Width="224" FontSize="21.333"/>
                 <TextBlock x:Name="Email" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="126" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
                 <TextBlock x:Name="Firstname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
                 <TextBlock x:Name="Surname" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="41" Width="177" FontSize="21.333" Margin="0,5,0,0"/>
