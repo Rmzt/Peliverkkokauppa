@@ -91,15 +91,9 @@ namespace Peliverkkokauppa
         }
 
         
-        private void Gotopage(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ServerSettings));
-        }
+     
 
-        private void All_data_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(AllData));
-        }
+      
 
       
     }

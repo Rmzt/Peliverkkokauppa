@@ -14,7 +14,7 @@
             <Image x:Name="Logo" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="111"/>
             <TextBlock x:Name="Nimi" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hiano Nimi" VerticalAlignment="Top" Margin="116,0,0,0" Height="111" Width="844" FontSize="73.333"/>
         </Grid>
-        <Grid x:Name="InnerBox" Margin="234,162,320,136" Height="422">
+        <Grid x:Name="InnerBox" Margin="190,162,320,136" Height="422">
             <Grid.RowDefinitions>
                 <RowDefinition Height="73*"/>
                 <RowDefinition Height="138*"/>

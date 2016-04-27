@@ -40,7 +40,7 @@ namespace Peliverkkokauppa
     {
         
 
-        public SQL_queryies Sql = new SQL_queryies();
+      
 
         public CreateAccount1()
         {

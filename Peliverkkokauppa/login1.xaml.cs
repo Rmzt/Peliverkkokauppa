@@ -29,7 +29,6 @@ namespace Peliverkkokauppa
     public sealed partial class login1 : Page
     {
         public Statistics statistics = new Statistics();
-        public SQL_queryies sql = new SQL_queryies();
         public bool isConnected { get; set; }
         public static bool Firsttry = true;    
 
@@ -102,7 +101,6 @@ namespace Peliverkkokauppa
         {
             string Username = UsernameBox.Text;
             string Password = PasswordBox.Password;
-            Authenticate Auth = new Authenticate();
 
             bool IsValidAccount = statistics.Authenticate(Username, Password);
             
@@ -122,21 +120,7 @@ namespace Peliverkkokauppa
 
         }
 
-        public void TestSQLCon()
-        {
-            //Testataan voidaanko luoda yhteys palvelimelle
-            if (sql.TestConnection() != false)
-            {
-                isConnected = true;
-                sql.LoadOnStart();
-
-            }
-            else
-            {
-                isConnected = false;
-                ErrorBlock.Text = "No connection to server";
-            }
-        }
+        
 
         private void Exit_click(object sender, RoutedEventArgs e)
         {

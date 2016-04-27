@@ -41,38 +41,23 @@ namespace Peliverkkokauppa
         {
             this.InitializeComponent();
 
-            
-            Values.Add(0);
-            Values.Add(0.5);
-            Values.Add(1);
-            Values.Add(1.5);
-            Values.Add(2);
-            Values.Add(2.5);
-            Values.Add(3);
-            Values.Add(3.5);
-            Values.Add(4);
-            Values.Add(4.5);
-            Values.Add(5);
+        
+            Values.Add(Convert.ToDouble(0));
+            Values.Add(Convert.ToDouble(0.5));
+            Values.Add(Convert.ToDouble(1));
+            Values.Add(Convert.ToDouble(1.5));
+            Values.Add(Convert.ToDouble(2));
+            Values.Add(Convert.ToDouble(2.5));
+            Values.Add(Convert.ToDouble(3));
+            Values.Add(Convert.ToDouble(3.5));
+            Values.Add(Convert.ToDouble(4));
+            Values.Add(Convert.ToDouble(4.5));
+            Values.Add(Convert.ToDouble(5));
 
 
-            try { 
-            foreach (Review rew in Selection.Reviews.Values)
-            {
-                if (rew.Username == Statistics.Userloggedin)
-                {
-                    Score.TextAlignment = TextAlignment.Left;
-                    Score.FontSize = 15;
-                    Score.Text = "Review already exists";
 
-                }
-            }
-            }
-            catch (NullReferenceException)
-            {
-                Score.TextAlignment = TextAlignment.Left;
-                Score.FontSize = 15;
-                Score.Text = "Review already exists";
-            }
+
+              
 
             if (Statistics.IsCustomer == true)
             {
@@ -139,24 +124,25 @@ namespace Peliverkkokauppa
                 Info.Text = "Info:\nGenre: " + Genre + "\nDeveloper: " + Developer + "\nRelease Date: " + ReleaseDate.ToString();
                 Cover = Selection.Coverimg;
 
-              
+
+               
 
 
 
-                /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
-                Uri imageUri = new Uri(Cover, UriKind.Relative);
-                BitmapImage imageBitmap = new BitmapImage(imageUri);
-                Image myImage = new Image();
-                image.Source = imageBitmap;
-                */
+            /* Tämä ei toiminut, eikä sitä varmaan tarvitsekaan. Kuvan data bindattu Cover stringiin.
+            Uri imageUri = new Uri(Cover, UriKind.Relative);
+            BitmapImage imageBitmap = new BitmapImage(imageUri);
+            Image myImage = new Image();
+            image.Source = imageBitmap;
+            */
 
 
 
-            }
+        }
 
 
-       
-            }
+
+    }
 
         private void Buy_Click(object sender, RoutedEventArgs e)
         {   

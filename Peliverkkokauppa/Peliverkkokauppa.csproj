@@ -115,10 +115,6 @@
     <Compile Include="NewsPage.xaml.cs">
       <DependentUpon>NewsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisticDataPage\AllData.xaml.cs">
-      <DependentUpon>AllData.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Classes\Authenticate.cs" />
     <Compile Include="GameCreation\AddNewGamePage2.xaml.cs">
       <DependentUpon>AddNewGamePage2.xaml</DependentUpon>
     </Compile>
@@ -131,7 +127,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\SQL_queryies.cs" />
     <Compile Include="Classes\Statistics.cs" />
     <Compile Include="DeveloperCreation\CreateDeveloper.xaml.cs">
       <DependentUpon>CreateDeveloper.xaml</DependentUpon>
@@ -168,9 +163,6 @@
       <DependentUpon>RestorePass1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Review.cs" />
-    <Compile Include="StatisticDataPage\ServerSettings.xaml.cs">
-      <DependentUpon>ServerSettings.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -244,10 +236,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticDataPage\AllData.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="GameCreation\AddNewGamePage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -296,16 +284,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticDataPage\ServerSettings.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="MySql.Data.RT">
-      <HintPath>\\storage\homes\K1967\Dox\Downloads\mysql-connector-net-6.9.8-noinstall\RT\MySql.Data.RT.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
