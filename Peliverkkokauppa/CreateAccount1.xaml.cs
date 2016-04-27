@@ -396,6 +396,7 @@ namespace Peliverkkokauppa
                 E_Address.Text = "";
         }
 
+       
         // Tähän loppui LostFocus error tarkistukset
     }
 }
