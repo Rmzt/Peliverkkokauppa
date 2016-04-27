@@ -31,7 +31,7 @@ namespace Peliverkkokauppa
         public Statistics statistics = new Statistics();
         public SQL_queryies sql = new SQL_queryies();
         public bool isConnected { get; set; }
-        public bool Firsttry = true;    
+        public static bool Firsttry = true;    
 
 
         public login1()
